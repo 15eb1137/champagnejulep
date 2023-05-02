@@ -1,20 +1,19 @@
 name: champagnejulep
 description: descriptions
 publish_to: 'none'
-version: 0.0.1+1
+version: 0.1.0+1
 environment:
   sdk: '>=2.19.6 <3.0.0'
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
-    sdk: flutter  
+    sdk: flutter
   cupertino_icons: ^1.0.2
   # Firebase
   firebase_core: ^2.10.0
   # Ads
   # Database
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

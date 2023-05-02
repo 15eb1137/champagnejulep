@@ -6,8 +6,8 @@
 1. /flutter/をプロジェクトコードに変更
 2. `cd /projectcode/`
 2. `fvm use x.y.z --force`
-3. `fvm flutter create --org com.iori.champagnejurep --platforms ios,android .`を実行
-4. 変更した/champagnejurep/を/flutter/に変更
+3. `fvm flutter create --org com.iori.champagnejulep --platforms ios,android .`を実行
+4. 変更した/champagnejulep/を/flutter/に変更
 
 ### keyの生成
 1. ```keytool -genkey -v -keystore flutter/android/app/release.jks -alias key0 -keyalg RSA -keysize 2048 -validity 10000```
@@ -24,8 +24,8 @@
 ### Firebaseの接続
 1. "https://console.firebase.google.com/u/0/"に移動して本番用/開発用プロジェクトをそれぞれ作成
 2. `dart pub global activate flutterfire_cli`を実行
-3. `flutterfire configure --out lib/config/firebase_options_dev.dart --project champagnejurep-dev --android-app-id com.iori.champagnejurep.dev --ios-bundle-id com.iori.champagnejurep.dev`を実行
-4. `flutterfire configure --out lib/config/firebase_options.dart --project champagnejurep --android-package-name com.iori.champagnejurep --ios-bundle-id com.iori.champagnejurep`を実行
+3. `flutterfire configure --out lib/config/firebase_options_dev.dart --project com-iori-champagnejulep-dev --android-package-name com.iori.champagnejulep.dev --ios-bundle-id com.iori.champagnejulep.dev`を実行
+4. `flutterfire configure --out lib/config/firebase_options.dart --project com-iori-champagnejulep --android-package-name com.iori.champagnejulep --ios-bundle-id com.iori.champagnejulep`を実行
 
 ### Icon/Splash/labelの設定
 1. flutter\assets\images\ic_launcher.pngを上書き(512×512)

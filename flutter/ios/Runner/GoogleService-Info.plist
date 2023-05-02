@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>574308339246-vb2c8c4ai7eqf8h64nd1hpdd3vsq133q.apps.googleusercontent.com</string>
+	<string>1070112630876-9d8qr7p4cvjo8afmcasgch155mhqtt0d.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.574308339246-vb2c8c4ai7eqf8h64nd1hpdd3vsq133q</string>
+	<string>com.googleusercontent.apps.1070112630876-9d8qr7p4cvjo8afmcasgch155mhqtt0d</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBQ7mp09HDwVNBJY_JJ45WIiUynqG0FjS4</string>
+	<string>AIzaSyCT0801KR4rq4veX_l5KdL8qxx-Hlt4HvE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>574308339246</string>
+	<string>1070112630876</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.iori.champagnejurep</string>
+	<string>com.iori.champagnejulep</string>
 	<key>PROJECT_ID</key>
-	<string>champagnejurep</string>
+	<string>com-iori-champagnejulep</string>
 	<key>STORAGE_BUCKET</key>
-	<string>champagnejurep.appspot.com</string>
+	<string>com-iori-champagnejulep.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:574308339246:ios:53169f2110f9c894ac19bf</string>
+	<string>1:1070112630876:ios:35c1f1679152fd2139de99</string>
 </dict>
 </plist>

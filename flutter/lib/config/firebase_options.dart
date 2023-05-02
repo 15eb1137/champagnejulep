@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAf3Id8A73a2cRL3ktD34fK6ttfzsLtqJM',
-    appId: '1:574308339246:android:5aa62ba63f471a91ac19bf',
-    messagingSenderId: '574308339246',
-    projectId: 'champagnejurep',
-    storageBucket: 'champagnejurep.appspot.com',
+    apiKey: 'AIzaSyCJrScjZKGByelItytq2vHKwNI_D7nFDXg',
+    appId: '1:1070112630876:android:5e8c2b21a06ea3c139de99',
+    messagingSenderId: '1070112630876',
+    projectId: 'com-iori-champagnejulep',
+    storageBucket: 'com-iori-champagnejulep.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBQ7mp09HDwVNBJY_JJ45WIiUynqG0FjS4',
-    appId: '1:574308339246:ios:53169f2110f9c894ac19bf',
-    messagingSenderId: '574308339246',
-    projectId: 'champagnejurep',
-    storageBucket: 'champagnejurep.appspot.com',
-    iosClientId: '574308339246-vb2c8c4ai7eqf8h64nd1hpdd3vsq133q.apps.googleusercontent.com',
-    iosBundleId: 'com.iori.champagnejurep',
+    apiKey: 'AIzaSyCT0801KR4rq4veX_l5KdL8qxx-Hlt4HvE',
+    appId: '1:1070112630876:ios:35c1f1679152fd2139de99',
+    messagingSenderId: '1070112630876',
+    projectId: 'com-iori-champagnejulep',
+    storageBucket: 'com-iori-champagnejulep.appspot.com',
+    iosClientId: '1070112630876-9d8qr7p4cvjo8afmcasgch155mhqtt0d.apps.googleusercontent.com',
+    iosBundleId: 'com.iori.champagnejulep',
   );
 }

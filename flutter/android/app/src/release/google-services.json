@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "574308339246",
-    "project_id": "champagnejurep",
-    "storage_bucket": "champagnejurep.appspot.com"
+    "project_number": "1070112630876",
+    "project_id": "com-iori-champagnejulep",
+    "storage_bucket": "com-iori-champagnejulep.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:574308339246:android:5aa62ba63f471a91ac19bf",
+        "mobilesdk_app_id": "1:1070112630876:android:5e8c2b21a06ea3c139de99",
         "android_client_info": {
-          "package_name": "com.iori.champagnejurep"
+          "package_name": "com.iori.champagnejulep"
         }
       },
       "oauth_client": [
         {
-          "client_id": "574308339246-1cfli2dndjl8g8bf93814k42elabf8i8.apps.googleusercontent.com",
+          "client_id": "1070112630876-otf1tglcgdjph7kriemvci6ecpoigog8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAf3Id8A73a2cRL3ktD34fK6ttfzsLtqJM"
+          "current_key": "AIzaSyCJrScjZKGByelItytq2vHKwNI_D7nFDXg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "574308339246-1cfli2dndjl8g8bf93814k42elabf8i8.apps.googleusercontent.com",
+              "client_id": "1070112630876-otf1tglcgdjph7kriemvci6ecpoigog8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

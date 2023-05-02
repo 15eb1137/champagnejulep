@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "646954680030",
+    "project_id": "com-iori-champagnejulep-dev",
+    "storage_bucket": "com-iori-champagnejulep-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646954680030:android:6c3ff40c5f16347bc90c4f",
+        "android_client_info": {
+          "package_name": "com.iori.champagnejulep.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646954680030-f0ttjpjd0mrvi2i8orpg2afhi6k1dqvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABSBONkHffk9RoZqQ1X7aNUCIITZN7YHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646954680030-f0ttjpjd0mrvi2i8orpg2afhi6k1dqvd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "646954680030-5bolcjufjcrfvqho29pmv27a0usq3m34.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.iori.champagnejurep.dev"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646954680030:android:508747243c791ca5c90c4f",
+        "android_client_info": {
+          "package_name": "com.iori.champagnejurep.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646954680030-f0ttjpjd0mrvi2i8orpg2afhi6k1dqvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABSBONkHffk9RoZqQ1X7aNUCIITZN7YHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646954680030-f0ttjpjd0mrvi2i8orpg2afhi6k1dqvd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "646954680030-5bolcjufjcrfvqho29pmv27a0usq3m34.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.iori.champagnejurep.dev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

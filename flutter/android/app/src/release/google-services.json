@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1070112630876",
+    "project_id": "com-iori-champagnejulep",
+    "storage_bucket": "com-iori-champagnejulep.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070112630876:android:5e8c2b21a06ea3c139de99",
+        "android_client_info": {
+          "package_name": "com.iori.champagnejulep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070112630876-otf1tglcgdjph7kriemvci6ecpoigog8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJrScjZKGByelItytq2vHKwNI_D7nFDXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070112630876-otf1tglcgdjph7kriemvci6ecpoigog8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,39 @@
+name: champagnejulep
+description: descriptions
+publish_to: 'none'
+version: 0.0.1+1
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter  
+  cupertino_icons: ^1.0.2
+  # Firebase
+  firebase_core: ^2.10.0
+  # Ads
+  # Database
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  # Testing
+  # Building
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.2.19
+  # Meta
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/sounds/
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/ic_launcher.png"
+flutter_native_splash:
+  color: "#FEF8EE"
+  image: "assets/images/ic_launcher.png"

@@ -6,8 +6,8 @@ on:
       - 'main'
 
 env:
-  FLUTTER_VERSION: '3.0.1'
-  WORKING_FLUTTER_DIRECTORY: 'flutter_project_nickname'
+  FLUTTER_VERSION: '3.7.12'
+  WORKING_FLUTTER_DIRECTORY: 'flutter'
 
 jobs:
   flutter_formatter:
@@ -17,17 +17,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-      - uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: 'stable'
       - working-directory: ${{ env.WORKING_FLUTTER_DIRECTORY }}
         run: flutter pub get
       - working-directory: ${{ env.WORKING_FLUTTER_DIRECTORY }}
-        run: flutter format ./lib/ ./test/
+        run: flutter format --line-length=120 ./lib/ ./test/
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: '[style] Flutter Auto Format'

@@ -24,8 +24,8 @@
 ### Firebaseの接続
 1. "https://console.firebase.google.com/u/0/"に移動して本番用/開発用プロジェクトをそれぞれ作成
 2. `dart pub global activate flutterfire_cli`を実行
-3. `flutterfire configure --out lib/config/firebase_options_dev.dart --project com-iori-xxxxxxxx-dev --android-app-id com.iori.xxxxxxxx.dev --ios-bundle-id com.iori.xxxxxxxxx.dev`を実行
-4. `flutterfire configure --out lib/config/firebase_options.dart --project com-iori-xxxxxxxx --android-app-id com.iori.xxxxxxxx --ios-bundle-id com.iori.xxxxxxxxx`を実行
+3. `flutterfire configure --out lib/config/firebase_options_dev.dart --project champagnejurep-dev --android-app-id com.iori.champagnejurep.dev --ios-bundle-id com.iori.champagnejurep.dev`を実行
+4. `flutterfire configure --out lib/config/firebase_options.dart --project champagnejurep --android-package-name com.iori.champagnejurep --ios-bundle-id com.iori.champagnejurep`を実行
 
 ### Icon/Splash/labelの設定
 1. flutter\assets\images\ic_launcher.pngを上書き(512×512)

@@ -14,15 +14,23 @@ dependencies:
   firebase_core: ^2.10.0
   # Ads
   # Database
+  # Others
+  freezed_annotation: ^2.2.0
+  json_annotation: ^4.8.0
+  uuid: ^3.0.7
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   # Testing
   # Building
+  build_runner: ^2.3.3
+  # Meta
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.2.19
-  # Meta
+  # Others
+  freezed: ^2.3.2
+  json_serializable: ^6.6.1
 flutter:
   uses-material-design: true
   assets:

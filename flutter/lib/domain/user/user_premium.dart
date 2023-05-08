@@ -1,15 +1,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'user_premium.freezed.dart';
+
 @freezed
-class UserPremium {
-  final UserPremiumState _value;
-
-  UserPremium(this._value);
-  factory UserPremium.unregistered() => UserPremium(UserPremiumState.unregistered);
-  factory UserPremium.premium() => UserPremium(UserPremiumState.premium);
-  factory UserPremium.expired() => UserPremium(UserPremiumState.expired);
-
-  UserPremiumState get value => _value;
+class UserPremium with _$UserPremium {
+  const factory UserPremium(UserPremiumState value, {DateTime? expiredAt}) = _UserPremium;
+  factory UserPremium.unregistered() => const UserPremium(UserPremiumState.unregistered, expiredAt: null);
+  factory UserPremium.premium() =>
+      UserPremium(UserPremiumState.premium, expiredAt: DateTime.now().add(const Duration(days: 7)));
+  factory UserPremium.expired() => const UserPremium(UserPremiumState.expired, expiredAt: null);
 }
 
 enum UserPremiumState { unregistered, premium, expired }

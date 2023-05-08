@@ -4,23 +4,22 @@ import '../domain_service.dart';
 import 'user_id.dart';
 import 'user_premium.dart';
 
-@freezed
-class User {
-  final UserId _id;
-  final UserPremium _premium;
+part 'user.freezed.dart';
 
-  User({required UserId id, required UserPremium premium})
-      : _id = id,
-        _premium = premium {
+@freezed
+class User with _$User {
+  User._() {
     DomainService.saveUser(id: id, premium: premium);
   }
+
+  const factory User({required UserId id, required UserPremium premium}) = _User;
   factory User.create() => User(id: UserId.create(), premium: UserPremium.unregistered());
   factory User.restore() => DomainService.getUser();
-  factory User.updateToPremium(UserId id) => User(id: id, premium: UserPremium.premium());
-  factory User.updateToExpired(UserId id) => User(id: id, premium: UserPremium.expired());
+  
+  bool get isPremiumUnregistered => premium.value == UserPremiumState.unregistered;
+  bool get isPremium => premium.value == UserPremiumState.premium;
+  bool get isPremiumExpired => premium.value == UserPremiumState.expired;
 
-  String get userId => _id.value;
-  bool get isPremiumUnregistered => _premium.value == UserPremiumState.unregistered;
-  bool get isPremium => _premium.value == UserPremiumState.premium;
-  bool get isPremiumExpired => _premium.value == UserPremiumState.expired;
+  User updateToPremium() => copyWith(premium: UserPremium.premium());
+  User updateToExpired() => copyWith(premium: UserPremium.expired());
 }

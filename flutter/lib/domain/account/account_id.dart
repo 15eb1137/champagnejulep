@@ -1,16 +1,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
 
-@freezed
-class AccountId {
-  final String _value;
+part 'account_id.freezed.dart';
 
-  AccountId(this._value)
-      : assert(_value.isNotEmpty),
-        assert(_value != ''),
-        assert(Uuid.isValidUUID(fromString: _value));
+@freezed
+class AccountId with _$AccountId {
+  @Assert('value.isNotEmpty')
+  @Assert('Uuid.isValidUUID(fromString: value)')
+
+  const factory AccountId(String value) = _AccountId;
 
   factory AccountId.create() => AccountId(const Uuid().v4());
-
-  String get value => _value;
 }

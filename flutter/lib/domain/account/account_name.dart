@@ -1,15 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'account_name.freezed.dart';
+
 @freezed
-class AccountName {
-  final String _value;
-
-  AccountName(this._value)
-      : assert(_value.isNotEmpty),
-        assert(_value != '');
-
+class AccountName with _$AccountName {
+  @Assert('value.isNotEmpty')
+  const factory AccountName(String value) = _AccountName;
   factory AccountName.create() => AccountName('新規アカウント');
-  factory AccountName.update(String name) => AccountName(name);
-
-  String get value => _value;
 }

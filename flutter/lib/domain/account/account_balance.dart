@@ -1,14 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'account_balance.freezed.dart';
+
 @freezed
-class AccountBalance {
-  final int _value;
-  final DateTime _updatedAt;
+class AccountBalance with _$AccountBalance {
+  @Assert('updatedAt.isBefore(DateTime.now())')
+  const factory AccountBalance(int value, {required DateTime updatedAt}) = _AccountBalance;
+  factory AccountBalance.create() => AccountBalance(0, updatedAt: DateTime.now());
 
-  AccountBalance(this._value, this._updatedAt) : assert(_updatedAt.isBefore(DateTime.now()));
-  factory AccountBalance.create() => AccountBalance(0, DateTime.now());
-  factory AccountBalance.update(int value) => AccountBalance(value, DateTime.now());
-
-  int get value => _value;
-  DateTime get updatedAt => _updatedAt;
+  AccountBalance updateValueAtNow(int value) => copyWith(value: value, updatedAt: DateTime.now());
+  AccountBalance updateValuePast(int value) => copyWith(value: value, updatedAt: updatedAt);
 }

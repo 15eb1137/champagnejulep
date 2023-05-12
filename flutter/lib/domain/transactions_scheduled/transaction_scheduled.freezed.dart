@@ -23,29 +23,21 @@ mixin _$TransactionScheduled {
   int get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TransactionScheduledCopyWith<TransactionScheduled> get copyWith =>
-      throw _privateConstructorUsedError;
+  $TransactionScheduledCopyWith<TransactionScheduled> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TransactionScheduledCopyWith<$Res> {
-  factory $TransactionScheduledCopyWith(TransactionScheduled value,
-          $Res Function(TransactionScheduled) then) =
+  factory $TransactionScheduledCopyWith(TransactionScheduled value, $Res Function(TransactionScheduled) then) =
       _$TransactionScheduledCopyWithImpl<$Res, TransactionScheduled>;
   @useResult
-  $Res call(
-      {AccountId accountId,
-      String title,
-      bool calcAuto,
-      DateTime transactionAt,
-      int value});
+  $Res call({AccountId accountId, String title, bool calcAuto, DateTime transactionAt, int value});
 
   $AccountIdCopyWith<$Res> get accountId;
 }
 
 /// @nodoc
-class _$TransactionScheduledCopyWithImpl<$Res,
-        $Val extends TransactionScheduled>
+class _$TransactionScheduledCopyWithImpl<$Res, $Val extends TransactionScheduled>
     implements $TransactionScheduledCopyWith<$Res> {
   _$TransactionScheduledCopyWithImpl(this._value, this._then);
 
@@ -97,19 +89,12 @@ class _$TransactionScheduledCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TransactionSheduledCopyWith<$Res>
-    implements $TransactionScheduledCopyWith<$Res> {
-  factory _$$_TransactionSheduledCopyWith(_$_TransactionSheduled value,
-          $Res Function(_$_TransactionSheduled) then) =
+abstract class _$$_TransactionSheduledCopyWith<$Res> implements $TransactionScheduledCopyWith<$Res> {
+  factory _$$_TransactionSheduledCopyWith(_$_TransactionSheduled value, $Res Function(_$_TransactionSheduled) then) =
       __$$_TransactionSheduledCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {AccountId accountId,
-      String title,
-      bool calcAuto,
-      DateTime transactionAt,
-      int value});
+  $Res call({AccountId accountId, String title, bool calcAuto, DateTime transactionAt, int value});
 
   @override
   $AccountIdCopyWith<$Res> get accountId;
@@ -119,8 +104,7 @@ abstract class _$$_TransactionSheduledCopyWith<$Res>
 class __$$_TransactionSheduledCopyWithImpl<$Res>
     extends _$TransactionScheduledCopyWithImpl<$Res, _$_TransactionSheduled>
     implements _$$_TransactionSheduledCopyWith<$Res> {
-  __$$_TransactionSheduledCopyWithImpl(_$_TransactionSheduled _value,
-      $Res Function(_$_TransactionSheduled) _then)
+  __$$_TransactionSheduledCopyWithImpl(_$_TransactionSheduled _value, $Res Function(_$_TransactionSheduled) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -189,26 +173,21 @@ class _$_TransactionSheduled extends _TransactionSheduled {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransactionSheduled &&
-            (identical(other.accountId, accountId) ||
-                other.accountId == accountId) &&
+            (identical(other.accountId, accountId) || other.accountId == accountId) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.calcAuto, calcAuto) ||
-                other.calcAuto == calcAuto) &&
-            (identical(other.transactionAt, transactionAt) ||
-                other.transactionAt == transactionAt) &&
+            (identical(other.calcAuto, calcAuto) || other.calcAuto == calcAuto) &&
+            (identical(other.transactionAt, transactionAt) || other.transactionAt == transactionAt) &&
             (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, accountId, title, calcAuto, transactionAt, value);
+  int get hashCode => Object.hash(runtimeType, accountId, title, calcAuto, transactionAt, value);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_TransactionSheduledCopyWith<_$_TransactionSheduled> get copyWith =>
-      __$$_TransactionSheduledCopyWithImpl<_$_TransactionSheduled>(
-          this, _$identity);
+      __$$_TransactionSheduledCopyWithImpl<_$_TransactionSheduled>(this, _$identity);
 }
 
 abstract class _TransactionSheduled extends TransactionScheduled {
@@ -232,6 +211,5 @@ abstract class _TransactionSheduled extends TransactionScheduled {
   int get value;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionSheduledCopyWith<_$_TransactionSheduled> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_TransactionSheduledCopyWith<_$_TransactionSheduled> get copyWith => throw _privateConstructorUsedError;
 }

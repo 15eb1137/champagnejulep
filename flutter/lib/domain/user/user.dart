@@ -9,7 +9,7 @@ part 'user.freezed.dart';
 @freezed
 class User with _$User {
   User._() {
-    DomainService.saveUser(id: id, premium: premium);
+    DomainService.saveUser(this);
   }
 
   const factory User({required UserId id, required UserPremium premium}) = _User;

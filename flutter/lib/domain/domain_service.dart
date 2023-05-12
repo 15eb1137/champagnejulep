@@ -2,13 +2,9 @@ import '../infrastructure/domain_repository_isar.dart';
 import 'transactions_scheduled/transaction_scheduled.dart';
 import 'transactions_scheduled/transactions_scheduled.dart';
 import 'user/user.dart';
-import 'user/user_id.dart';
-import 'user/user_premium.dart';
 
 class DomainService {
-  static void saveUser({required UserId id, required UserPremium premium} // TODO
-          ) =>
-      DomainRepositoryIsar().saveUser();
+  static void saveUser(User user) => DomainRepositoryIsar().saveUser(id: user.id.value, premium: user.premium.value);
   static User getUser() => DomainRepositoryIsar().getUser();
   static void saveTransactionScheduled(TransactionScheduled transactionScheduled) =>
       DomainRepositoryIsar().saveTransactionScheduled(

@@ -1,10 +1,11 @@
 import '../domain/domain_repository.dart';
 import '../domain/transactions_scheduled/transactions_scheduled.dart';
 import '../domain/user/user.dart';
+import '../domain/user/user_premium.dart';
 
 class DomainRepositoryIsar extends DomainRepository {
   @override
-  void saveUser() {
+  void saveUser({required String id, required UserPremiumState premium}) {
     // TODO: implement saveUser
   }
 

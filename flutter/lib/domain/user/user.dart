@@ -15,7 +15,7 @@ class User with _$User {
   const factory User({required UserId id, required UserPremium premium}) = _User;
   factory User.create() => User(id: UserId.create(), premium: UserPremium.unregistered());
   factory User.restore() => DomainService.getUser();
-  
+
   bool get isPremiumUnregistered => premium.value == UserPremiumState.unregistered;
   bool get isPremium => premium.value == UserPremiumState.premium;
   bool get isPremiumExpired => premium.value == UserPremiumState.expired;

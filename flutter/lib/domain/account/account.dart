@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../domain_service.dart';
 import '../user/user_id.dart';
 import 'account_balance.dart';
 import 'account_id.dart';
@@ -10,9 +11,11 @@ part 'account.freezed.dart';
 
 @freezed
 class Account with _$Account {
-  const Account._();
+  Account._() {
+    DomainService.saveAccount(this);
+  }
 
-  factory Account(
+  const factory Account(
       {required AccountId id,
       required AccountName name,
       required AccountBalance balance,

@@ -1,3 +1,5 @@
+import '../domain/account/account_transactions.dart';
+import '../domain/account/accounts.dart';
 import '../domain/domain_repository.dart';
 import '../domain/transactions_scheduled/transactions_scheduled.dart';
 import '../domain/user/user.dart';
@@ -29,5 +31,20 @@ class DomainRepositoryIsar extends DomainRepository {
   TransactionsScheduled getTransactionsScheduled() {
     // TODO: implement getTransactionsScheduled
     return TransactionsScheduled([]);
+  }
+
+  @override
+  Accounts getAccounts() {
+    // TODO: implement getAccounts
+    throw UnimplementedError();
+  }
+
+  @override
+  void saveAccount({required String id,
+      required String name,
+      required int balance,
+      required List<AccountTransactions> transactions,
+      required String ownerId}) {
+    // TODO: implement saveAccount
   }
 }

@@ -19,7 +19,8 @@ mixin _$Account {
   AccountId get id => throw _privateConstructorUsedError;
   AccountName get name => throw _privateConstructorUsedError;
   AccountBalance get balance => throw _privateConstructorUsedError;
-  List<AccountTransactions> get transactions => throw _privateConstructorUsedError;
+  List<AccountTransactions> get transactions =>
+      throw _privateConstructorUsedError;
   UserId get ownerId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -28,10 +29,15 @@ mixin _$Account {
 
 /// @nodoc
 abstract class $AccountCopyWith<$Res> {
-  factory $AccountCopyWith(Account value, $Res Function(Account) then) = _$AccountCopyWithImpl<$Res, Account>;
+  factory $AccountCopyWith(Account value, $Res Function(Account) then) =
+      _$AccountCopyWithImpl<$Res, Account>;
   @useResult
   $Res call(
-      {AccountId id, AccountName name, AccountBalance balance, List<AccountTransactions> transactions, UserId ownerId});
+      {AccountId id,
+      AccountName name,
+      AccountBalance balance,
+      List<AccountTransactions> transactions,
+      UserId ownerId});
 
   $AccountIdCopyWith<$Res> get id;
   $AccountNameCopyWith<$Res> get name;
@@ -40,7 +46,8 @@ abstract class $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountCopyWithImpl<$Res, $Val extends Account> implements $AccountCopyWith<$Res> {
+class _$AccountCopyWithImpl<$Res, $Val extends Account>
+    implements $AccountCopyWith<$Res> {
   _$AccountCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -116,11 +123,17 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account> implements $AccountCopyW
 
 /// @nodoc
 abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
-  factory _$$_AccountCopyWith(_$_Account value, $Res Function(_$_Account) then) = __$$_AccountCopyWithImpl<$Res>;
+  factory _$$_AccountCopyWith(
+          _$_Account value, $Res Function(_$_Account) then) =
+      __$$_AccountCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {AccountId id, AccountName name, AccountBalance balance, List<AccountTransactions> transactions, UserId ownerId});
+      {AccountId id,
+      AccountName name,
+      AccountBalance balance,
+      List<AccountTransactions> transactions,
+      UserId ownerId});
 
   @override
   $AccountIdCopyWith<$Res> get id;
@@ -133,9 +146,11 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res, _$_Account>
+class __$$_AccountCopyWithImpl<$Res>
+    extends _$AccountCopyWithImpl<$Res, _$_Account>
     implements _$$_AccountCopyWith<$Res> {
-  __$$_AccountCopyWithImpl(_$_Account _value, $Res Function(_$_Account) _then) : super(_value, _then);
+  __$$_AccountCopyWithImpl(_$_Account _value, $Res Function(_$_Account) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -174,7 +189,7 @@ class __$$_AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res, _$_Acco
 /// @nodoc
 
 class _$_Account extends _Account {
-  _$_Account(
+  const _$_Account(
       {required this.id,
       required this.name,
       required this.balance,
@@ -213,28 +228,30 @@ class _$_Account extends _Account {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.balance, balance) || other.balance == balance) &&
-            const DeepCollectionEquality().equals(other._transactions, _transactions) &&
+            const DeepCollectionEquality()
+                .equals(other._transactions, _transactions) &&
             (identical(other.ownerId, ownerId) || other.ownerId == ownerId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, balance, const DeepCollectionEquality().hash(_transactions), ownerId);
+  int get hashCode => Object.hash(runtimeType, id, name, balance,
+      const DeepCollectionEquality().hash(_transactions), ownerId);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountCopyWith<_$_Account> get copyWith => __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
+  _$$_AccountCopyWith<_$_Account> get copyWith =>
+      __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
 }
 
 abstract class _Account extends Account {
-  factory _Account(
+  const factory _Account(
       {required final AccountId id,
       required final AccountName name,
       required final AccountBalance balance,
       required final List<AccountTransactions> transactions,
       required final UserId ownerId}) = _$_Account;
-  _Account._() : super._();
+  const _Account._() : super._();
 
   @override
   AccountId get id;
@@ -248,5 +265,6 @@ abstract class _Account extends Account {
   UserId get ownerId;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountCopyWith<_$_Account> get copyWith => throw _privateConstructorUsedError;
+  _$$_AccountCopyWith<_$_Account> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,3 +1,5 @@
+import 'package:champagnejulep/domain/account/account_transactions.dart';
+import 'package:champagnejulep/domain/account/accounts.dart';
 import 'package:champagnejulep/domain/domain_repository.dart';
 import 'package:champagnejulep/domain/transactions_scheduled/transactions_scheduled.dart';
 import 'package:champagnejulep/domain/user/user.dart';
@@ -20,4 +22,19 @@ class DomainRepositoryTest extends DomainRepository {
 
   @override
   TransactionsScheduled getTransactionsScheduled() => TransactionsScheduled([]);
+
+  @override
+  Accounts getAccounts() {
+    // TODO: implement getAccounts
+    throw UnimplementedError();
+  }
+
+  @override
+  void saveAccount({required String id,
+      required String name,
+      required int balance,
+      required List<AccountTransactions> transactions,
+      required String ownerId}) {
+    // TODO: implement saveAccount
+  }
 }

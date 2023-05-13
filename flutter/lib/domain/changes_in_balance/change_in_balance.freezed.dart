@@ -20,12 +20,14 @@ mixin _$ChangeInBalance {
   AccountBalance get scheduledBalance => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ChangeInBalanceCopyWith<ChangeInBalance> get copyWith => throw _privateConstructorUsedError;
+  $ChangeInBalanceCopyWith<ChangeInBalance> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ChangeInBalanceCopyWith<$Res> {
-  factory $ChangeInBalanceCopyWith(ChangeInBalance value, $Res Function(ChangeInBalance) then) =
+  factory $ChangeInBalanceCopyWith(
+          ChangeInBalance value, $Res Function(ChangeInBalance) then) =
       _$ChangeInBalanceCopyWithImpl<$Res, ChangeInBalance>;
   @useResult
   $Res call({DateTime date, AccountBalance scheduledBalance});
@@ -34,7 +36,8 @@ abstract class $ChangeInBalanceCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ChangeInBalanceCopyWithImpl<$Res, $Val extends ChangeInBalance> implements $ChangeInBalanceCopyWith<$Res> {
+class _$ChangeInBalanceCopyWithImpl<$Res, $Val extends ChangeInBalance>
+    implements $ChangeInBalanceCopyWith<$Res> {
   _$ChangeInBalanceCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -70,8 +73,10 @@ class _$ChangeInBalanceCopyWithImpl<$Res, $Val extends ChangeInBalance> implemen
 }
 
 /// @nodoc
-abstract class _$$_ChangeInBalanceCopyWith<$Res> implements $ChangeInBalanceCopyWith<$Res> {
-  factory _$$_ChangeInBalanceCopyWith(_$_ChangeInBalance value, $Res Function(_$_ChangeInBalance) then) =
+abstract class _$$_ChangeInBalanceCopyWith<$Res>
+    implements $ChangeInBalanceCopyWith<$Res> {
+  factory _$$_ChangeInBalanceCopyWith(
+          _$_ChangeInBalance value, $Res Function(_$_ChangeInBalance) then) =
       __$$_ChangeInBalanceCopyWithImpl<$Res>;
   @override
   @useResult
@@ -82,9 +87,11 @@ abstract class _$$_ChangeInBalanceCopyWith<$Res> implements $ChangeInBalanceCopy
 }
 
 /// @nodoc
-class __$$_ChangeInBalanceCopyWithImpl<$Res> extends _$ChangeInBalanceCopyWithImpl<$Res, _$_ChangeInBalance>
+class __$$_ChangeInBalanceCopyWithImpl<$Res>
+    extends _$ChangeInBalanceCopyWithImpl<$Res, _$_ChangeInBalance>
     implements _$$_ChangeInBalanceCopyWith<$Res> {
-  __$$_ChangeInBalanceCopyWithImpl(_$_ChangeInBalance _value, $Res Function(_$_ChangeInBalance) _then)
+  __$$_ChangeInBalanceCopyWithImpl(
+      _$_ChangeInBalance _value, $Res Function(_$_ChangeInBalance) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +116,8 @@ class __$$_ChangeInBalanceCopyWithImpl<$Res> extends _$ChangeInBalanceCopyWithIm
 /// @nodoc
 
 class _$_ChangeInBalance extends _ChangeInBalance {
-  const _$_ChangeInBalance({required this.date, required this.scheduledBalance}) : super._();
+  const _$_ChangeInBalance({required this.date, required this.scheduledBalance})
+      : super._();
 
   @override
   final DateTime date;
@@ -127,7 +135,8 @@ class _$_ChangeInBalance extends _ChangeInBalance {
         (other.runtimeType == runtimeType &&
             other is _$_ChangeInBalance &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.scheduledBalance, scheduledBalance) || other.scheduledBalance == scheduledBalance));
+            (identical(other.scheduledBalance, scheduledBalance) ||
+                other.scheduledBalance == scheduledBalance));
   }
 
   @override
@@ -141,8 +150,9 @@ class _$_ChangeInBalance extends _ChangeInBalance {
 }
 
 abstract class _ChangeInBalance extends ChangeInBalance {
-  const factory _ChangeInBalance({required final DateTime date, required final AccountBalance scheduledBalance}) =
-      _$_ChangeInBalance;
+  const factory _ChangeInBalance(
+      {required final DateTime date,
+      required final AccountBalance scheduledBalance}) = _$_ChangeInBalance;
   const _ChangeInBalance._() : super._();
 
   @override
@@ -151,5 +161,6 @@ abstract class _ChangeInBalance extends ChangeInBalance {
   AccountBalance get scheduledBalance;
   @override
   @JsonKey(ignore: true)
-  _$$_ChangeInBalanceCopyWith<_$_ChangeInBalance> get copyWith => throw _privateConstructorUsedError;
+  _$$_ChangeInBalanceCopyWith<_$_ChangeInBalance> get copyWith =>
+      throw _privateConstructorUsedError;
 }

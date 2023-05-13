@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 
-import '../account/account_id.dart';
+import '../accounts/account_id.dart';
 import '../domain_service.dart';
 
 part 'transaction_scheduled.freezed.dart';

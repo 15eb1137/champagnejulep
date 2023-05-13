@@ -1,5 +1,5 @@
-import 'package:champagnejulep/domain/account/account_transactions.dart';
-import 'package:champagnejulep/domain/account/accounts.dart';
+import 'package:champagnejulep/domain/accounts/account_transactions.dart';
+import 'package:champagnejulep/domain/accounts/accounts.dart';
 import 'package:champagnejulep/domain/domain_repository.dart';
 import 'package:champagnejulep/domain/transactions_scheduled/transactions_scheduled.dart';
 import 'package:champagnejulep/domain/user/user.dart';

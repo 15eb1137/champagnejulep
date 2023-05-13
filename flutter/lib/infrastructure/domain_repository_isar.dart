@@ -1,5 +1,5 @@
-import '../domain/account/account_transactions.dart';
-import '../domain/account/accounts.dart';
+import '../domain/accounts/account_transactions.dart';
+import '../domain/accounts/accounts.dart';
 import '../domain/domain_repository.dart';
 import '../domain/transactions_scheduled/transactions_scheduled.dart';
 import '../domain/user/user.dart';

@@ -1,5 +1,5 @@
-import 'account/account_transactions.dart';
-import 'account/accounts.dart';
+import 'accounts/account_transactions.dart';
+import 'accounts/accounts.dart';
 import 'transactions_scheduled/transactions_scheduled.dart';
 import 'user/user.dart';
 import 'user/user_premium.dart';

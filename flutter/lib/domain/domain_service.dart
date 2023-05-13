@@ -1,6 +1,6 @@
 import '../infrastructure/domain_repository_isar.dart';
-import 'account/account.dart';
-import 'account/accounts.dart';
+import 'accounts/account.dart';
+import 'accounts/accounts.dart';
 import 'transactions_scheduled/transaction_scheduled.dart';
 import 'transactions_scheduled/transactions_scheduled.dart';
 import 'user/user.dart';

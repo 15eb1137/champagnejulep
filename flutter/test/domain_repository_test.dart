@@ -30,7 +30,8 @@ class DomainRepositoryTest extends DomainRepository {
   }
 
   @override
-  void saveAccount({required String id,
+  void saveAccount(
+      {required String id,
       required String name,
       required int balance,
       required List<AccountTransactions> transactions,

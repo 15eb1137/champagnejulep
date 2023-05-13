@@ -7,7 +7,8 @@ import 'user/user_premium.dart';
 abstract class DomainRepository {
   void saveUser({required String id, required UserPremiumState premium});
   User getUser();
-  void saveAccount({required String id,
+  void saveAccount(
+      {required String id,
       required String name,
       required int balance,
       required List<AccountTransactions> transactions,

@@ -16,26 +16,22 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ChangesInBalance {
-  List<ChangeInBalance> get changesInBalance =>
-      throw _privateConstructorUsedError;
+  List<ChangeInBalance> get changesInBalance => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ChangesInBalanceCopyWith<ChangesInBalance> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ChangesInBalanceCopyWith<ChangesInBalance> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ChangesInBalanceCopyWith<$Res> {
-  factory $ChangesInBalanceCopyWith(
-          ChangesInBalance value, $Res Function(ChangesInBalance) then) =
+  factory $ChangesInBalanceCopyWith(ChangesInBalance value, $Res Function(ChangesInBalance) then) =
       _$ChangesInBalanceCopyWithImpl<$Res, ChangesInBalance>;
   @useResult
   $Res call({List<ChangeInBalance> changesInBalance});
 }
 
 /// @nodoc
-class _$ChangesInBalanceCopyWithImpl<$Res, $Val extends ChangesInBalance>
-    implements $ChangesInBalanceCopyWith<$Res> {
+class _$ChangesInBalanceCopyWithImpl<$Res, $Val extends ChangesInBalance> implements $ChangesInBalanceCopyWith<$Res> {
   _$ChangesInBalanceCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -58,10 +54,8 @@ class _$ChangesInBalanceCopyWithImpl<$Res, $Val extends ChangesInBalance>
 }
 
 /// @nodoc
-abstract class _$$_ChangesInBalanceCopyWith<$Res>
-    implements $ChangesInBalanceCopyWith<$Res> {
-  factory _$$_ChangesInBalanceCopyWith(
-          _$_ChangesInBalance value, $Res Function(_$_ChangesInBalance) then) =
+abstract class _$$_ChangesInBalanceCopyWith<$Res> implements $ChangesInBalanceCopyWith<$Res> {
+  factory _$$_ChangesInBalanceCopyWith(_$_ChangesInBalance value, $Res Function(_$_ChangesInBalance) then) =
       __$$_ChangesInBalanceCopyWithImpl<$Res>;
   @override
   @useResult
@@ -69,11 +63,9 @@ abstract class _$$_ChangesInBalanceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ChangesInBalanceCopyWithImpl<$Res>
-    extends _$ChangesInBalanceCopyWithImpl<$Res, _$_ChangesInBalance>
+class __$$_ChangesInBalanceCopyWithImpl<$Res> extends _$ChangesInBalanceCopyWithImpl<$Res, _$_ChangesInBalance>
     implements _$$_ChangesInBalanceCopyWith<$Res> {
-  __$$_ChangesInBalanceCopyWithImpl(
-      _$_ChangesInBalance _value, $Res Function(_$_ChangesInBalance) _then)
+  __$$_ChangesInBalanceCopyWithImpl(_$_ChangesInBalance _value, $Res Function(_$_ChangesInBalance) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,8 +92,7 @@ class _$_ChangesInBalance extends _ChangesInBalance {
   final List<ChangeInBalance> _changesInBalance;
   @override
   List<ChangeInBalance> get changesInBalance {
-    if (_changesInBalance is EqualUnmodifiableListView)
-      return _changesInBalance;
+    if (_changesInBalance is EqualUnmodifiableListView) return _changesInBalance;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_changesInBalance);
   }
@@ -116,13 +107,11 @@ class _$_ChangesInBalance extends _ChangesInBalance {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChangesInBalance &&
-            const DeepCollectionEquality()
-                .equals(other._changesInBalance, _changesInBalance));
+            const DeepCollectionEquality().equals(other._changesInBalance, _changesInBalance));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_changesInBalance));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_changesInBalance));
 
   @JsonKey(ignore: true)
   @override
@@ -132,14 +121,12 @@ class _$_ChangesInBalance extends _ChangesInBalance {
 }
 
 abstract class _ChangesInBalance extends ChangesInBalance {
-  const factory _ChangesInBalance(
-      final List<ChangeInBalance> changesInBalance) = _$_ChangesInBalance;
+  const factory _ChangesInBalance(final List<ChangeInBalance> changesInBalance) = _$_ChangesInBalance;
   const _ChangesInBalance._() : super._();
 
   @override
   List<ChangeInBalance> get changesInBalance;
   @override
   @JsonKey(ignore: true)
-  _$$_ChangesInBalanceCopyWith<_$_ChangesInBalance> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ChangesInBalanceCopyWith<_$_ChangesInBalance> get copyWith => throw _privateConstructorUsedError;
 }

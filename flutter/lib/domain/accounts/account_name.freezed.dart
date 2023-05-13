@@ -19,22 +19,19 @@ mixin _$AccountName {
   String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AccountNameCopyWith<AccountName> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AccountNameCopyWith<AccountName> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AccountNameCopyWith<$Res> {
-  factory $AccountNameCopyWith(
-          AccountName value, $Res Function(AccountName) then) =
+  factory $AccountNameCopyWith(AccountName value, $Res Function(AccountName) then) =
       _$AccountNameCopyWithImpl<$Res, AccountName>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$AccountNameCopyWithImpl<$Res, $Val extends AccountName>
-    implements $AccountNameCopyWith<$Res> {
+class _$AccountNameCopyWithImpl<$Res, $Val extends AccountName> implements $AccountNameCopyWith<$Res> {
   _$AccountNameCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -57,10 +54,8 @@ class _$AccountNameCopyWithImpl<$Res, $Val extends AccountName>
 }
 
 /// @nodoc
-abstract class _$$_AccountNameCopyWith<$Res>
-    implements $AccountNameCopyWith<$Res> {
-  factory _$$_AccountNameCopyWith(
-          _$_AccountName value, $Res Function(_$_AccountName) then) =
+abstract class _$$_AccountNameCopyWith<$Res> implements $AccountNameCopyWith<$Res> {
+  factory _$$_AccountNameCopyWith(_$_AccountName value, $Res Function(_$_AccountName) then) =
       __$$_AccountNameCopyWithImpl<$Res>;
   @override
   @useResult
@@ -68,12 +63,9 @@ abstract class _$$_AccountNameCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AccountNameCopyWithImpl<$Res>
-    extends _$AccountNameCopyWithImpl<$Res, _$_AccountName>
+class __$$_AccountNameCopyWithImpl<$Res> extends _$AccountNameCopyWithImpl<$Res, _$_AccountName>
     implements _$$_AccountNameCopyWith<$Res> {
-  __$$_AccountNameCopyWithImpl(
-      _$_AccountName _value, $Res Function(_$_AccountName) _then)
-      : super(_value, _then);
+  __$$_AccountNameCopyWithImpl(_$_AccountName _value, $Res Function(_$_AccountName) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -127,6 +119,5 @@ abstract class _AccountName implements AccountName {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountNameCopyWith<_$_AccountName> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AccountNameCopyWith<_$_AccountName> get copyWith => throw _privateConstructorUsedError;
 }

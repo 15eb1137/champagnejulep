@@ -23,6 +23,6 @@ class ChangesInBalance with _$ChangesInBalance {
 
   Iterable<ChangeInBalance> map<ChangeInBalance>(ChangeInBalance Function(ChangeInBalance e) toElement) =>
       changesInBalance.map<ChangeInBalance>((e) => toElement(e as ChangeInBalance));
-  
+
   Iterable<ChangeInBalance> where(bool Function(ChangeInBalance) test) => changesInBalance.where(test);
 }

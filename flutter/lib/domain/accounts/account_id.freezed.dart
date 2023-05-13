@@ -19,18 +19,21 @@ mixin _$AccountId {
   String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AccountIdCopyWith<AccountId> get copyWith => throw _privateConstructorUsedError;
+  $AccountIdCopyWith<AccountId> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AccountIdCopyWith<$Res> {
-  factory $AccountIdCopyWith(AccountId value, $Res Function(AccountId) then) = _$AccountIdCopyWithImpl<$Res, AccountId>;
+  factory $AccountIdCopyWith(AccountId value, $Res Function(AccountId) then) =
+      _$AccountIdCopyWithImpl<$Res, AccountId>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$AccountIdCopyWithImpl<$Res, $Val extends AccountId> implements $AccountIdCopyWith<$Res> {
+class _$AccountIdCopyWithImpl<$Res, $Val extends AccountId>
+    implements $AccountIdCopyWith<$Res> {
   _$AccountIdCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -54,7 +57,8 @@ class _$AccountIdCopyWithImpl<$Res, $Val extends AccountId> implements $AccountI
 
 /// @nodoc
 abstract class _$$_AccountIdCopyWith<$Res> implements $AccountIdCopyWith<$Res> {
-  factory _$$_AccountIdCopyWith(_$_AccountId value, $Res Function(_$_AccountId) then) =
+  factory _$$_AccountIdCopyWith(
+          _$_AccountId value, $Res Function(_$_AccountId) then) =
       __$$_AccountIdCopyWithImpl<$Res>;
   @override
   @useResult
@@ -62,9 +66,12 @@ abstract class _$$_AccountIdCopyWith<$Res> implements $AccountIdCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AccountIdCopyWithImpl<$Res> extends _$AccountIdCopyWithImpl<$Res, _$_AccountId>
+class __$$_AccountIdCopyWithImpl<$Res>
+    extends _$AccountIdCopyWithImpl<$Res, _$_AccountId>
     implements _$$_AccountIdCopyWith<$Res> {
-  __$$_AccountIdCopyWithImpl(_$_AccountId _value, $Res Function(_$_AccountId) _then) : super(_value, _then);
+  __$$_AccountIdCopyWithImpl(
+      _$_AccountId _value, $Res Function(_$_AccountId) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -109,7 +116,8 @@ class _$_AccountId implements _AccountId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountIdCopyWith<_$_AccountId> get copyWith => __$$_AccountIdCopyWithImpl<_$_AccountId>(this, _$identity);
+  _$$_AccountIdCopyWith<_$_AccountId> get copyWith =>
+      __$$_AccountIdCopyWithImpl<_$_AccountId>(this, _$identity);
 }
 
 abstract class _AccountId implements AccountId {
@@ -119,5 +127,6 @@ abstract class _AccountId implements AccountId {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountIdCopyWith<_$_AccountId> get copyWith => throw _privateConstructorUsedError;
+  _$$_AccountIdCopyWith<_$_AccountId> get copyWith =>
+      throw _privateConstructorUsedError;
 }

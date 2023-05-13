@@ -19,22 +19,19 @@ mixin _$AccountTransactionsId {
   String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AccountTransactionsIdCopyWith<AccountTransactionsId> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AccountTransactionsIdCopyWith<AccountTransactionsId> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AccountTransactionsIdCopyWith<$Res> {
-  factory $AccountTransactionsIdCopyWith(AccountTransactionsId value,
-          $Res Function(AccountTransactionsId) then) =
+  factory $AccountTransactionsIdCopyWith(AccountTransactionsId value, $Res Function(AccountTransactionsId) then) =
       _$AccountTransactionsIdCopyWithImpl<$Res, AccountTransactionsId>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$AccountTransactionsIdCopyWithImpl<$Res,
-        $Val extends AccountTransactionsId>
+class _$AccountTransactionsIdCopyWithImpl<$Res, $Val extends AccountTransactionsId>
     implements $AccountTransactionsIdCopyWith<$Res> {
   _$AccountTransactionsIdCopyWithImpl(this._value, this._then);
 
@@ -58,11 +55,9 @@ class _$AccountTransactionsIdCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_AccountBalanceActivityIdCopyWith<$Res>
-    implements $AccountTransactionsIdCopyWith<$Res> {
+abstract class _$$_AccountBalanceActivityIdCopyWith<$Res> implements $AccountTransactionsIdCopyWith<$Res> {
   factory _$$_AccountBalanceActivityIdCopyWith(
-          _$_AccountBalanceActivityId value,
-          $Res Function(_$_AccountBalanceActivityId) then) =
+          _$_AccountBalanceActivityId value, $Res Function(_$_AccountBalanceActivityId) then) =
       __$$_AccountBalanceActivityIdCopyWithImpl<$Res>;
   @override
   @useResult
@@ -71,11 +66,10 @@ abstract class _$$_AccountBalanceActivityIdCopyWith<$Res>
 
 /// @nodoc
 class __$$_AccountBalanceActivityIdCopyWithImpl<$Res>
-    extends _$AccountTransactionsIdCopyWithImpl<$Res,
-        _$_AccountBalanceActivityId>
+    extends _$AccountTransactionsIdCopyWithImpl<$Res, _$_AccountBalanceActivityId>
     implements _$$_AccountBalanceActivityIdCopyWith<$Res> {
-  __$$_AccountBalanceActivityIdCopyWithImpl(_$_AccountBalanceActivityId _value,
-      $Res Function(_$_AccountBalanceActivityId) _then)
+  __$$_AccountBalanceActivityIdCopyWithImpl(
+      _$_AccountBalanceActivityId _value, $Res Function(_$_AccountBalanceActivityId) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,19 +115,16 @@ class _$_AccountBalanceActivityId implements _AccountBalanceActivityId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountBalanceActivityIdCopyWith<_$_AccountBalanceActivityId>
-      get copyWith => __$$_AccountBalanceActivityIdCopyWithImpl<
-          _$_AccountBalanceActivityId>(this, _$identity);
+  _$$_AccountBalanceActivityIdCopyWith<_$_AccountBalanceActivityId> get copyWith =>
+      __$$_AccountBalanceActivityIdCopyWithImpl<_$_AccountBalanceActivityId>(this, _$identity);
 }
 
 abstract class _AccountBalanceActivityId implements AccountTransactionsId {
-  const factory _AccountBalanceActivityId(final String value) =
-      _$_AccountBalanceActivityId;
+  const factory _AccountBalanceActivityId(final String value) = _$_AccountBalanceActivityId;
 
   @override
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountBalanceActivityIdCopyWith<_$_AccountBalanceActivityId>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_AccountBalanceActivityIdCopyWith<_$_AccountBalanceActivityId> get copyWith => throw _privateConstructorUsedError;
 }

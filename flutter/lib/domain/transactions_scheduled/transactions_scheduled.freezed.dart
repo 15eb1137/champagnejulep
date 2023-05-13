@@ -16,26 +16,22 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TransactionsScheduled {
-  List<TransactionScheduled> get transactionScheduled =>
-      throw _privateConstructorUsedError;
+  List<TransactionScheduled> get transactionScheduled => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TransactionsScheduledCopyWith<TransactionsScheduled> get copyWith =>
-      throw _privateConstructorUsedError;
+  $TransactionsScheduledCopyWith<TransactionsScheduled> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TransactionsScheduledCopyWith<$Res> {
-  factory $TransactionsScheduledCopyWith(TransactionsScheduled value,
-          $Res Function(TransactionsScheduled) then) =
+  factory $TransactionsScheduledCopyWith(TransactionsScheduled value, $Res Function(TransactionsScheduled) then) =
       _$TransactionsScheduledCopyWithImpl<$Res, TransactionsScheduled>;
   @useResult
   $Res call({List<TransactionScheduled> transactionScheduled});
 }
 
 /// @nodoc
-class _$TransactionsScheduledCopyWithImpl<$Res,
-        $Val extends TransactionsScheduled>
+class _$TransactionsScheduledCopyWithImpl<$Res, $Val extends TransactionsScheduled>
     implements $TransactionsScheduledCopyWith<$Res> {
   _$TransactionsScheduledCopyWithImpl(this._value, this._then);
 
@@ -59,10 +55,9 @@ class _$TransactionsScheduledCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TransactionsScheduledCopyWith<$Res>
-    implements $TransactionsScheduledCopyWith<$Res> {
-  factory _$$_TransactionsScheduledCopyWith(_$_TransactionsScheduled value,
-          $Res Function(_$_TransactionsScheduled) then) =
+abstract class _$$_TransactionsScheduledCopyWith<$Res> implements $TransactionsScheduledCopyWith<$Res> {
+  factory _$$_TransactionsScheduledCopyWith(
+          _$_TransactionsScheduled value, $Res Function(_$_TransactionsScheduled) then) =
       __$$_TransactionsScheduledCopyWithImpl<$Res>;
   @override
   @useResult
@@ -73,8 +68,7 @@ abstract class _$$_TransactionsScheduledCopyWith<$Res>
 class __$$_TransactionsScheduledCopyWithImpl<$Res>
     extends _$TransactionsScheduledCopyWithImpl<$Res, _$_TransactionsScheduled>
     implements _$$_TransactionsScheduledCopyWith<$Res> {
-  __$$_TransactionsScheduledCopyWithImpl(_$_TransactionsScheduled _value,
-      $Res Function(_$_TransactionsScheduled) _then)
+  __$$_TransactionsScheduledCopyWithImpl(_$_TransactionsScheduled _value, $Res Function(_$_TransactionsScheduled) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,15 +88,13 @@ class __$$_TransactionsScheduledCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_TransactionsScheduled implements _TransactionsScheduled {
-  _$_TransactionsScheduled(
-      final List<TransactionScheduled> transactionScheduled)
+  _$_TransactionsScheduled(final List<TransactionScheduled> transactionScheduled)
       : _transactionScheduled = transactionScheduled;
 
   final List<TransactionScheduled> _transactionScheduled;
   @override
   List<TransactionScheduled> get transactionScheduled {
-    if (_transactionScheduled is EqualUnmodifiableListView)
-      return _transactionScheduled;
+    if (_transactionScheduled is EqualUnmodifiableListView) return _transactionScheduled;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_transactionScheduled);
   }
@@ -117,31 +109,25 @@ class _$_TransactionsScheduled implements _TransactionsScheduled {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransactionsScheduled &&
-            const DeepCollectionEquality()
-                .equals(other._transactionScheduled, _transactionScheduled));
+            const DeepCollectionEquality().equals(other._transactionScheduled, _transactionScheduled));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_transactionScheduled));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_transactionScheduled));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_TransactionsScheduledCopyWith<_$_TransactionsScheduled> get copyWith =>
-      __$$_TransactionsScheduledCopyWithImpl<_$_TransactionsScheduled>(
-          this, _$identity);
+      __$$_TransactionsScheduledCopyWithImpl<_$_TransactionsScheduled>(this, _$identity);
 }
 
 abstract class _TransactionsScheduled implements TransactionsScheduled {
-  factory _TransactionsScheduled(
-          final List<TransactionScheduled> transactionScheduled) =
-      _$_TransactionsScheduled;
+  factory _TransactionsScheduled(final List<TransactionScheduled> transactionScheduled) = _$_TransactionsScheduled;
 
   @override
   List<TransactionScheduled> get transactionScheduled;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionsScheduledCopyWith<_$_TransactionsScheduled> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_TransactionsScheduledCopyWith<_$_TransactionsScheduled> get copyWith => throw _privateConstructorUsedError;
 }

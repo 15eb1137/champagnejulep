@@ -9,4 +9,8 @@ part 'transactions_scheduled.freezed.dart';
 class TransactionsScheduled with _$TransactionsScheduled {
   factory TransactionsScheduled(List<TransactionScheduled> transactionScheduled) = _TransactionsScheduled;
   factory TransactionsScheduled.restore() => DomainService.getTransactionsScheduled();
+
+  Iterable<TransactionScheduled> map<TransactionScheduled>(
+          TransactionScheduled Function(MapEntry<int, TransactionScheduled> e) toElement) =>
+      map((e) => toElement(e));
 }

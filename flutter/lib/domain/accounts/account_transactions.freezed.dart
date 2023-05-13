@@ -22,15 +22,21 @@ mixin _$AccountTransactions {
   int get amount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AccountTransactionsCopyWith<AccountTransactions> get copyWith => throw _privateConstructorUsedError;
+  $AccountTransactionsCopyWith<AccountTransactions> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AccountTransactionsCopyWith<$Res> {
-  factory $AccountTransactionsCopyWith(AccountTransactions value, $Res Function(AccountTransactions) then) =
+  factory $AccountTransactionsCopyWith(
+          AccountTransactions value, $Res Function(AccountTransactions) then) =
       _$AccountTransactionsCopyWithImpl<$Res, AccountTransactions>;
   @useResult
-  $Res call({AccountTransactionsId id, DateTime transactionAt, String title, int amount});
+  $Res call(
+      {AccountTransactionsId id,
+      DateTime transactionAt,
+      String title,
+      int amount});
 
   $AccountTransactionsIdCopyWith<$Res> get id;
 }
@@ -83,21 +89,29 @@ class _$AccountTransactionsCopyWithImpl<$Res, $Val extends AccountTransactions>
 }
 
 /// @nodoc
-abstract class _$$_AccountTransactionsCopyWith<$Res> implements $AccountTransactionsCopyWith<$Res> {
-  factory _$$_AccountTransactionsCopyWith(_$_AccountTransactions value, $Res Function(_$_AccountTransactions) then) =
+abstract class _$$_AccountTransactionsCopyWith<$Res>
+    implements $AccountTransactionsCopyWith<$Res> {
+  factory _$$_AccountTransactionsCopyWith(_$_AccountTransactions value,
+          $Res Function(_$_AccountTransactions) then) =
       __$$_AccountTransactionsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AccountTransactionsId id, DateTime transactionAt, String title, int amount});
+  $Res call(
+      {AccountTransactionsId id,
+      DateTime transactionAt,
+      String title,
+      int amount});
 
   @override
   $AccountTransactionsIdCopyWith<$Res> get id;
 }
 
 /// @nodoc
-class __$$_AccountTransactionsCopyWithImpl<$Res> extends _$AccountTransactionsCopyWithImpl<$Res, _$_AccountTransactions>
+class __$$_AccountTransactionsCopyWithImpl<$Res>
+    extends _$AccountTransactionsCopyWithImpl<$Res, _$_AccountTransactions>
     implements _$$_AccountTransactionsCopyWith<$Res> {
-  __$$_AccountTransactionsCopyWithImpl(_$_AccountTransactions _value, $Res Function(_$_AccountTransactions) _then)
+  __$$_AccountTransactionsCopyWithImpl(_$_AccountTransactions _value,
+      $Res Function(_$_AccountTransactions) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -133,7 +147,10 @@ class __$$_AccountTransactionsCopyWithImpl<$Res> extends _$AccountTransactionsCo
 
 class _$_AccountTransactions implements _AccountTransactions {
   const _$_AccountTransactions(
-      {required this.id, required this.transactionAt, required this.title, required this.amount});
+      {required this.id,
+      required this.transactionAt,
+      required this.title,
+      required this.amount});
 
   @override
   final AccountTransactionsId id;
@@ -155,19 +172,22 @@ class _$_AccountTransactions implements _AccountTransactions {
         (other.runtimeType == runtimeType &&
             other is _$_AccountTransactions &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.transactionAt, transactionAt) || other.transactionAt == transactionAt) &&
+            (identical(other.transactionAt, transactionAt) ||
+                other.transactionAt == transactionAt) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.amount, amount) || other.amount == amount));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, transactionAt, title, amount);
+  int get hashCode =>
+      Object.hash(runtimeType, id, transactionAt, title, amount);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_AccountTransactionsCopyWith<_$_AccountTransactions> get copyWith =>
-      __$$_AccountTransactionsCopyWithImpl<_$_AccountTransactions>(this, _$identity);
+      __$$_AccountTransactionsCopyWithImpl<_$_AccountTransactions>(
+          this, _$identity);
 }
 
 abstract class _AccountTransactions implements AccountTransactions {
@@ -187,5 +207,6 @@ abstract class _AccountTransactions implements AccountTransactions {
   int get amount;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountTransactionsCopyWith<_$_AccountTransactions> get copyWith => throw _privateConstructorUsedError;
+  _$$_AccountTransactionsCopyWith<_$_AccountTransactions> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -11,6 +11,9 @@ class TransactionsScheduled with _$TransactionsScheduled {
   factory TransactionsScheduled.restore() => DomainService.getTransactionsScheduled();
 
   Iterable<TransactionScheduled> map<TransactionScheduled>(
-          TransactionScheduled Function(MapEntry<int, TransactionScheduled> e) toElement) =>
-      map((e) => toElement(e));
+          TransactionScheduled Function(TransactionScheduled e) toElement) =>
+      transactionScheduled.map<TransactionScheduled>((e) => toElement(e as TransactionScheduled));
+
+  void forEach(void Function(MapEntry<int, TransactionScheduled>) action) =>
+      transactionScheduled.asMap().entries.forEach(action);
 }

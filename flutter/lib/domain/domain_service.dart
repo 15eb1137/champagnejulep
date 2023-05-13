@@ -1,4 +1,6 @@
+import '../infrastructure/domain_notification_fcm.dart';
 import '../infrastructure/domain_repository_isar.dart';
+import '../infrastructure/domain_share_plus.dart';
 import 'accounts/account.dart';
 import 'accounts/accounts.dart';
 import 'transactions_scheduled/transaction_scheduled.dart';
@@ -23,4 +25,7 @@ class DomainService {
           transactionAt: transactionScheduled.transactionAt,
           value: transactionScheduled.value);
   static TransactionsScheduled getTransactionsScheduled() => DomainRepositoryIsar().getTransactionsScheduled();
+  static void shareAlertShort(String titleShort) => DomainSharePlus().shareAlertShort(titleShort);
+  static void pushNotificationAlertShort(String titleShort) =>
+      DomainNotificationFCM().pushNotificationAlertShort(titleShort);
 }

@@ -12,12 +12,17 @@ class ChangesInBalance with _$ChangesInBalance {
 
   const factory ChangesInBalance(List<ChangeInBalance> changesInBalance) = _ChangesInBalance;
   factory ChangesInBalance.issue(Account account, TransactionsScheduled transactionsScheduled) {
-    final changeInBalance = transactionsScheduled.map((e) {
+    final List<ChangeInBalance> changesInBalance = [];
+    transactionsScheduled.forEach((e) {
       final index = e.key;
-      final TransactionsScheduled targets =
-          TransactionsScheduled(transactionsScheduled.transactionScheduled.sublist(0, index + 1));
-      return ChangeInBalance.calc(account.balance, targets);
-    }).toList();
-    return ChangesInBalance(changeInBalance);
+      final targets = TransactionsScheduled(transactionsScheduled.transactionScheduled.sublist(0, index + 1));
+      changesInBalance.add(ChangeInBalance.calc(account.balance, targets));
+    });
+    return ChangesInBalance(changesInBalance);
   }
+
+  Iterable<ChangeInBalance> map<ChangeInBalance>(ChangeInBalance Function(ChangeInBalance e) toElement) =>
+      changesInBalance.map<ChangeInBalance>((e) => toElement(e as ChangeInBalance));
+  
+  Iterable<ChangeInBalance> where(bool Function(ChangeInBalance) test) => changesInBalance.where(test);
 }

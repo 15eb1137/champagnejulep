@@ -20,22 +20,19 @@ mixin _$UserPremium {
   DateTime? get expiredAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UserPremiumCopyWith<UserPremium> get copyWith =>
-      throw _privateConstructorUsedError;
+  $UserPremiumCopyWith<UserPremium> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $UserPremiumCopyWith<$Res> {
-  factory $UserPremiumCopyWith(
-          UserPremium value, $Res Function(UserPremium) then) =
+  factory $UserPremiumCopyWith(UserPremium value, $Res Function(UserPremium) then) =
       _$UserPremiumCopyWithImpl<$Res, UserPremium>;
   @useResult
   $Res call({UserPremiumState value, DateTime? expiredAt});
 }
 
 /// @nodoc
-class _$UserPremiumCopyWithImpl<$Res, $Val extends UserPremium>
-    implements $UserPremiumCopyWith<$Res> {
+class _$UserPremiumCopyWithImpl<$Res, $Val extends UserPremium> implements $UserPremiumCopyWith<$Res> {
   _$UserPremiumCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -63,10 +60,8 @@ class _$UserPremiumCopyWithImpl<$Res, $Val extends UserPremium>
 }
 
 /// @nodoc
-abstract class _$$_UserPremiumCopyWith<$Res>
-    implements $UserPremiumCopyWith<$Res> {
-  factory _$$_UserPremiumCopyWith(
-          _$_UserPremium value, $Res Function(_$_UserPremium) then) =
+abstract class _$$_UserPremiumCopyWith<$Res> implements $UserPremiumCopyWith<$Res> {
+  factory _$$_UserPremiumCopyWith(_$_UserPremium value, $Res Function(_$_UserPremium) then) =
       __$$_UserPremiumCopyWithImpl<$Res>;
   @override
   @useResult
@@ -74,12 +69,9 @@ abstract class _$$_UserPremiumCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserPremiumCopyWithImpl<$Res>
-    extends _$UserPremiumCopyWithImpl<$Res, _$_UserPremium>
+class __$$_UserPremiumCopyWithImpl<$Res> extends _$UserPremiumCopyWithImpl<$Res, _$_UserPremium>
     implements _$$_UserPremiumCopyWith<$Res> {
-  __$$_UserPremiumCopyWithImpl(
-      _$_UserPremium _value, $Res Function(_$_UserPremium) _then)
-      : super(_value, _then);
+  __$$_UserPremiumCopyWithImpl(_$_UserPremium _value, $Res Function(_$_UserPremium) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -121,8 +113,7 @@ class _$_UserPremium implements _UserPremium {
         (other.runtimeType == runtimeType &&
             other is _$_UserPremium &&
             (identical(other.value, value) || other.value == value) &&
-            (identical(other.expiredAt, expiredAt) ||
-                other.expiredAt == expiredAt));
+            (identical(other.expiredAt, expiredAt) || other.expiredAt == expiredAt));
   }
 
   @override
@@ -136,8 +127,7 @@ class _$_UserPremium implements _UserPremium {
 }
 
 abstract class _UserPremium implements UserPremium {
-  const factory _UserPremium(final UserPremiumState value,
-      {final DateTime? expiredAt}) = _$_UserPremium;
+  const factory _UserPremium(final UserPremiumState value, {final DateTime? expiredAt}) = _$_UserPremium;
 
   @override
   UserPremiumState get value;
@@ -145,6 +135,5 @@ abstract class _UserPremium implements UserPremium {
   DateTime? get expiredAt;
   @override
   @JsonKey(ignore: true)
-  _$$_UserPremiumCopyWith<_$_UserPremium> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_UserPremiumCopyWith<_$_UserPremium> get copyWith => throw _privateConstructorUsedError;
 }

@@ -28,8 +28,7 @@ mixin _$Account {
 
 /// @nodoc
 abstract class $AccountCopyWith<$Res> {
-  factory $AccountCopyWith(Account value, $Res Function(Account) then) =
-      _$AccountCopyWithImpl<$Res, Account>;
+  factory $AccountCopyWith(Account value, $Res Function(Account) then) = _$AccountCopyWithImpl<$Res, Account>;
   @useResult
   $Res call(
       {AccountId id,
@@ -46,8 +45,7 @@ abstract class $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountCopyWithImpl<$Res, $Val extends Account>
-    implements $AccountCopyWith<$Res> {
+class _$AccountCopyWithImpl<$Res, $Val extends Account> implements $AccountCopyWith<$Res> {
   _$AccountCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -131,9 +129,7 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
 
 /// @nodoc
 abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
-  factory _$$_AccountCopyWith(
-          _$_Account value, $Res Function(_$_Account) then) =
-      __$$_AccountCopyWithImpl<$Res>;
+  factory _$$_AccountCopyWith(_$_Account value, $Res Function(_$_Account) then) = __$$_AccountCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -156,11 +152,9 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AccountCopyWithImpl<$Res>
-    extends _$AccountCopyWithImpl<$Res, _$_Account>
+class __$$_AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res, _$_Account>
     implements _$$_AccountCopyWith<$Res> {
-  __$$_AccountCopyWithImpl(_$_Account _value, $Res Function(_$_Account) _then)
-      : super(_value, _then);
+  __$$_AccountCopyWithImpl(_$_Account _value, $Res Function(_$_Account) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -243,8 +237,7 @@ class _$_Account extends _Account {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountCopyWith<_$_Account> get copyWith =>
-      __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
+  _$$_AccountCopyWith<_$_Account> get copyWith => __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
 }
 
 abstract class _Account extends Account {
@@ -268,6 +261,5 @@ abstract class _Account extends Account {
   UserId get ownerId;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountCopyWith<_$_Account> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AccountCopyWith<_$_Account> get copyWith => throw _privateConstructorUsedError;
 }

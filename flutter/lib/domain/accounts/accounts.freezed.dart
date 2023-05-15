@@ -19,21 +19,18 @@ mixin _$Accounts {
   List<Account> get children => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AccountsCopyWith<Accounts> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AccountsCopyWith<Accounts> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AccountsCopyWith<$Res> {
-  factory $AccountsCopyWith(Accounts value, $Res Function(Accounts) then) =
-      _$AccountsCopyWithImpl<$Res, Accounts>;
+  factory $AccountsCopyWith(Accounts value, $Res Function(Accounts) then) = _$AccountsCopyWithImpl<$Res, Accounts>;
   @useResult
   $Res call({List<Account> children});
 }
 
 /// @nodoc
-class _$AccountsCopyWithImpl<$Res, $Val extends Accounts>
-    implements $AccountsCopyWith<$Res> {
+class _$AccountsCopyWithImpl<$Res, $Val extends Accounts> implements $AccountsCopyWith<$Res> {
   _$AccountsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -57,21 +54,16 @@ class _$AccountsCopyWithImpl<$Res, $Val extends Accounts>
 
 /// @nodoc
 abstract class _$$_AccountsCopyWith<$Res> implements $AccountsCopyWith<$Res> {
-  factory _$$_AccountsCopyWith(
-          _$_Accounts value, $Res Function(_$_Accounts) then) =
-      __$$_AccountsCopyWithImpl<$Res>;
+  factory _$$_AccountsCopyWith(_$_Accounts value, $Res Function(_$_Accounts) then) = __$$_AccountsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Account> children});
 }
 
 /// @nodoc
-class __$$_AccountsCopyWithImpl<$Res>
-    extends _$AccountsCopyWithImpl<$Res, _$_Accounts>
+class __$$_AccountsCopyWithImpl<$Res> extends _$AccountsCopyWithImpl<$Res, _$_Accounts>
     implements _$$_AccountsCopyWith<$Res> {
-  __$$_AccountsCopyWithImpl(
-      _$_Accounts _value, $Res Function(_$_Accounts) _then)
-      : super(_value, _then);
+  __$$_AccountsCopyWithImpl(_$_Accounts _value, $Res Function(_$_Accounts) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -120,8 +112,7 @@ class _$_Accounts implements _Accounts {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountsCopyWith<_$_Accounts> get copyWith =>
-      __$$_AccountsCopyWithImpl<_$_Accounts>(this, _$identity);
+  _$$_AccountsCopyWith<_$_Accounts> get copyWith => __$$_AccountsCopyWithImpl<_$_Accounts>(this, _$identity);
 }
 
 abstract class _Accounts implements Accounts {
@@ -131,6 +122,5 @@ abstract class _Accounts implements Accounts {
   List<Account> get children;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountsCopyWith<_$_Accounts> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AccountsCopyWith<_$_Accounts> get copyWith => throw _privateConstructorUsedError;
 }

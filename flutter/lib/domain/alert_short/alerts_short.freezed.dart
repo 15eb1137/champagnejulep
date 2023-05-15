@@ -19,22 +19,19 @@ mixin _$AlertsShort {
   List<AlertShort> get children => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AlertsShortCopyWith<AlertsShort> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AlertsShortCopyWith<AlertsShort> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AlertsShortCopyWith<$Res> {
-  factory $AlertsShortCopyWith(
-          AlertsShort value, $Res Function(AlertsShort) then) =
+  factory $AlertsShortCopyWith(AlertsShort value, $Res Function(AlertsShort) then) =
       _$AlertsShortCopyWithImpl<$Res, AlertsShort>;
   @useResult
   $Res call({List<AlertShort> children});
 }
 
 /// @nodoc
-class _$AlertsShortCopyWithImpl<$Res, $Val extends AlertsShort>
-    implements $AlertsShortCopyWith<$Res> {
+class _$AlertsShortCopyWithImpl<$Res, $Val extends AlertsShort> implements $AlertsShortCopyWith<$Res> {
   _$AlertsShortCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -57,10 +54,8 @@ class _$AlertsShortCopyWithImpl<$Res, $Val extends AlertsShort>
 }
 
 /// @nodoc
-abstract class _$$_AlertsShortCopyWith<$Res>
-    implements $AlertsShortCopyWith<$Res> {
-  factory _$$_AlertsShortCopyWith(
-          _$_AlertsShort value, $Res Function(_$_AlertsShort) then) =
+abstract class _$$_AlertsShortCopyWith<$Res> implements $AlertsShortCopyWith<$Res> {
+  factory _$$_AlertsShortCopyWith(_$_AlertsShort value, $Res Function(_$_AlertsShort) then) =
       __$$_AlertsShortCopyWithImpl<$Res>;
   @override
   @useResult
@@ -68,12 +63,9 @@ abstract class _$$_AlertsShortCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AlertsShortCopyWithImpl<$Res>
-    extends _$AlertsShortCopyWithImpl<$Res, _$_AlertsShort>
+class __$$_AlertsShortCopyWithImpl<$Res> extends _$AlertsShortCopyWithImpl<$Res, _$_AlertsShort>
     implements _$$_AlertsShortCopyWith<$Res> {
-  __$$_AlertsShortCopyWithImpl(
-      _$_AlertsShort _value, $Res Function(_$_AlertsShort) _then)
-      : super(_value, _then);
+  __$$_AlertsShortCopyWithImpl(_$_AlertsShort _value, $Res Function(_$_AlertsShort) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -133,6 +125,5 @@ abstract class _AlertsShort implements AlertsShort {
   List<AlertShort> get children;
   @override
   @JsonKey(ignore: true)
-  _$$_AlertsShortCopyWith<_$_AlertsShort> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AlertsShortCopyWith<_$_AlertsShort> get copyWith => throw _privateConstructorUsedError;
 }

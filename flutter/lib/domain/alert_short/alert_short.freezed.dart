@@ -22,14 +22,12 @@ mixin _$AlertShort {
   int get threshold => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AlertShortCopyWith<AlertShort> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AlertShortCopyWith<AlertShort> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AlertShortCopyWith<$Res> {
-  factory $AlertShortCopyWith(
-          AlertShort value, $Res Function(AlertShort) then) =
+  factory $AlertShortCopyWith(AlertShort value, $Res Function(AlertShort) then) =
       _$AlertShortCopyWithImpl<$Res, AlertShort>;
   @useResult
   $Res call(
@@ -44,8 +42,7 @@ abstract class $AlertShortCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AlertShortCopyWithImpl<$Res, $Val extends AlertShort>
-    implements $AlertShortCopyWith<$Res> {
+class _$AlertShortCopyWithImpl<$Res, $Val extends AlertShort> implements $AlertShortCopyWith<$Res> {
   _$AlertShortCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -107,10 +104,8 @@ class _$AlertShortCopyWithImpl<$Res, $Val extends AlertShort>
 }
 
 /// @nodoc
-abstract class _$$_AlertShortCopyWith<$Res>
-    implements $AlertShortCopyWith<$Res> {
-  factory _$$_AlertShortCopyWith(
-          _$_AlertShort value, $Res Function(_$_AlertShort) then) =
+abstract class _$$_AlertShortCopyWith<$Res> implements $AlertShortCopyWith<$Res> {
+  factory _$$_AlertShortCopyWith(_$_AlertShort value, $Res Function(_$_AlertShort) then) =
       __$$_AlertShortCopyWithImpl<$Res>;
   @override
   @useResult
@@ -129,12 +124,9 @@ abstract class _$$_AlertShortCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AlertShortCopyWithImpl<$Res>
-    extends _$AlertShortCopyWithImpl<$Res, _$_AlertShort>
+class __$$_AlertShortCopyWithImpl<$Res> extends _$AlertShortCopyWithImpl<$Res, _$_AlertShort>
     implements _$$_AlertShortCopyWith<$Res> {
-  __$$_AlertShortCopyWithImpl(
-      _$_AlertShort _value, $Res Function(_$_AlertShort) _then)
-      : super(_value, _then);
+  __$$_AlertShortCopyWithImpl(_$_AlertShort _value, $Res Function(_$_AlertShort) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -193,8 +185,7 @@ class _$_AlertShort implements _AlertShort {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AlertShort &&
-            (identical(other.accountId, accountId) ||
-                other.accountId == accountId) &&
+            (identical(other.accountId, accountId) || other.accountId == accountId) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.threshold, threshold) ||
@@ -208,8 +199,7 @@ class _$_AlertShort implements _AlertShort {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AlertShortCopyWith<_$_AlertShort> get copyWith =>
-      __$$_AlertShortCopyWithImpl<_$_AlertShort>(this, _$identity);
+  _$$_AlertShortCopyWith<_$_AlertShort> get copyWith => __$$_AlertShortCopyWithImpl<_$_AlertShort>(this, _$identity);
 }
 
 abstract class _AlertShort implements AlertShort {
@@ -229,6 +219,5 @@ abstract class _AlertShort implements AlertShort {
   int get threshold;
   @override
   @JsonKey(ignore: true)
-  _$$_AlertShortCopyWith<_$_AlertShort> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AlertShortCopyWith<_$_AlertShort> get copyWith => throw _privateConstructorUsedError;
 }

@@ -19,22 +19,19 @@ mixin _$ChangesInBalance {
   List<ChangeInBalance> get children => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ChangesInBalanceCopyWith<ChangesInBalance> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ChangesInBalanceCopyWith<ChangesInBalance> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ChangesInBalanceCopyWith<$Res> {
-  factory $ChangesInBalanceCopyWith(
-          ChangesInBalance value, $Res Function(ChangesInBalance) then) =
+  factory $ChangesInBalanceCopyWith(ChangesInBalance value, $Res Function(ChangesInBalance) then) =
       _$ChangesInBalanceCopyWithImpl<$Res, ChangesInBalance>;
   @useResult
   $Res call({List<ChangeInBalance> children});
 }
 
 /// @nodoc
-class _$ChangesInBalanceCopyWithImpl<$Res, $Val extends ChangesInBalance>
-    implements $ChangesInBalanceCopyWith<$Res> {
+class _$ChangesInBalanceCopyWithImpl<$Res, $Val extends ChangesInBalance> implements $ChangesInBalanceCopyWith<$Res> {
   _$ChangesInBalanceCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -57,10 +54,8 @@ class _$ChangesInBalanceCopyWithImpl<$Res, $Val extends ChangesInBalance>
 }
 
 /// @nodoc
-abstract class _$$_ChangesInBalanceCopyWith<$Res>
-    implements $ChangesInBalanceCopyWith<$Res> {
-  factory _$$_ChangesInBalanceCopyWith(
-          _$_ChangesInBalance value, $Res Function(_$_ChangesInBalance) then) =
+abstract class _$$_ChangesInBalanceCopyWith<$Res> implements $ChangesInBalanceCopyWith<$Res> {
+  factory _$$_ChangesInBalanceCopyWith(_$_ChangesInBalance value, $Res Function(_$_ChangesInBalance) then) =
       __$$_ChangesInBalanceCopyWithImpl<$Res>;
   @override
   @useResult
@@ -68,11 +63,9 @@ abstract class _$$_ChangesInBalanceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ChangesInBalanceCopyWithImpl<$Res>
-    extends _$ChangesInBalanceCopyWithImpl<$Res, _$_ChangesInBalance>
+class __$$_ChangesInBalanceCopyWithImpl<$Res> extends _$ChangesInBalanceCopyWithImpl<$Res, _$_ChangesInBalance>
     implements _$$_ChangesInBalanceCopyWith<$Res> {
-  __$$_ChangesInBalanceCopyWithImpl(
-      _$_ChangesInBalance _value, $Res Function(_$_ChangesInBalance) _then)
+  __$$_ChangesInBalanceCopyWithImpl(_$_ChangesInBalance _value, $Res Function(_$_ChangesInBalance) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -137,6 +130,5 @@ abstract class _ChangesInBalance extends ChangesInBalance {
   List<ChangeInBalance> get children;
   @override
   @JsonKey(ignore: true)
-  _$$_ChangesInBalanceCopyWith<_$_ChangesInBalance> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ChangesInBalanceCopyWith<_$_ChangesInBalance> get copyWith => throw _privateConstructorUsedError;
 }

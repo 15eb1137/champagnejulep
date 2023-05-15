@@ -106,8 +106,7 @@ class _$_Accounts implements _Accounts {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_children));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_children));
 
   @JsonKey(ignore: true)
   @override

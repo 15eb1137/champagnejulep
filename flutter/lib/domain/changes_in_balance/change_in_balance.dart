@@ -15,8 +15,8 @@ class ChangeInBalance with _$ChangeInBalance {
   }) = _ChangeInBalance;
 
   factory ChangeInBalance.calc(AccountBalance accountBalance, Transactions transactions) {
-    final scheduledBalance = accountBalance.updateValueAtNow(transactions.children.fold(
-        accountBalance.value, (previousValue, element) => previousValue + element.amount));
+    final scheduledBalance = accountBalance.updateValueAtNow(
+        transactions.children.fold(accountBalance.value, (previousValue, element) => previousValue + element.amount));
     return ChangeInBalance(date: scheduledBalance.updatedAt, scheduledBalance: scheduledBalance);
   }
 }

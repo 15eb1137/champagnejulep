@@ -111,8 +111,7 @@ class _$_ChangesInBalance extends _ChangesInBalance {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_children));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_children));
 
   @JsonKey(ignore: true)
   @override
@@ -122,8 +121,7 @@ class _$_ChangesInBalance extends _ChangesInBalance {
 }
 
 abstract class _ChangesInBalance extends ChangesInBalance {
-  const factory _ChangesInBalance(final List<ChangeInBalance> children) =
-      _$_ChangesInBalance;
+  const factory _ChangesInBalance(final List<ChangeInBalance> children) = _$_ChangesInBalance;
   const _ChangesInBalance._() : super._();
 
   @override

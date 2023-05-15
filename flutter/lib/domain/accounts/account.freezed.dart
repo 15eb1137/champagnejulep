@@ -30,12 +30,7 @@ mixin _$Account {
 abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) = _$AccountCopyWithImpl<$Res, Account>;
   @useResult
-  $Res call(
-      {AccountId id,
-      AccountName name,
-      AccountBalance balance,
-      Transactions transactions,
-      UserId ownerId});
+  $Res call({AccountId id, AccountName name, AccountBalance balance, Transactions transactions, UserId ownerId});
 
   $AccountIdCopyWith<$Res> get id;
   $AccountNameCopyWith<$Res> get name;
@@ -132,12 +127,7 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   factory _$$_AccountCopyWith(_$_Account value, $Res Function(_$_Account) then) = __$$_AccountCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {AccountId id,
-      AccountName name,
-      AccountBalance balance,
-      Transactions transactions,
-      UserId ownerId});
+  $Res call({AccountId id, AccountName name, AccountBalance balance, Transactions transactions, UserId ownerId});
 
   @override
   $AccountIdCopyWith<$Res> get id;
@@ -194,11 +184,7 @@ class __$$_AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res, _$_Acco
 
 class _$_Account extends _Account {
   const _$_Account(
-      {required this.id,
-      required this.name,
-      required this.balance,
-      required this.transactions,
-      required this.ownerId})
+      {required this.id, required this.name, required this.balance, required this.transactions, required this.ownerId})
       : super._();
 
   @override
@@ -225,14 +211,12 @@ class _$_Account extends _Account {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.balance, balance) || other.balance == balance) &&
-            (identical(other.transactions, transactions) ||
-                other.transactions == transactions) &&
+            (identical(other.transactions, transactions) || other.transactions == transactions) &&
             (identical(other.ownerId, ownerId) || other.ownerId == ownerId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, balance, transactions, ownerId);
+  int get hashCode => Object.hash(runtimeType, id, name, balance, transactions, ownerId);
 
   @JsonKey(ignore: true)
   @override

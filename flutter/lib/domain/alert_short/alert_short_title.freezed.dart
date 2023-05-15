@@ -19,22 +19,19 @@ mixin _$AlertShortTitle {
   String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AlertShortTitleCopyWith<AlertShortTitle> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AlertShortTitleCopyWith<AlertShortTitle> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AlertShortTitleCopyWith<$Res> {
-  factory $AlertShortTitleCopyWith(
-          AlertShortTitle value, $Res Function(AlertShortTitle) then) =
+  factory $AlertShortTitleCopyWith(AlertShortTitle value, $Res Function(AlertShortTitle) then) =
       _$AlertShortTitleCopyWithImpl<$Res, AlertShortTitle>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$AlertShortTitleCopyWithImpl<$Res, $Val extends AlertShortTitle>
-    implements $AlertShortTitleCopyWith<$Res> {
+class _$AlertShortTitleCopyWithImpl<$Res, $Val extends AlertShortTitle> implements $AlertShortTitleCopyWith<$Res> {
   _$AlertShortTitleCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -57,10 +54,8 @@ class _$AlertShortTitleCopyWithImpl<$Res, $Val extends AlertShortTitle>
 }
 
 /// @nodoc
-abstract class _$$_AlertShortTitleCopyWith<$Res>
-    implements $AlertShortTitleCopyWith<$Res> {
-  factory _$$_AlertShortTitleCopyWith(
-          _$_AlertShortTitle value, $Res Function(_$_AlertShortTitle) then) =
+abstract class _$$_AlertShortTitleCopyWith<$Res> implements $AlertShortTitleCopyWith<$Res> {
+  factory _$$_AlertShortTitleCopyWith(_$_AlertShortTitle value, $Res Function(_$_AlertShortTitle) then) =
       __$$_AlertShortTitleCopyWithImpl<$Res>;
   @override
   @useResult
@@ -68,11 +63,9 @@ abstract class _$$_AlertShortTitleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AlertShortTitleCopyWithImpl<$Res>
-    extends _$AlertShortTitleCopyWithImpl<$Res, _$_AlertShortTitle>
+class __$$_AlertShortTitleCopyWithImpl<$Res> extends _$AlertShortTitleCopyWithImpl<$Res, _$_AlertShortTitle>
     implements _$$_AlertShortTitleCopyWith<$Res> {
-  __$$_AlertShortTitleCopyWithImpl(
-      _$_AlertShortTitle _value, $Res Function(_$_AlertShortTitle) _then)
+  __$$_AlertShortTitleCopyWithImpl(_$_AlertShortTitle _value, $Res Function(_$_AlertShortTitle) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,6 +120,5 @@ abstract class _AlertShortTitle implements AlertShortTitle {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_AlertShortTitleCopyWith<_$_AlertShortTitle> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AlertShortTitleCopyWith<_$_AlertShortTitle> get copyWith => throw _privateConstructorUsedError;
 }

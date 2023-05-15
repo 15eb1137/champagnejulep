@@ -3,8 +3,8 @@ import '../infrastructure/domain_repository_isar.dart';
 import '../infrastructure/domain_share_plus.dart';
 import 'accounts/account.dart';
 import 'accounts/accounts.dart';
-import 'transactions_scheduled/transaction_scheduled.dart';
-import 'transactions_scheduled/transactions_scheduled.dart';
+import 'transactions/transaction.dart';
+import 'transactions/transactions.dart';
 import 'user/user.dart';
 
 class DomainService {
@@ -17,15 +17,14 @@ class DomainService {
       transactions: account.transactions,
       ownerId: account.ownerId.value);
   static Accounts getAccounts() => DomainRepositoryIsar().getAccounts();
-  static void saveTransactionScheduled(TransactionScheduled transactionScheduled) =>
-      DomainRepositoryIsar().saveTransactionScheduled(
-          accountId: transactionScheduled.accountId.value,
-          title: transactionScheduled.title,
-          calcAuto: transactionScheduled.calcAuto,
-          transactionAt: transactionScheduled.transactionAt,
-          value: transactionScheduled.value);
-  static TransactionsScheduled getTransactionsScheduled() => DomainRepositoryIsar().getTransactionsScheduled();
-  static void shareAlertShort(String titleShort) => DomainSharePlus().shareAlertShort(titleShort);
-  static void pushNotificationAlertShort(String titleShort) =>
-      DomainNotificationFCM().pushNotificationAlertShort(titleShort);
+  static void saveTransaction(Transaction transaction) => DomainRepositoryIsar().saveTransaction(
+      accountId: transaction.accountId.value,
+      title: transaction.titleValue,
+      calcAuto: transaction.calcAuto,
+      transactionAt: transaction.transactionAtValue,
+      amonunt: transaction.amount);
+  static Transactions getTransactions() => DomainRepositoryIsar().getTransactions();
+  static void shareAlertShort(String message) => DomainSharePlus().shareAlertShort(message);
+  static void pushNotificationAlertShort(String title, String message) =>
+      DomainNotificationFCM().pushNotificationAlertShort(title, message);
 }

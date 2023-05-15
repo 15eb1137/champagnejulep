@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'alerts_short.dart';
+part of 'transactions.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,27 +15,27 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$AlertsShort {
-  List<AlertShort> get children => throw _privateConstructorUsedError;
+mixin _$Transactions {
+  List<Transaction> get children => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AlertsShortCopyWith<AlertsShort> get copyWith =>
+  $TransactionsCopyWith<Transactions> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AlertsShortCopyWith<$Res> {
-  factory $AlertsShortCopyWith(
-          AlertsShort value, $Res Function(AlertsShort) then) =
-      _$AlertsShortCopyWithImpl<$Res, AlertsShort>;
+abstract class $TransactionsCopyWith<$Res> {
+  factory $TransactionsCopyWith(
+          Transactions value, $Res Function(Transactions) then) =
+      _$TransactionsCopyWithImpl<$Res, Transactions>;
   @useResult
-  $Res call({List<AlertShort> children});
+  $Res call({List<Transaction> children});
 }
 
 /// @nodoc
-class _$AlertsShortCopyWithImpl<$Res, $Val extends AlertsShort>
-    implements $AlertsShortCopyWith<$Res> {
-  _$AlertsShortCopyWithImpl(this._value, this._then);
+class _$TransactionsCopyWithImpl<$Res, $Val extends Transactions>
+    implements $TransactionsCopyWith<$Res> {
+  _$TransactionsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -51,28 +51,28 @@ class _$AlertsShortCopyWithImpl<$Res, $Val extends AlertsShort>
       children: null == children
           ? _value.children
           : children // ignore: cast_nullable_to_non_nullable
-              as List<AlertShort>,
+              as List<Transaction>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_AlertsShortCopyWith<$Res>
-    implements $AlertsShortCopyWith<$Res> {
-  factory _$$_AlertsShortCopyWith(
-          _$_AlertsShort value, $Res Function(_$_AlertsShort) then) =
-      __$$_AlertsShortCopyWithImpl<$Res>;
+abstract class _$$_TransactionsCopyWith<$Res>
+    implements $TransactionsCopyWith<$Res> {
+  factory _$$_TransactionsCopyWith(
+          _$_Transactions value, $Res Function(_$_Transactions) then) =
+      __$$_TransactionsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<AlertShort> children});
+  $Res call({List<Transaction> children});
 }
 
 /// @nodoc
-class __$$_AlertsShortCopyWithImpl<$Res>
-    extends _$AlertsShortCopyWithImpl<$Res, _$_AlertsShort>
-    implements _$$_AlertsShortCopyWith<$Res> {
-  __$$_AlertsShortCopyWithImpl(
-      _$_AlertsShort _value, $Res Function(_$_AlertsShort) _then)
+class __$$_TransactionsCopyWithImpl<$Res>
+    extends _$TransactionsCopyWithImpl<$Res, _$_Transactions>
+    implements _$$_TransactionsCopyWith<$Res> {
+  __$$_TransactionsCopyWithImpl(
+      _$_Transactions _value, $Res Function(_$_Transactions) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,23 +80,23 @@ class __$$_AlertsShortCopyWithImpl<$Res>
   $Res call({
     Object? children = null,
   }) {
-    return _then(_$_AlertsShort(
+    return _then(_$_Transactions(
       null == children
           ? _value._children
           : children // ignore: cast_nullable_to_non_nullable
-              as List<AlertShort>,
+              as List<Transaction>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_AlertsShort implements _AlertsShort {
-  const _$_AlertsShort(final List<AlertShort> children) : _children = children;
+class _$_Transactions implements _Transactions {
+  _$_Transactions(final List<Transaction> children) : _children = children;
 
-  final List<AlertShort> _children;
+  final List<Transaction> _children;
   @override
-  List<AlertShort> get children {
+  List<Transaction> get children {
     if (_children is EqualUnmodifiableListView) return _children;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_children);
@@ -104,14 +104,14 @@ class _$_AlertsShort implements _AlertsShort {
 
   @override
   String toString() {
-    return 'AlertsShort(children: $children)';
+    return 'Transactions(children: $children)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AlertsShort &&
+            other is _$_Transactions &&
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
@@ -122,17 +122,17 @@ class _$_AlertsShort implements _AlertsShort {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AlertsShortCopyWith<_$_AlertsShort> get copyWith =>
-      __$$_AlertsShortCopyWithImpl<_$_AlertsShort>(this, _$identity);
+  _$$_TransactionsCopyWith<_$_Transactions> get copyWith =>
+      __$$_TransactionsCopyWithImpl<_$_Transactions>(this, _$identity);
 }
 
-abstract class _AlertsShort implements AlertsShort {
-  const factory _AlertsShort(final List<AlertShort> children) = _$_AlertsShort;
+abstract class _Transactions implements Transactions {
+  factory _Transactions(final List<Transaction> children) = _$_Transactions;
 
   @override
-  List<AlertShort> get children;
+  List<Transaction> get children;
   @override
   @JsonKey(ignore: true)
-  _$$_AlertsShortCopyWith<_$_AlertsShort> get copyWith =>
+  _$$_TransactionsCopyWith<_$_Transactions> get copyWith =>
       throw _privateConstructorUsedError;
 }

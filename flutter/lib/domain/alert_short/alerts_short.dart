@@ -8,7 +8,7 @@ part 'alerts_short.freezed.dart';
 
 @freezed
 class AlertsShort with _$AlertsShort {
-  const factory AlertsShort(List<AlertShort> alertsShort) = _AlertsShort;
+  const factory AlertsShort(List<AlertShort> children) = _AlertsShort;
   factory AlertsShort.issue(AccountId accountId, ChangesInBalance changesInBalance, int threshold) => AlertsShort(changesInBalance.where((changeInBalance) => changeInBalance.scheduledBalance.value < threshold)
       .map((changeInBalance) => AlertShort.create(accountId, changeInBalance, threshold))
       .toList());

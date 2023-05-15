@@ -1,6 +1,5 @@
-import 'accounts/account_transactions.dart';
 import 'accounts/accounts.dart';
-import 'transactions_scheduled/transactions_scheduled.dart';
+import 'transactions/transactions.dart';
 import 'user/user.dart';
 import 'user/user_premium.dart';
 
@@ -11,14 +10,14 @@ abstract class DomainRepository {
       {required String id,
       required String name,
       required int balance,
-      required List<AccountTransactions> transactions,
+      required Transactions transactions,
       required String ownerId});
   Accounts getAccounts();
-  void saveTransactionScheduled(
+  void saveTransaction(
       {required String accountId,
       required String title,
       required bool calcAuto,
       required DateTime transactionAt,
-      required int value});
-  TransactionsScheduled getTransactionsScheduled();
+      required int amonunt});
+  Transactions getTransactions();
 }

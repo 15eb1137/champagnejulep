@@ -1,7 +1,6 @@
-import '../domain/accounts/account_transactions.dart';
 import '../domain/accounts/accounts.dart';
 import '../domain/domain_repository.dart';
-import '../domain/transactions_scheduled/transactions_scheduled.dart';
+import '../domain/transactions/transactions.dart';
 import '../domain/user/user.dart';
 import '../domain/user/user_premium.dart';
 
@@ -18,19 +17,19 @@ class DomainRepositoryIsar extends DomainRepository {
   }
 
   @override
-  void saveTransactionScheduled(
+  void saveTransaction(
       {required String accountId,
       required String title,
       required bool calcAuto,
       required DateTime transactionAt,
-      required int value}) {
-    // TODO: implement saveTransactionScheduled
+      required int amonunt}) {
+    // TODO: implement saveTransaction
   }
 
   @override
-  TransactionsScheduled getTransactionsScheduled() {
-    // TODO: implement getTransactionsScheduled
-    return TransactionsScheduled([]);
+  Transactions getTransactions() {
+    // TODO: implement getTransactions
+    return Transactions([]);
   }
 
   @override
@@ -44,7 +43,7 @@ class DomainRepositoryIsar extends DomainRepository {
       {required String id,
       required String name,
       required int balance,
-      required List<AccountTransactions> transactions,
+      required Transactions transactions,
       required String ownerId}) {
     // TODO: implement saveAccount
   }

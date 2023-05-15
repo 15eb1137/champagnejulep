@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'account_transactions_id.dart';
+part of 'transaction_scheduled_id.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,28 +15,27 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$AccountTransactionsId {
+mixin _$TransactionId {
   String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AccountTransactionsIdCopyWith<AccountTransactionsId> get copyWith =>
+  $TransactionIdCopyWith<TransactionId> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AccountTransactionsIdCopyWith<$Res> {
-  factory $AccountTransactionsIdCopyWith(AccountTransactionsId value,
-          $Res Function(AccountTransactionsId) then) =
-      _$AccountTransactionsIdCopyWithImpl<$Res, AccountTransactionsId>;
+abstract class $TransactionIdCopyWith<$Res> {
+  factory $TransactionIdCopyWith(
+          TransactionId value, $Res Function(TransactionId) then) =
+      _$TransactionIdCopyWithImpl<$Res, TransactionId>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$AccountTransactionsIdCopyWithImpl<$Res,
-        $Val extends AccountTransactionsId>
-    implements $AccountTransactionsIdCopyWith<$Res> {
-  _$AccountTransactionsIdCopyWithImpl(this._value, this._then);
+class _$TransactionIdCopyWithImpl<$Res, $Val extends TransactionId>
+    implements $TransactionIdCopyWith<$Res> {
+  _$TransactionIdCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,24 +57,22 @@ class _$AccountTransactionsIdCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_AccountBalanceActivityIdCopyWith<$Res>
-    implements $AccountTransactionsIdCopyWith<$Res> {
-  factory _$$_AccountBalanceActivityIdCopyWith(
-          _$_AccountBalanceActivityId value,
-          $Res Function(_$_AccountBalanceActivityId) then) =
-      __$$_AccountBalanceActivityIdCopyWithImpl<$Res>;
+abstract class _$$_TransactionIdCopyWith<$Res>
+    implements $TransactionIdCopyWith<$Res> {
+  factory _$$_TransactionIdCopyWith(
+          _$_TransactionId value, $Res Function(_$_TransactionId) then) =
+      __$$_TransactionIdCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_AccountBalanceActivityIdCopyWithImpl<$Res>
-    extends _$AccountTransactionsIdCopyWithImpl<$Res,
-        _$_AccountBalanceActivityId>
-    implements _$$_AccountBalanceActivityIdCopyWith<$Res> {
-  __$$_AccountBalanceActivityIdCopyWithImpl(_$_AccountBalanceActivityId _value,
-      $Res Function(_$_AccountBalanceActivityId) _then)
+class __$$_TransactionIdCopyWithImpl<$Res>
+    extends _$TransactionIdCopyWithImpl<$Res, _$_TransactionId>
+    implements _$$_TransactionIdCopyWith<$Res> {
+  __$$_TransactionIdCopyWithImpl(
+      _$_TransactionId _value, $Res Function(_$_TransactionId) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -83,7 +80,7 @@ class __$$_AccountBalanceActivityIdCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_AccountBalanceActivityId(
+    return _then(_$_TransactionId(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -94,8 +91,8 @@ class __$$_AccountBalanceActivityIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AccountBalanceActivityId implements _AccountBalanceActivityId {
-  const _$_AccountBalanceActivityId(this.value)
+class _$_TransactionId implements _TransactionId {
+  const _$_TransactionId(this.value)
       : assert(value.isNotEmpty),
         assert(Uuid.isValidUUID(fromString: value));
 
@@ -104,14 +101,14 @@ class _$_AccountBalanceActivityId implements _AccountBalanceActivityId {
 
   @override
   String toString() {
-    return 'AccountTransactionsId(value: $value)';
+    return 'TransactionId(value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AccountBalanceActivityId &&
+            other is _$_TransactionId &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -121,19 +118,17 @@ class _$_AccountBalanceActivityId implements _AccountBalanceActivityId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountBalanceActivityIdCopyWith<_$_AccountBalanceActivityId>
-      get copyWith => __$$_AccountBalanceActivityIdCopyWithImpl<
-          _$_AccountBalanceActivityId>(this, _$identity);
+  _$$_TransactionIdCopyWith<_$_TransactionId> get copyWith =>
+      __$$_TransactionIdCopyWithImpl<_$_TransactionId>(this, _$identity);
 }
 
-abstract class _AccountBalanceActivityId implements AccountTransactionsId {
-  const factory _AccountBalanceActivityId(final String value) =
-      _$_AccountBalanceActivityId;
+abstract class _TransactionId implements TransactionId {
+  const factory _TransactionId(final String value) = _$_TransactionId;
 
   @override
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountBalanceActivityIdCopyWith<_$_AccountBalanceActivityId>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_TransactionIdCopyWith<_$_TransactionId> get copyWith =>
+      throw _privateConstructorUsedError;
 }

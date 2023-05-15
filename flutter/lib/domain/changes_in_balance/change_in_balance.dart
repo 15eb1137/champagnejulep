@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../accounts/account_balance.dart';
-import '../transactions_scheduled/transactions_scheduled.dart';
+import '../transactions/transactions.dart';
 
 part 'change_in_balance.freezed.dart';
 
@@ -14,9 +14,9 @@ class ChangeInBalance with _$ChangeInBalance {
     required AccountBalance scheduledBalance,
   }) = _ChangeInBalance;
 
-  factory ChangeInBalance.calc(AccountBalance accountBalance, TransactionsScheduled transactionsScheduled) {
-    final scheduledBalance = accountBalance.updateValueAtNow(transactionsScheduled.transactionScheduled
-        .fold(accountBalance.value, (previousValue, element) => previousValue + element.value));
+  factory ChangeInBalance.calc(AccountBalance accountBalance, Transactions transactions) {
+    final scheduledBalance = accountBalance.updateValueAtNow(transactions.children.fold(
+        accountBalance.value, (previousValue, element) => previousValue + element.amount));
     return ChangeInBalance(date: scheduledBalance.updatedAt, scheduledBalance: scheduledBalance);
   }
 }

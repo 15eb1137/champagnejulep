@@ -1,7 +1,6 @@
-import 'package:champagnejulep/domain/accounts/account_transactions.dart';
 import 'package:champagnejulep/domain/accounts/accounts.dart';
 import 'package:champagnejulep/domain/domain_repository.dart';
-import 'package:champagnejulep/domain/transactions_scheduled/transactions_scheduled.dart';
+import 'package:champagnejulep/domain/transactions/transactions.dart';
 import 'package:champagnejulep/domain/user/user.dart';
 import 'package:champagnejulep/domain/user/user_premium.dart';
 
@@ -13,15 +12,15 @@ class DomainRepositoryTest extends DomainRepository {
   User getUser() => User.create();
 
   @override
-  void saveTransactionScheduled(
+  void saveTransaction(
       {required String accountId,
       required String title,
       required bool calcAuto,
       required DateTime transactionAt,
-      required int value}) {}
+      required int amonunt}) {}
 
   @override
-  TransactionsScheduled getTransactionsScheduled() => TransactionsScheduled([]);
+  Transactions getTransactions() => Transactions([]);
 
   @override
   Accounts getAccounts() {
@@ -34,7 +33,7 @@ class DomainRepositoryTest extends DomainRepository {
       {required String id,
       required String name,
       required int balance,
-      required List<AccountTransactions> transactions,
+      required Transactions transactions,
       required String ownerId}) {
     // TODO: implement saveAccount
   }

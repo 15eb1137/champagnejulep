@@ -7,6 +7,6 @@ part 'accounts.freezed.dart';
 
 @freezed
 class Accounts with _$Accounts {
-  const factory Accounts(List<Account> accounts) = _Accounts;
+  const factory Accounts(List<Account> children) = _Accounts;
   factory Accounts.restore() => DomainService.getAccounts();
 }

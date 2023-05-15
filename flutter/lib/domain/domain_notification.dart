@@ -1,3 +1,3 @@
 abstract class DomainNotification {
-  void pushNotificationAlertShort(String body);
+  void pushNotificationAlertShort(String title, String body);
 }

@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AlertShort {
   AccountId get accountId => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get titleShort => throw _privateConstructorUsedError;
+  AlertShortTitle get title => throw _privateConstructorUsedError;
+  AlertShortMessage get message => throw _privateConstructorUsedError;
   int get threshold => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -33,9 +33,14 @@ abstract class $AlertShortCopyWith<$Res> {
       _$AlertShortCopyWithImpl<$Res, AlertShort>;
   @useResult
   $Res call(
-      {AccountId accountId, String title, String titleShort, int threshold});
+      {AccountId accountId,
+      AlertShortTitle title,
+      AlertShortMessage message,
+      int threshold});
 
   $AccountIdCopyWith<$Res> get accountId;
+  $AlertShortTitleCopyWith<$Res> get title;
+  $AlertShortMessageCopyWith<$Res> get message;
 }
 
 /// @nodoc
@@ -53,7 +58,7 @@ class _$AlertShortCopyWithImpl<$Res, $Val extends AlertShort>
   $Res call({
     Object? accountId = null,
     Object? title = null,
-    Object? titleShort = null,
+    Object? message = null,
     Object? threshold = null,
   }) {
     return _then(_value.copyWith(
@@ -64,11 +69,11 @@ class _$AlertShortCopyWithImpl<$Res, $Val extends AlertShort>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      titleShort: null == titleShort
-          ? _value.titleShort
-          : titleShort // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AlertShortTitle,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as AlertShortMessage,
       threshold: null == threshold
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
@@ -83,6 +88,22 @@ class _$AlertShortCopyWithImpl<$Res, $Val extends AlertShort>
       return _then(_value.copyWith(accountId: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AlertShortTitleCopyWith<$Res> get title {
+    return $AlertShortTitleCopyWith<$Res>(_value.title, (value) {
+      return _then(_value.copyWith(title: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AlertShortMessageCopyWith<$Res> get message {
+    return $AlertShortMessageCopyWith<$Res>(_value.message, (value) {
+      return _then(_value.copyWith(message: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -94,10 +115,17 @@ abstract class _$$_AlertShortCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {AccountId accountId, String title, String titleShort, int threshold});
+      {AccountId accountId,
+      AlertShortTitle title,
+      AlertShortMessage message,
+      int threshold});
 
   @override
   $AccountIdCopyWith<$Res> get accountId;
+  @override
+  $AlertShortTitleCopyWith<$Res> get title;
+  @override
+  $AlertShortMessageCopyWith<$Res> get message;
 }
 
 /// @nodoc
@@ -113,7 +141,7 @@ class __$$_AlertShortCopyWithImpl<$Res>
   $Res call({
     Object? accountId = null,
     Object? title = null,
-    Object? titleShort = null,
+    Object? message = null,
     Object? threshold = null,
   }) {
     return _then(_$_AlertShort(
@@ -124,11 +152,11 @@ class __$$_AlertShortCopyWithImpl<$Res>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      titleShort: null == titleShort
-          ? _value.titleShort
-          : titleShort // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AlertShortTitle,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as AlertShortMessage,
       threshold: null == threshold
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
@@ -143,21 +171,21 @@ class _$_AlertShort implements _AlertShort {
   const _$_AlertShort(
       {required this.accountId,
       required this.title,
-      required this.titleShort,
+      required this.message,
       required this.threshold});
 
   @override
   final AccountId accountId;
   @override
-  final String title;
+  final AlertShortTitle title;
   @override
-  final String titleShort;
+  final AlertShortMessage message;
   @override
   final int threshold;
 
   @override
   String toString() {
-    return 'AlertShort(accountId: $accountId, title: $title, titleShort: $titleShort, threshold: $threshold)';
+    return 'AlertShort(accountId: $accountId, title: $title, message: $message, threshold: $threshold)';
   }
 
   @override
@@ -168,15 +196,14 @@ class _$_AlertShort implements _AlertShort {
             (identical(other.accountId, accountId) ||
                 other.accountId == accountId) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.titleShort, titleShort) ||
-                other.titleShort == titleShort) &&
+            (identical(other.message, message) || other.message == message) &&
             (identical(other.threshold, threshold) ||
                 other.threshold == threshold));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, accountId, title, titleShort, threshold);
+      Object.hash(runtimeType, accountId, title, message, threshold);
 
   @JsonKey(ignore: true)
   @override
@@ -188,16 +215,16 @@ class _$_AlertShort implements _AlertShort {
 abstract class _AlertShort implements AlertShort {
   const factory _AlertShort(
       {required final AccountId accountId,
-      required final String title,
-      required final String titleShort,
+      required final AlertShortTitle title,
+      required final AlertShortMessage message,
       required final int threshold}) = _$_AlertShort;
 
   @override
   AccountId get accountId;
   @override
-  String get title;
+  AlertShortTitle get title;
   @override
-  String get titleShort;
+  AlertShortMessage get message;
   @override
   int get threshold;
   @override

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Accounts {
-  List<Account> get accounts => throw _privateConstructorUsedError;
+  List<Account> get children => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AccountsCopyWith<Accounts> get copyWith =>
@@ -28,7 +28,7 @@ abstract class $AccountsCopyWith<$Res> {
   factory $AccountsCopyWith(Accounts value, $Res Function(Accounts) then) =
       _$AccountsCopyWithImpl<$Res, Accounts>;
   @useResult
-  $Res call({List<Account> accounts});
+  $Res call({List<Account> children});
 }
 
 /// @nodoc
@@ -44,12 +44,12 @@ class _$AccountsCopyWithImpl<$Res, $Val extends Accounts>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? accounts = null,
+    Object? children = null,
   }) {
     return _then(_value.copyWith(
-      accounts: null == accounts
-          ? _value.accounts
-          : accounts // ignore: cast_nullable_to_non_nullable
+      children: null == children
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
               as List<Account>,
     ) as $Val);
   }
@@ -62,7 +62,7 @@ abstract class _$$_AccountsCopyWith<$Res> implements $AccountsCopyWith<$Res> {
       __$$_AccountsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Account> accounts});
+  $Res call({List<Account> children});
 }
 
 /// @nodoc
@@ -76,12 +76,12 @@ class __$$_AccountsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? accounts = null,
+    Object? children = null,
   }) {
     return _then(_$_Accounts(
-      null == accounts
-          ? _value._accounts
-          : accounts // ignore: cast_nullable_to_non_nullable
+      null == children
+          ? _value._children
+          : children // ignore: cast_nullable_to_non_nullable
               as List<Account>,
     ));
   }
@@ -90,19 +90,19 @@ class __$$_AccountsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Accounts implements _Accounts {
-  const _$_Accounts(final List<Account> accounts) : _accounts = accounts;
+  const _$_Accounts(final List<Account> children) : _children = children;
 
-  final List<Account> _accounts;
+  final List<Account> _children;
   @override
-  List<Account> get accounts {
-    if (_accounts is EqualUnmodifiableListView) return _accounts;
+  List<Account> get children {
+    if (_children is EqualUnmodifiableListView) return _children;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_accounts);
+    return EqualUnmodifiableListView(_children);
   }
 
   @override
   String toString() {
-    return 'Accounts(accounts: $accounts)';
+    return 'Accounts(children: $children)';
   }
 
   @override
@@ -110,12 +110,12 @@ class _$_Accounts implements _Accounts {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Accounts &&
-            const DeepCollectionEquality().equals(other._accounts, _accounts));
+            const DeepCollectionEquality().equals(other._children, _children));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_accounts));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_children));
 
   @JsonKey(ignore: true)
   @override
@@ -125,10 +125,10 @@ class _$_Accounts implements _Accounts {
 }
 
 abstract class _Accounts implements Accounts {
-  const factory _Accounts(final List<Account> accounts) = _$_Accounts;
+  const factory _Accounts(final List<Account> children) = _$_Accounts;
 
   @override
-  List<Account> get accounts;
+  List<Account> get children;
   @override
   @JsonKey(ignore: true)
   _$$_AccountsCopyWith<_$_Accounts> get copyWith =>

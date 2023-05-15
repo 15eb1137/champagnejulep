@@ -19,8 +19,7 @@ mixin _$Account {
   AccountId get id => throw _privateConstructorUsedError;
   AccountName get name => throw _privateConstructorUsedError;
   AccountBalance get balance => throw _privateConstructorUsedError;
-  List<AccountTransactions> get transactions =>
-      throw _privateConstructorUsedError;
+  Transactions get transactions => throw _privateConstructorUsedError;
   UserId get ownerId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -36,12 +35,13 @@ abstract class $AccountCopyWith<$Res> {
       {AccountId id,
       AccountName name,
       AccountBalance balance,
-      List<AccountTransactions> transactions,
+      Transactions transactions,
       UserId ownerId});
 
   $AccountIdCopyWith<$Res> get id;
   $AccountNameCopyWith<$Res> get name;
   $AccountBalanceCopyWith<$Res> get balance;
+  $TransactionsCopyWith<$Res> get transactions;
   $UserIdCopyWith<$Res> get ownerId;
 }
 
@@ -80,7 +80,7 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
       transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
-              as List<AccountTransactions>,
+              as Transactions,
       ownerId: null == ownerId
           ? _value.ownerId
           : ownerId // ignore: cast_nullable_to_non_nullable
@@ -114,6 +114,14 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
 
   @override
   @pragma('vm:prefer-inline')
+  $TransactionsCopyWith<$Res> get transactions {
+    return $TransactionsCopyWith<$Res>(_value.transactions, (value) {
+      return _then(_value.copyWith(transactions: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $UserIdCopyWith<$Res> get ownerId {
     return $UserIdCopyWith<$Res>(_value.ownerId, (value) {
       return _then(_value.copyWith(ownerId: value) as $Val);
@@ -132,7 +140,7 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
       {AccountId id,
       AccountName name,
       AccountBalance balance,
-      List<AccountTransactions> transactions,
+      Transactions transactions,
       UserId ownerId});
 
   @override
@@ -141,6 +149,8 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   $AccountNameCopyWith<$Res> get name;
   @override
   $AccountBalanceCopyWith<$Res> get balance;
+  @override
+  $TransactionsCopyWith<$Res> get transactions;
   @override
   $UserIdCopyWith<$Res> get ownerId;
 }
@@ -175,9 +185,9 @@ class __$$_AccountCopyWithImpl<$Res>
           : balance // ignore: cast_nullable_to_non_nullable
               as AccountBalance,
       transactions: null == transactions
-          ? _value._transactions
+          ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
-              as List<AccountTransactions>,
+              as Transactions,
       ownerId: null == ownerId
           ? _value.ownerId
           : ownerId // ignore: cast_nullable_to_non_nullable
@@ -193,10 +203,9 @@ class _$_Account extends _Account {
       {required this.id,
       required this.name,
       required this.balance,
-      required final List<AccountTransactions> transactions,
+      required this.transactions,
       required this.ownerId})
-      : _transactions = transactions,
-        super._();
+      : super._();
 
   @override
   final AccountId id;
@@ -204,14 +213,8 @@ class _$_Account extends _Account {
   final AccountName name;
   @override
   final AccountBalance balance;
-  final List<AccountTransactions> _transactions;
   @override
-  List<AccountTransactions> get transactions {
-    if (_transactions is EqualUnmodifiableListView) return _transactions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_transactions);
-  }
-
+  final Transactions transactions;
   @override
   final UserId ownerId;
 
@@ -228,14 +231,14 @@ class _$_Account extends _Account {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.balance, balance) || other.balance == balance) &&
-            const DeepCollectionEquality()
-                .equals(other._transactions, _transactions) &&
+            (identical(other.transactions, transactions) ||
+                other.transactions == transactions) &&
             (identical(other.ownerId, ownerId) || other.ownerId == ownerId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, balance,
-      const DeepCollectionEquality().hash(_transactions), ownerId);
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, balance, transactions, ownerId);
 
   @JsonKey(ignore: true)
   @override
@@ -249,7 +252,7 @@ abstract class _Account extends Account {
       {required final AccountId id,
       required final AccountName name,
       required final AccountBalance balance,
-      required final List<AccountTransactions> transactions,
+      required final Transactions transactions,
       required final UserId ownerId}) = _$_Account;
   const _Account._() : super._();
 
@@ -260,7 +263,7 @@ abstract class _Account extends Account {
   @override
   AccountBalance get balance;
   @override
-  List<AccountTransactions> get transactions;
+  Transactions get transactions;
   @override
   UserId get ownerId;
   @override

@@ -8,6 +8,6 @@ part 'alert_short_message.freezed.dart';
 class AlertShortMessage with _$AlertShortMessage {
   @Assert('value.length < 120')
   const factory AlertShortMessage(String value) = _AlertShortMessage;
-  factory AlertShortMessage.create(MapEntry<DateTime, AccountBalance> changeInBalance, int threshold) => AlertShortMessage(
-      '${DateFormat.yMMMMd().format(changeInBalance.key)}に$threshold円を下回る予定です。');
+  factory AlertShortMessage.create(MapEntry<DateTime, AccountBalance> changeInBalance, int threshold) =>
+      AlertShortMessage('${DateFormat.yMMMMd().format(changeInBalance.key)}に$threshold円を下回る予定です。');
 }

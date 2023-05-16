@@ -15,11 +15,12 @@ class AlertShort with _$AlertShort {
       required AlertShortTitle title,
       required AlertShortMessage message,
       required int threshold}) = _AlertShort;
-  factory AlertShort.create(AccountId accountId, MapEntry<DateTime, AccountBalance> changeInBalance, int threshold) => AlertShort(
-      accountId: accountId,
-      title: AlertShortTitle.create(threshold),
-      message: AlertShortMessage.create(changeInBalance, threshold),
-      threshold: threshold);
+  factory AlertShort.create(AccountId accountId, MapEntry<DateTime, AccountBalance> changeInBalance, int threshold) =>
+      AlertShort(
+          accountId: accountId,
+          title: AlertShortTitle.create(threshold),
+          message: AlertShortMessage.create(changeInBalance, threshold),
+          threshold: threshold);
 
   void share() => DomainService.shareAlertShort(message.value);
   void pushNotification() => DomainService.pushNotificationAlertShort(title.value, message.value);

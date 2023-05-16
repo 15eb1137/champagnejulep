@@ -19,22 +19,19 @@ mixin _$TransactionId {
   String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TransactionIdCopyWith<TransactionId> get copyWith =>
-      throw _privateConstructorUsedError;
+  $TransactionIdCopyWith<TransactionId> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TransactionIdCopyWith<$Res> {
-  factory $TransactionIdCopyWith(
-          TransactionId value, $Res Function(TransactionId) then) =
+  factory $TransactionIdCopyWith(TransactionId value, $Res Function(TransactionId) then) =
       _$TransactionIdCopyWithImpl<$Res, TransactionId>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$TransactionIdCopyWithImpl<$Res, $Val extends TransactionId>
-    implements $TransactionIdCopyWith<$Res> {
+class _$TransactionIdCopyWithImpl<$Res, $Val extends TransactionId> implements $TransactionIdCopyWith<$Res> {
   _$TransactionIdCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -57,10 +54,8 @@ class _$TransactionIdCopyWithImpl<$Res, $Val extends TransactionId>
 }
 
 /// @nodoc
-abstract class _$$_TransactionIdCopyWith<$Res>
-    implements $TransactionIdCopyWith<$Res> {
-  factory _$$_TransactionIdCopyWith(
-          _$_TransactionId value, $Res Function(_$_TransactionId) then) =
+abstract class _$$_TransactionIdCopyWith<$Res> implements $TransactionIdCopyWith<$Res> {
+  factory _$$_TransactionIdCopyWith(_$_TransactionId value, $Res Function(_$_TransactionId) then) =
       __$$_TransactionIdCopyWithImpl<$Res>;
   @override
   @useResult
@@ -68,12 +63,9 @@ abstract class _$$_TransactionIdCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TransactionIdCopyWithImpl<$Res>
-    extends _$TransactionIdCopyWithImpl<$Res, _$_TransactionId>
+class __$$_TransactionIdCopyWithImpl<$Res> extends _$TransactionIdCopyWithImpl<$Res, _$_TransactionId>
     implements _$$_TransactionIdCopyWith<$Res> {
-  __$$_TransactionIdCopyWithImpl(
-      _$_TransactionId _value, $Res Function(_$_TransactionId) _then)
-      : super(_value, _then);
+  __$$_TransactionIdCopyWithImpl(_$_TransactionId _value, $Res Function(_$_TransactionId) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -129,6 +121,5 @@ abstract class _TransactionId implements TransactionId {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionIdCopyWith<_$_TransactionId> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_TransactionIdCopyWith<_$_TransactionId> get copyWith => throw _privateConstructorUsedError;
 }

@@ -19,14 +19,12 @@ mixin _$AlertShortMessage {
   String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AlertShortMessageCopyWith<AlertShortMessage> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AlertShortMessageCopyWith<AlertShortMessage> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AlertShortMessageCopyWith<$Res> {
-  factory $AlertShortMessageCopyWith(
-          AlertShortMessage value, $Res Function(AlertShortMessage) then) =
+  factory $AlertShortMessageCopyWith(AlertShortMessage value, $Res Function(AlertShortMessage) then) =
       _$AlertShortMessageCopyWithImpl<$Res, AlertShortMessage>;
   @useResult
   $Res call({String value});
@@ -57,10 +55,8 @@ class _$AlertShortMessageCopyWithImpl<$Res, $Val extends AlertShortMessage>
 }
 
 /// @nodoc
-abstract class _$$_AlertShortMessageCopyWith<$Res>
-    implements $AlertShortMessageCopyWith<$Res> {
-  factory _$$_AlertShortMessageCopyWith(_$_AlertShortMessage value,
-          $Res Function(_$_AlertShortMessage) then) =
+abstract class _$$_AlertShortMessageCopyWith<$Res> implements $AlertShortMessageCopyWith<$Res> {
+  factory _$$_AlertShortMessageCopyWith(_$_AlertShortMessage value, $Res Function(_$_AlertShortMessage) then) =
       __$$_AlertShortMessageCopyWithImpl<$Res>;
   @override
   @useResult
@@ -68,11 +64,9 @@ abstract class _$$_AlertShortMessageCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AlertShortMessageCopyWithImpl<$Res>
-    extends _$AlertShortMessageCopyWithImpl<$Res, _$_AlertShortMessage>
+class __$$_AlertShortMessageCopyWithImpl<$Res> extends _$AlertShortMessageCopyWithImpl<$Res, _$_AlertShortMessage>
     implements _$$_AlertShortMessageCopyWith<$Res> {
-  __$$_AlertShortMessageCopyWithImpl(
-      _$_AlertShortMessage _value, $Res Function(_$_AlertShortMessage) _then)
+  __$$_AlertShortMessageCopyWithImpl(_$_AlertShortMessage _value, $Res Function(_$_AlertShortMessage) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,8 +111,7 @@ class _$_AlertShortMessage implements _AlertShortMessage {
   @override
   @pragma('vm:prefer-inline')
   _$$_AlertShortMessageCopyWith<_$_AlertShortMessage> get copyWith =>
-      __$$_AlertShortMessageCopyWithImpl<_$_AlertShortMessage>(
-          this, _$identity);
+      __$$_AlertShortMessageCopyWithImpl<_$_AlertShortMessage>(this, _$identity);
 }
 
 abstract class _AlertShortMessage implements AlertShortMessage {
@@ -128,6 +121,5 @@ abstract class _AlertShortMessage implements AlertShortMessage {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_AlertShortMessageCopyWith<_$_AlertShortMessage> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AlertShortMessageCopyWith<_$_AlertShortMessage> get copyWith => throw _privateConstructorUsedError;
 }

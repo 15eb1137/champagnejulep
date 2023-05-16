@@ -10,10 +10,8 @@ class Transactions with _$Transactions {
   factory Transactions(List<Transaction> children) = _Transactions;
   factory Transactions.restore() => DomainService.getTransactions();
 
-  Iterable<Transaction> map<Transaction>(
-          Transaction Function(Transaction e) toElement) =>
+  Iterable<Transaction> map<Transaction>(Transaction Function(Transaction e) toElement) =>
       children.map<Transaction>((e) => toElement(e as Transaction));
 
-  void forEach(void Function(MapEntry<int, Transaction>) action) =>
-      children.asMap().entries.forEach(action);
+  void forEach(void Function(MapEntry<int, Transaction>) action) => children.asMap().entries.forEach(action);
 }

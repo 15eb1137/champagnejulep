@@ -30,11 +30,7 @@ abstract class $AlertShortCopyWith<$Res> {
   factory $AlertShortCopyWith(AlertShort value, $Res Function(AlertShort) then) =
       _$AlertShortCopyWithImpl<$Res, AlertShort>;
   @useResult
-  $Res call(
-      {AccountId accountId,
-      AlertShortTitle title,
-      AlertShortMessage message,
-      int threshold});
+  $Res call({AccountId accountId, AlertShortTitle title, AlertShortMessage message, int threshold});
 
   $AccountIdCopyWith<$Res> get accountId;
   $AlertShortTitleCopyWith<$Res> get title;
@@ -109,11 +105,7 @@ abstract class _$$_AlertShortCopyWith<$Res> implements $AlertShortCopyWith<$Res>
       __$$_AlertShortCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {AccountId accountId,
-      AlertShortTitle title,
-      AlertShortMessage message,
-      int threshold});
+  $Res call({AccountId accountId, AlertShortTitle title, AlertShortMessage message, int threshold});
 
   @override
   $AccountIdCopyWith<$Res> get accountId;
@@ -160,11 +152,7 @@ class __$$_AlertShortCopyWithImpl<$Res> extends _$AlertShortCopyWithImpl<$Res, _
 /// @nodoc
 
 class _$_AlertShort implements _AlertShort {
-  const _$_AlertShort(
-      {required this.accountId,
-      required this.title,
-      required this.message,
-      required this.threshold});
+  const _$_AlertShort({required this.accountId, required this.title, required this.message, required this.threshold});
 
   @override
   final AccountId accountId;
@@ -188,13 +176,11 @@ class _$_AlertShort implements _AlertShort {
             (identical(other.accountId, accountId) || other.accountId == accountId) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.threshold, threshold) ||
-                other.threshold == threshold));
+            (identical(other.threshold, threshold) || other.threshold == threshold));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, accountId, title, message, threshold);
+  int get hashCode => Object.hash(runtimeType, accountId, title, message, threshold);
 
   @JsonKey(ignore: true)
   @override

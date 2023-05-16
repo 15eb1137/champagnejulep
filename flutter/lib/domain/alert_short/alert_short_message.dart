@@ -1,10 +1,9 @@
-
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 
 import '../accounts/account_balance.dart';
 part 'alert_short_message.freezed.dart';
+
 @freezed
 class AlertShortMessage with _$AlertShortMessage {
   @Assert('value.length < 120')

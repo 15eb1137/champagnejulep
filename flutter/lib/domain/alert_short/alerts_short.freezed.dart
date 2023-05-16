@@ -108,8 +108,7 @@ class _$_AlertsShort implements _AlertsShort {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_children));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_children));
 
   @JsonKey(ignore: true)
   @override

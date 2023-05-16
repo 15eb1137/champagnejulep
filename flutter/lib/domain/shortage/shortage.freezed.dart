@@ -22,20 +22,14 @@ mixin _$Shortage {
   int get threshold => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ShortageCopyWith<Shortage> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ShortageCopyWith<Shortage> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ShortageCopyWith<$Res> {
-  factory $ShortageCopyWith(Shortage value, $Res Function(Shortage) then) =
-      _$ShortageCopyWithImpl<$Res, Shortage>;
+  factory $ShortageCopyWith(Shortage value, $Res Function(Shortage) then) = _$ShortageCopyWithImpl<$Res, Shortage>;
   @useResult
-  $Res call(
-      {AccountId accountId,
-      ShortageTitle title,
-      ShortageMessage message,
-      int threshold});
+  $Res call({AccountId accountId, ShortageTitle title, ShortageMessage message, int threshold});
 
   $AccountIdCopyWith<$Res> get accountId;
   $ShortageTitleCopyWith<$Res> get title;
@@ -43,8 +37,7 @@ abstract class $ShortageCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ShortageCopyWithImpl<$Res, $Val extends Shortage>
-    implements $ShortageCopyWith<$Res> {
+class _$ShortageCopyWithImpl<$Res, $Val extends Shortage> implements $ShortageCopyWith<$Res> {
   _$ShortageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -107,16 +100,10 @@ class _$ShortageCopyWithImpl<$Res, $Val extends Shortage>
 
 /// @nodoc
 abstract class _$$_ShortageCopyWith<$Res> implements $ShortageCopyWith<$Res> {
-  factory _$$_ShortageCopyWith(
-          _$_Shortage value, $Res Function(_$_Shortage) then) =
-      __$$_ShortageCopyWithImpl<$Res>;
+  factory _$$_ShortageCopyWith(_$_Shortage value, $Res Function(_$_Shortage) then) = __$$_ShortageCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {AccountId accountId,
-      ShortageTitle title,
-      ShortageMessage message,
-      int threshold});
+  $Res call({AccountId accountId, ShortageTitle title, ShortageMessage message, int threshold});
 
   @override
   $AccountIdCopyWith<$Res> get accountId;
@@ -127,12 +114,9 @@ abstract class _$$_ShortageCopyWith<$Res> implements $ShortageCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ShortageCopyWithImpl<$Res>
-    extends _$ShortageCopyWithImpl<$Res, _$_Shortage>
+class __$$_ShortageCopyWithImpl<$Res> extends _$ShortageCopyWithImpl<$Res, _$_Shortage>
     implements _$$_ShortageCopyWith<$Res> {
-  __$$_ShortageCopyWithImpl(
-      _$_Shortage _value, $Res Function(_$_Shortage) _then)
-      : super(_value, _then);
+  __$$_ShortageCopyWithImpl(_$_Shortage _value, $Res Function(_$_Shortage) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -166,11 +150,7 @@ class __$$_ShortageCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Shortage implements _Shortage {
-  const _$_Shortage(
-      {required this.accountId,
-      required this.title,
-      required this.message,
-      required this.threshold});
+  const _$_Shortage({required this.accountId, required this.title, required this.message, required this.threshold});
 
   @override
   final AccountId accountId;
@@ -191,23 +171,19 @@ class _$_Shortage implements _Shortage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Shortage &&
-            (identical(other.accountId, accountId) ||
-                other.accountId == accountId) &&
+            (identical(other.accountId, accountId) || other.accountId == accountId) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.threshold, threshold) ||
-                other.threshold == threshold));
+            (identical(other.threshold, threshold) || other.threshold == threshold));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, accountId, title, message, threshold);
+  int get hashCode => Object.hash(runtimeType, accountId, title, message, threshold);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShortageCopyWith<_$_Shortage> get copyWith =>
-      __$$_ShortageCopyWithImpl<_$_Shortage>(this, _$identity);
+  _$$_ShortageCopyWith<_$_Shortage> get copyWith => __$$_ShortageCopyWithImpl<_$_Shortage>(this, _$identity);
 }
 
 abstract class _Shortage implements Shortage {
@@ -227,6 +203,5 @@ abstract class _Shortage implements Shortage {
   int get threshold;
   @override
   @JsonKey(ignore: true)
-  _$$_ShortageCopyWith<_$_Shortage> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ShortageCopyWith<_$_Shortage> get copyWith => throw _privateConstructorUsedError;
 }

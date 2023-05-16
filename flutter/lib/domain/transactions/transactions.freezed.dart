@@ -19,22 +19,19 @@ mixin _$Transactions {
   List<Transaction> get children => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TransactionsCopyWith<Transactions> get copyWith =>
-      throw _privateConstructorUsedError;
+  $TransactionsCopyWith<Transactions> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TransactionsCopyWith<$Res> {
-  factory $TransactionsCopyWith(
-          Transactions value, $Res Function(Transactions) then) =
+  factory $TransactionsCopyWith(Transactions value, $Res Function(Transactions) then) =
       _$TransactionsCopyWithImpl<$Res, Transactions>;
   @useResult
   $Res call({List<Transaction> children});
 }
 
 /// @nodoc
-class _$TransactionsCopyWithImpl<$Res, $Val extends Transactions>
-    implements $TransactionsCopyWith<$Res> {
+class _$TransactionsCopyWithImpl<$Res, $Val extends Transactions> implements $TransactionsCopyWith<$Res> {
   _$TransactionsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -57,10 +54,8 @@ class _$TransactionsCopyWithImpl<$Res, $Val extends Transactions>
 }
 
 /// @nodoc
-abstract class _$$_TransactionsCopyWith<$Res>
-    implements $TransactionsCopyWith<$Res> {
-  factory _$$_TransactionsCopyWith(
-          _$_Transactions value, $Res Function(_$_Transactions) then) =
+abstract class _$$_TransactionsCopyWith<$Res> implements $TransactionsCopyWith<$Res> {
+  factory _$$_TransactionsCopyWith(_$_Transactions value, $Res Function(_$_Transactions) then) =
       __$$_TransactionsCopyWithImpl<$Res>;
   @override
   @useResult
@@ -68,12 +63,9 @@ abstract class _$$_TransactionsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TransactionsCopyWithImpl<$Res>
-    extends _$TransactionsCopyWithImpl<$Res, _$_Transactions>
+class __$$_TransactionsCopyWithImpl<$Res> extends _$TransactionsCopyWithImpl<$Res, _$_Transactions>
     implements _$$_TransactionsCopyWith<$Res> {
-  __$$_TransactionsCopyWithImpl(
-      _$_Transactions _value, $Res Function(_$_Transactions) _then)
-      : super(_value, _then);
+  __$$_TransactionsCopyWithImpl(_$_Transactions _value, $Res Function(_$_Transactions) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -116,8 +108,7 @@ class _$_Transactions implements _Transactions {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_children));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_children));
 
   @JsonKey(ignore: true)
   @override
@@ -133,6 +124,5 @@ abstract class _Transactions implements Transactions {
   List<Transaction> get children;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionsCopyWith<_$_Transactions> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_TransactionsCopyWith<_$_Transactions> get copyWith => throw _privateConstructorUsedError;
 }

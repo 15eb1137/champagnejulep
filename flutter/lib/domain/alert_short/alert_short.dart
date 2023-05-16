@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../accounts/account_balance.dart';
 import '../accounts/account_id.dart';
-import '../changes_in_balance/change_in_balance.dart';
 import '../domain_service.dart';
 import 'alert_short_message.dart';
 import 'alert_short_title.dart';
@@ -15,9 +15,9 @@ class AlertShort with _$AlertShort {
       required AlertShortTitle title,
       required AlertShortMessage message,
       required int threshold}) = _AlertShort;
-  factory AlertShort.create(AccountId accountId, ChangeInBalance changeInBalance, int threshold) => AlertShort(
+  factory AlertShort.create(AccountId accountId, MapEntry<DateTime, AccountBalance> changeInBalance, int threshold) => AlertShort(
       accountId: accountId,
-      title: AlertShortTitle.create(changeInBalance, threshold),
+      title: AlertShortTitle.create(threshold),
       message: AlertShortMessage.create(changeInBalance, threshold),
       threshold: threshold);
 

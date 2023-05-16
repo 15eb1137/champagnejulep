@@ -56,4 +56,16 @@ class Account with _$Account {
                   (newAmount ?? 0) -
                   transactions.children.firstWhere((element) => element.id.value != targetId).amount)
               : balance);
+
+  Map<DateTime, AccountBalance> issueChangesInBalance(Account account, Transactions transactions) {
+    final Map<DateTime, AccountBalance> changesInBalance = {};
+    transactions.forEach((e) {
+      final index = e.key;
+      final targets = Transactions(transactions.children.sublist(0, index + 1));
+      final scheduledBalance = account.balance.updateValueAtNow(
+          targets.children.fold(account.balance.value, (previousValue, element) => previousValue + element.amount));
+      changesInBalance.addAll({scheduledBalance.updatedAt: scheduledBalance});
+    });
+    return changesInBalance;
+  }
 }

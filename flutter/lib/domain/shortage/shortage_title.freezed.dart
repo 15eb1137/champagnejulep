@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'alert_short_title.dart';
+part of 'shortage_title.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,24 +15,27 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$AlertShortTitle {
+mixin _$ShortageTitle {
   String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AlertShortTitleCopyWith<AlertShortTitle> get copyWith => throw _privateConstructorUsedError;
+  $ShortageTitleCopyWith<ShortageTitle> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AlertShortTitleCopyWith<$Res> {
-  factory $AlertShortTitleCopyWith(AlertShortTitle value, $Res Function(AlertShortTitle) then) =
-      _$AlertShortTitleCopyWithImpl<$Res, AlertShortTitle>;
+abstract class $ShortageTitleCopyWith<$Res> {
+  factory $ShortageTitleCopyWith(
+          ShortageTitle value, $Res Function(ShortageTitle) then) =
+      _$ShortageTitleCopyWithImpl<$Res, ShortageTitle>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$AlertShortTitleCopyWithImpl<$Res, $Val extends AlertShortTitle> implements $AlertShortTitleCopyWith<$Res> {
-  _$AlertShortTitleCopyWithImpl(this._value, this._then);
+class _$ShortageTitleCopyWithImpl<$Res, $Val extends ShortageTitle>
+    implements $ShortageTitleCopyWith<$Res> {
+  _$ShortageTitleCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -54,18 +57,22 @@ class _$AlertShortTitleCopyWithImpl<$Res, $Val extends AlertShortTitle> implemen
 }
 
 /// @nodoc
-abstract class _$$_AlertShortTitleCopyWith<$Res> implements $AlertShortTitleCopyWith<$Res> {
-  factory _$$_AlertShortTitleCopyWith(_$_AlertShortTitle value, $Res Function(_$_AlertShortTitle) then) =
-      __$$_AlertShortTitleCopyWithImpl<$Res>;
+abstract class _$$_ShortageTitleCopyWith<$Res>
+    implements $ShortageTitleCopyWith<$Res> {
+  factory _$$_ShortageTitleCopyWith(
+          _$_ShortageTitle value, $Res Function(_$_ShortageTitle) then) =
+      __$$_ShortageTitleCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_AlertShortTitleCopyWithImpl<$Res> extends _$AlertShortTitleCopyWithImpl<$Res, _$_AlertShortTitle>
-    implements _$$_AlertShortTitleCopyWith<$Res> {
-  __$$_AlertShortTitleCopyWithImpl(_$_AlertShortTitle _value, $Res Function(_$_AlertShortTitle) _then)
+class __$$_ShortageTitleCopyWithImpl<$Res>
+    extends _$ShortageTitleCopyWithImpl<$Res, _$_ShortageTitle>
+    implements _$$_ShortageTitleCopyWith<$Res> {
+  __$$_ShortageTitleCopyWithImpl(
+      _$_ShortageTitle _value, $Res Function(_$_ShortageTitle) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -73,7 +80,7 @@ class __$$_AlertShortTitleCopyWithImpl<$Res> extends _$AlertShortTitleCopyWithIm
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_AlertShortTitle(
+    return _then(_$_ShortageTitle(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -84,22 +91,22 @@ class __$$_AlertShortTitleCopyWithImpl<$Res> extends _$AlertShortTitleCopyWithIm
 
 /// @nodoc
 
-class _$_AlertShortTitle implements _AlertShortTitle {
-  const _$_AlertShortTitle(this.value) : assert(value.length < 20);
+class _$_ShortageTitle implements _ShortageTitle {
+  const _$_ShortageTitle(this.value) : assert(value.length < 20);
 
   @override
   final String value;
 
   @override
   String toString() {
-    return 'AlertShortTitle(value: $value)';
+    return 'ShortageTitle(value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AlertShortTitle &&
+            other is _$_ShortageTitle &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -109,16 +116,17 @@ class _$_AlertShortTitle implements _AlertShortTitle {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AlertShortTitleCopyWith<_$_AlertShortTitle> get copyWith =>
-      __$$_AlertShortTitleCopyWithImpl<_$_AlertShortTitle>(this, _$identity);
+  _$$_ShortageTitleCopyWith<_$_ShortageTitle> get copyWith =>
+      __$$_ShortageTitleCopyWithImpl<_$_ShortageTitle>(this, _$identity);
 }
 
-abstract class _AlertShortTitle implements AlertShortTitle {
-  const factory _AlertShortTitle(final String value) = _$_AlertShortTitle;
+abstract class _ShortageTitle implements ShortageTitle {
+  const factory _ShortageTitle(final String value) = _$_ShortageTitle;
 
   @override
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_AlertShortTitleCopyWith<_$_AlertShortTitle> get copyWith => throw _privateConstructorUsedError;
+  _$$_ShortageTitleCopyWith<_$_ShortageTitle> get copyWith =>
+      throw _privateConstructorUsedError;
 }

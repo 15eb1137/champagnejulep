@@ -25,12 +25,14 @@ mixin _$Transaction {
   int get amount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TransactionCopyWith<Transaction> get copyWith => throw _privateConstructorUsedError;
+  $TransactionCopyWith<Transaction> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TransactionCopyWith<$Res> {
-  factory $TransactionCopyWith(Transaction value, $Res Function(Transaction) then) =
+  factory $TransactionCopyWith(
+          Transaction value, $Res Function(Transaction) then) =
       _$TransactionCopyWithImpl<$Res, Transaction>;
   @useResult
   $Res call(
@@ -49,7 +51,8 @@ abstract class $TransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TransactionCopyWithImpl<$Res, $Val extends Transaction> implements $TransactionCopyWith<$Res> {
+class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
+    implements $TransactionCopyWith<$Res> {
   _$TransactionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -134,8 +137,10 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction> implements $Tran
 }
 
 /// @nodoc
-abstract class _$$_TransactionCopyWith<$Res> implements $TransactionCopyWith<$Res> {
-  factory _$$_TransactionCopyWith(_$_Transaction value, $Res Function(_$_Transaction) then) =
+abstract class _$$_TransactionCopyWith<$Res>
+    implements $TransactionCopyWith<$Res> {
+  factory _$$_TransactionCopyWith(
+          _$_Transaction value, $Res Function(_$_Transaction) then) =
       __$$_TransactionCopyWithImpl<$Res>;
   @override
   @useResult
@@ -159,9 +164,12 @@ abstract class _$$_TransactionCopyWith<$Res> implements $TransactionCopyWith<$Re
 }
 
 /// @nodoc
-class __$$_TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res, _$_Transaction>
+class __$$_TransactionCopyWithImpl<$Res>
+    extends _$TransactionCopyWithImpl<$Res, _$_Transaction>
     implements _$$_TransactionCopyWith<$Res> {
-  __$$_TransactionCopyWithImpl(_$_Transaction _value, $Res Function(_$_Transaction) _then) : super(_value, _then);
+  __$$_TransactionCopyWithImpl(
+      _$_Transaction _value, $Res Function(_$_Transaction) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -246,16 +254,21 @@ class _$_Transaction extends _Transaction {
         (other.runtimeType == runtimeType &&
             other is _$_Transaction &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.accountId, accountId) || other.accountId == accountId) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.calcAuto, calcAuto) || other.calcAuto == calcAuto) &&
-            (identical(other.transactionAt, transactionAt) || other.transactionAt == transactionAt) &&
-            (identical(other.isCalced, isCalced) || other.isCalced == isCalced) &&
+            (identical(other.calcAuto, calcAuto) ||
+                other.calcAuto == calcAuto) &&
+            (identical(other.transactionAt, transactionAt) ||
+                other.transactionAt == transactionAt) &&
+            (identical(other.isCalced, isCalced) ||
+                other.isCalced == isCalced) &&
             (identical(other.amount, amount) || other.amount == amount));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, accountId, title, calcAuto, transactionAt, isCalced, amount);
+  int get hashCode => Object.hash(runtimeType, id, accountId, title, calcAuto,
+      transactionAt, isCalced, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -291,5 +304,6 @@ abstract class _Transaction extends Transaction {
   int get amount;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionCopyWith<_$_Transaction> get copyWith => throw _privateConstructorUsedError;
+  _$$_TransactionCopyWith<_$_Transaction> get copyWith =>
+      throw _privateConstructorUsedError;
 }

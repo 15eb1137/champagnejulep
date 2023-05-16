@@ -1,0 +1,13 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intl/intl.dart';
+
+import '../accounts/account_balance.dart';
+part 'shortage_message.freezed.dart';
+
+@freezed
+class ShortageMessage with _$ShortageMessage {
+  @Assert('value.length < 120')
+  const factory ShortageMessage(String value) = _AlertShortMessage;
+  factory ShortageMessage.create(MapEntry<DateTime, AccountBalance> changeInBalance, int threshold) =>
+      ShortageMessage('${DateFormat.yMMMMd().format(changeInBalance.key)}に$threshold円を下回る予定です。');
+}

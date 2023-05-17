@@ -19,19 +19,22 @@ mixin _$TransactionAt {
   DateTime get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TransactionAtCopyWith<TransactionAt> get copyWith => throw _privateConstructorUsedError;
+  $TransactionAtCopyWith<TransactionAt> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TransactionAtCopyWith<$Res> {
-  factory $TransactionAtCopyWith(TransactionAt value, $Res Function(TransactionAt) then) =
+  factory $TransactionAtCopyWith(
+          TransactionAt value, $Res Function(TransactionAt) then) =
       _$TransactionAtCopyWithImpl<$Res, TransactionAt>;
   @useResult
   $Res call({DateTime value});
 }
 
 /// @nodoc
-class _$TransactionAtCopyWithImpl<$Res, $Val extends TransactionAt> implements $TransactionAtCopyWith<$Res> {
+class _$TransactionAtCopyWithImpl<$Res, $Val extends TransactionAt>
+    implements $TransactionAtCopyWith<$Res> {
   _$TransactionAtCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -54,8 +57,10 @@ class _$TransactionAtCopyWithImpl<$Res, $Val extends TransactionAt> implements $
 }
 
 /// @nodoc
-abstract class _$$_TransactionAtCopyWith<$Res> implements $TransactionAtCopyWith<$Res> {
-  factory _$$_TransactionAtCopyWith(_$_TransactionAt value, $Res Function(_$_TransactionAt) then) =
+abstract class _$$_TransactionAtCopyWith<$Res>
+    implements $TransactionAtCopyWith<$Res> {
+  factory _$$_TransactionAtCopyWith(
+          _$_TransactionAt value, $Res Function(_$_TransactionAt) then) =
       __$$_TransactionAtCopyWithImpl<$Res>;
   @override
   @useResult
@@ -63,9 +68,12 @@ abstract class _$$_TransactionAtCopyWith<$Res> implements $TransactionAtCopyWith
 }
 
 /// @nodoc
-class __$$_TransactionAtCopyWithImpl<$Res> extends _$TransactionAtCopyWithImpl<$Res, _$_TransactionAt>
+class __$$_TransactionAtCopyWithImpl<$Res>
+    extends _$TransactionAtCopyWithImpl<$Res, _$_TransactionAt>
     implements _$$_TransactionAtCopyWith<$Res> {
-  __$$_TransactionAtCopyWithImpl(_$_TransactionAt _value, $Res Function(_$_TransactionAt) _then) : super(_value, _then);
+  __$$_TransactionAtCopyWithImpl(
+      _$_TransactionAt _value, $Res Function(_$_TransactionAt) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -120,5 +128,6 @@ abstract class _TransactionAt extends TransactionAt {
   DateTime get value;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionAtCopyWith<_$_TransactionAt> get copyWith => throw _privateConstructorUsedError;
+  _$$_TransactionAtCopyWith<_$_TransactionAt> get copyWith =>
+      throw _privateConstructorUsedError;
 }

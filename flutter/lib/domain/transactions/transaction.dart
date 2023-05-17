@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../accounts/account_id.dart';
+import '../account/account_id.dart';
 import '../domain_service.dart';
 import 'transaction_at.dart';
 import 'transaction_id.dart';

@@ -1,8 +1,7 @@
 import '../infrastructure/domain_notification_fcm.dart';
 import '../infrastructure/domain_repository_isar.dart';
 import '../infrastructure/domain_share_plus.dart';
-import 'accounts/account.dart';
-import 'accounts/accounts.dart';
+import 'account/account.dart';
 import 'transactions/transaction.dart';
 import 'transactions/transactions.dart';
 import 'user/user.dart';
@@ -16,7 +15,7 @@ class DomainService {
       balance: account.balance.value,
       transactions: account.transactions,
       ownerId: account.ownerId.value);
-  static Accounts getAccounts() => DomainRepositoryIsar().getAccounts();
+  static List<Account> getAccounts() => DomainRepositoryIsar().getAccounts();
   static void saveTransaction(Transaction transaction) => DomainRepositoryIsar().saveTransaction(
       accountId: transaction.accountId.value,
       title: transaction.titleValue,

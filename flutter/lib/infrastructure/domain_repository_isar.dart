@@ -1,4 +1,4 @@
-import '../domain/accounts/accounts.dart';
+import '../domain/account/account.dart';
 import '../domain/domain_repository.dart';
 import '../domain/transactions/transactions.dart';
 import '../domain/user/user.dart';
@@ -33,7 +33,7 @@ class DomainRepositoryIsar extends DomainRepository {
   }
 
   @override
-  Accounts getAccounts() {
+  List<Account> getAccounts() {
     // TODO: implement getAccounts
     throw UnimplementedError();
   }

@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../accounts/account_balance.dart';
-import '../accounts/account_id.dart';
+import '../account/account_balance.dart';
+import '../account/account_id.dart';
 import '../domain_service.dart';
 import 'shortage_message.dart';
 import 'shortage_title.dart';

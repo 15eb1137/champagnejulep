@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 
-import '../accounts/account_balance.dart';
+import '../account/account_balance.dart';
 part 'shortage_message.freezed.dart';
 
 @freezed

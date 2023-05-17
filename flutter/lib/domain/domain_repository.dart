@@ -1,4 +1,4 @@
-import 'accounts/accounts.dart';
+import 'account/account.dart';
 import 'transactions/transactions.dart';
 import 'user/user.dart';
 import 'user/user_premium.dart';
@@ -12,7 +12,7 @@ abstract class DomainRepository {
       required int balance,
       required Transactions transactions,
       required String ownerId});
-  Accounts getAccounts();
+  List<Account> getAccounts();
   void saveTransaction(
       {required String accountId,
       required String title,

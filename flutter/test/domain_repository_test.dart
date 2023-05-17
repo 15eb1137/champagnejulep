@@ -1,4 +1,4 @@
-import 'package:champagnejulep/domain/accounts/accounts.dart';
+import 'package:champagnejulep/domain/account/account.dart';
 import 'package:champagnejulep/domain/domain_repository.dart';
 import 'package:champagnejulep/domain/transactions/transactions.dart';
 import 'package:champagnejulep/domain/user/user.dart';
@@ -23,7 +23,7 @@ class DomainRepositoryTest extends DomainRepository {
   Transactions getTransactions() => Transactions([]);
 
   @override
-  Accounts getAccounts() {
+  List<Account> getAccounts() {
     // TODO: implement getAccounts
     throw UnimplementedError();
   }

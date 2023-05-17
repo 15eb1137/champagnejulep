@@ -19,22 +19,19 @@ mixin _$ShortageMessage {
   String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ShortageMessageCopyWith<ShortageMessage> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ShortageMessageCopyWith<ShortageMessage> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ShortageMessageCopyWith<$Res> {
-  factory $ShortageMessageCopyWith(
-          ShortageMessage value, $Res Function(ShortageMessage) then) =
+  factory $ShortageMessageCopyWith(ShortageMessage value, $Res Function(ShortageMessage) then) =
       _$ShortageMessageCopyWithImpl<$Res, ShortageMessage>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$ShortageMessageCopyWithImpl<$Res, $Val extends ShortageMessage>
-    implements $ShortageMessageCopyWith<$Res> {
+class _$ShortageMessageCopyWithImpl<$Res, $Val extends ShortageMessage> implements $ShortageMessageCopyWith<$Res> {
   _$ShortageMessageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -57,10 +54,8 @@ class _$ShortageMessageCopyWithImpl<$Res, $Val extends ShortageMessage>
 }
 
 /// @nodoc
-abstract class _$$_AlertShortMessageCopyWith<$Res>
-    implements $ShortageMessageCopyWith<$Res> {
-  factory _$$_AlertShortMessageCopyWith(_$_AlertShortMessage value,
-          $Res Function(_$_AlertShortMessage) then) =
+abstract class _$$_AlertShortMessageCopyWith<$Res> implements $ShortageMessageCopyWith<$Res> {
+  factory _$$_AlertShortMessageCopyWith(_$_AlertShortMessage value, $Res Function(_$_AlertShortMessage) then) =
       __$$_AlertShortMessageCopyWithImpl<$Res>;
   @override
   @useResult
@@ -68,11 +63,9 @@ abstract class _$$_AlertShortMessageCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AlertShortMessageCopyWithImpl<$Res>
-    extends _$ShortageMessageCopyWithImpl<$Res, _$_AlertShortMessage>
+class __$$_AlertShortMessageCopyWithImpl<$Res> extends _$ShortageMessageCopyWithImpl<$Res, _$_AlertShortMessage>
     implements _$$_AlertShortMessageCopyWith<$Res> {
-  __$$_AlertShortMessageCopyWithImpl(
-      _$_AlertShortMessage _value, $Res Function(_$_AlertShortMessage) _then)
+  __$$_AlertShortMessageCopyWithImpl(_$_AlertShortMessage _value, $Res Function(_$_AlertShortMessage) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,8 +110,7 @@ class _$_AlertShortMessage implements _AlertShortMessage {
   @override
   @pragma('vm:prefer-inline')
   _$$_AlertShortMessageCopyWith<_$_AlertShortMessage> get copyWith =>
-      __$$_AlertShortMessageCopyWithImpl<_$_AlertShortMessage>(
-          this, _$identity);
+      __$$_AlertShortMessageCopyWithImpl<_$_AlertShortMessage>(this, _$identity);
 }
 
 abstract class _AlertShortMessage implements ShortageMessage {
@@ -128,6 +120,5 @@ abstract class _AlertShortMessage implements ShortageMessage {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_AlertShortMessageCopyWith<_$_AlertShortMessage> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AlertShortMessageCopyWith<_$_AlertShortMessage> get copyWith => throw _privateConstructorUsedError;
 }

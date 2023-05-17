@@ -19,22 +19,19 @@ mixin _$ShortageTitle {
   String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ShortageTitleCopyWith<ShortageTitle> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ShortageTitleCopyWith<ShortageTitle> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ShortageTitleCopyWith<$Res> {
-  factory $ShortageTitleCopyWith(
-          ShortageTitle value, $Res Function(ShortageTitle) then) =
+  factory $ShortageTitleCopyWith(ShortageTitle value, $Res Function(ShortageTitle) then) =
       _$ShortageTitleCopyWithImpl<$Res, ShortageTitle>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$ShortageTitleCopyWithImpl<$Res, $Val extends ShortageTitle>
-    implements $ShortageTitleCopyWith<$Res> {
+class _$ShortageTitleCopyWithImpl<$Res, $Val extends ShortageTitle> implements $ShortageTitleCopyWith<$Res> {
   _$ShortageTitleCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -57,10 +54,8 @@ class _$ShortageTitleCopyWithImpl<$Res, $Val extends ShortageTitle>
 }
 
 /// @nodoc
-abstract class _$$_ShortageTitleCopyWith<$Res>
-    implements $ShortageTitleCopyWith<$Res> {
-  factory _$$_ShortageTitleCopyWith(
-          _$_ShortageTitle value, $Res Function(_$_ShortageTitle) then) =
+abstract class _$$_ShortageTitleCopyWith<$Res> implements $ShortageTitleCopyWith<$Res> {
+  factory _$$_ShortageTitleCopyWith(_$_ShortageTitle value, $Res Function(_$_ShortageTitle) then) =
       __$$_ShortageTitleCopyWithImpl<$Res>;
   @override
   @useResult
@@ -68,12 +63,9 @@ abstract class _$$_ShortageTitleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ShortageTitleCopyWithImpl<$Res>
-    extends _$ShortageTitleCopyWithImpl<$Res, _$_ShortageTitle>
+class __$$_ShortageTitleCopyWithImpl<$Res> extends _$ShortageTitleCopyWithImpl<$Res, _$_ShortageTitle>
     implements _$$_ShortageTitleCopyWith<$Res> {
-  __$$_ShortageTitleCopyWithImpl(
-      _$_ShortageTitle _value, $Res Function(_$_ShortageTitle) _then)
-      : super(_value, _then);
+  __$$_ShortageTitleCopyWithImpl(_$_ShortageTitle _value, $Res Function(_$_ShortageTitle) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -127,6 +119,5 @@ abstract class _ShortageTitle implements ShortageTitle {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_ShortageTitleCopyWith<_$_ShortageTitle> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ShortageTitleCopyWith<_$_ShortageTitle> get copyWith => throw _privateConstructorUsedError;
 }

@@ -28,9 +28,15 @@ mixin _$Account {
 
 /// @nodoc
 abstract class $AccountCopyWith<$Res> {
-  factory $AccountCopyWith(Account value, $Res Function(Account) then) = _$AccountCopyWithImpl<$Res, Account>;
+  factory $AccountCopyWith(Account value, $Res Function(Account) then) =
+      _$AccountCopyWithImpl<$Res, Account>;
   @useResult
-  $Res call({AccountId id, AccountName name, AccountBalance balance, Transactions transactions, UserId ownerId});
+  $Res call(
+      {AccountId id,
+      AccountName name,
+      AccountBalance balance,
+      Transactions transactions,
+      UserId ownerId});
 
   $AccountIdCopyWith<$Res> get id;
   $AccountNameCopyWith<$Res> get name;
@@ -40,7 +46,8 @@ abstract class $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountCopyWithImpl<$Res, $Val extends Account> implements $AccountCopyWith<$Res> {
+class _$AccountCopyWithImpl<$Res, $Val extends Account>
+    implements $AccountCopyWith<$Res> {
   _$AccountCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -124,10 +131,17 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account> implements $AccountCopyW
 
 /// @nodoc
 abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
-  factory _$$_AccountCopyWith(_$_Account value, $Res Function(_$_Account) then) = __$$_AccountCopyWithImpl<$Res>;
+  factory _$$_AccountCopyWith(
+          _$_Account value, $Res Function(_$_Account) then) =
+      __$$_AccountCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AccountId id, AccountName name, AccountBalance balance, Transactions transactions, UserId ownerId});
+  $Res call(
+      {AccountId id,
+      AccountName name,
+      AccountBalance balance,
+      Transactions transactions,
+      UserId ownerId});
 
   @override
   $AccountIdCopyWith<$Res> get id;
@@ -142,9 +156,11 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res, _$_Account>
+class __$$_AccountCopyWithImpl<$Res>
+    extends _$AccountCopyWithImpl<$Res, _$_Account>
     implements _$$_AccountCopyWith<$Res> {
-  __$$_AccountCopyWithImpl(_$_Account _value, $Res Function(_$_Account) _then) : super(_value, _then);
+  __$$_AccountCopyWithImpl(_$_Account _value, $Res Function(_$_Account) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -184,7 +200,11 @@ class __$$_AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res, _$_Acco
 
 class _$_Account extends _Account {
   const _$_Account(
-      {required this.id, required this.name, required this.balance, required this.transactions, required this.ownerId})
+      {required this.id,
+      required this.name,
+      required this.balance,
+      required this.transactions,
+      required this.ownerId})
       : super._();
 
   @override
@@ -211,17 +231,20 @@ class _$_Account extends _Account {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.balance, balance) || other.balance == balance) &&
-            (identical(other.transactions, transactions) || other.transactions == transactions) &&
+            (identical(other.transactions, transactions) ||
+                other.transactions == transactions) &&
             (identical(other.ownerId, ownerId) || other.ownerId == ownerId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, balance, transactions, ownerId);
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, balance, transactions, ownerId);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountCopyWith<_$_Account> get copyWith => __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
+  _$$_AccountCopyWith<_$_Account> get copyWith =>
+      __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
 }
 
 abstract class _Account extends Account {
@@ -245,5 +268,6 @@ abstract class _Account extends Account {
   UserId get ownerId;
   @override
   @JsonKey(ignore: true)
-  _$$_AccountCopyWith<_$_Account> get copyWith => throw _privateConstructorUsedError;
+  _$$_AccountCopyWith<_$_Account> get copyWith =>
+      throw _privateConstructorUsedError;
 }

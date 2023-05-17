@@ -19,19 +19,22 @@ mixin _$TransactionTitle {
   String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TransactionTitleCopyWith<TransactionTitle> get copyWith => throw _privateConstructorUsedError;
+  $TransactionTitleCopyWith<TransactionTitle> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TransactionTitleCopyWith<$Res> {
-  factory $TransactionTitleCopyWith(TransactionTitle value, $Res Function(TransactionTitle) then) =
+  factory $TransactionTitleCopyWith(
+          TransactionTitle value, $Res Function(TransactionTitle) then) =
       _$TransactionTitleCopyWithImpl<$Res, TransactionTitle>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$TransactionTitleCopyWithImpl<$Res, $Val extends TransactionTitle> implements $TransactionTitleCopyWith<$Res> {
+class _$TransactionTitleCopyWithImpl<$Res, $Val extends TransactionTitle>
+    implements $TransactionTitleCopyWith<$Res> {
   _$TransactionTitleCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -54,8 +57,10 @@ class _$TransactionTitleCopyWithImpl<$Res, $Val extends TransactionTitle> implem
 }
 
 /// @nodoc
-abstract class _$$_TransactionTitleCopyWith<$Res> implements $TransactionTitleCopyWith<$Res> {
-  factory _$$_TransactionTitleCopyWith(_$_TransactionTitle value, $Res Function(_$_TransactionTitle) then) =
+abstract class _$$_TransactionTitleCopyWith<$Res>
+    implements $TransactionTitleCopyWith<$Res> {
+  factory _$$_TransactionTitleCopyWith(
+          _$_TransactionTitle value, $Res Function(_$_TransactionTitle) then) =
       __$$_TransactionTitleCopyWithImpl<$Res>;
   @override
   @useResult
@@ -63,9 +68,11 @@ abstract class _$$_TransactionTitleCopyWith<$Res> implements $TransactionTitleCo
 }
 
 /// @nodoc
-class __$$_TransactionTitleCopyWithImpl<$Res> extends _$TransactionTitleCopyWithImpl<$Res, _$_TransactionTitle>
+class __$$_TransactionTitleCopyWithImpl<$Res>
+    extends _$TransactionTitleCopyWithImpl<$Res, _$_TransactionTitle>
     implements _$$_TransactionTitleCopyWith<$Res> {
-  __$$_TransactionTitleCopyWithImpl(_$_TransactionTitle _value, $Res Function(_$_TransactionTitle) _then)
+  __$$_TransactionTitleCopyWithImpl(
+      _$_TransactionTitle _value, $Res Function(_$_TransactionTitle) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,5 +127,6 @@ abstract class _TransactionTitle implements TransactionTitle {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionTitleCopyWith<_$_TransactionTitle> get copyWith => throw _privateConstructorUsedError;
+  _$$_TransactionTitleCopyWith<_$_TransactionTitle> get copyWith =>
+      throw _privateConstructorUsedError;
 }

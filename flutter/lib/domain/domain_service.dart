@@ -24,6 +24,6 @@ class DomainService {
       amonunt: transaction.amount);
   static Transactions getTransactions() => DomainRepositoryIsar().getTransactions();
   static void shareAlertShort(String message) => DomainSharePlus().shareAlertShort(message);
-  static void pushNotificationAlertShort(String title, String message) =>
-      DomainNotificationFCM().pushNotificationAlertShort(title, message);
+  static void setPushNotification(String title, String message) =>
+      DomainNotificationFCM().setPushNotification(title, message);
 }

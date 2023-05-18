@@ -23,5 +23,5 @@ class Shortage with _$Shortage {
           threshold: threshold);
 
   void share() => DomainService.shareAlertShort(message.value);
-  void pushNotification() => DomainService.pushNotificationAlertShort(title.value, message.value);
+  void setPushNotification() => DomainService.setPushNotification(title.value, message.value);
 }

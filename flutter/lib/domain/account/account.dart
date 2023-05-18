@@ -13,7 +13,7 @@ part 'account.freezed.dart';
 @freezed
 class Account with _$Account {
   Account._() {
-    DomainService.saveAccount(this);
+    DomainService.saveAccount(this); // TODO: 副作用がある?
   }
 
   const factory Account(
@@ -41,30 +41,35 @@ class Account with _$Account {
   Account updateBalance(int newBalance) => copyWith(balance: balance.updateValueAtNow(newBalance));
   Account addTransaction() =>
       copyWith.transactions(children: [...transactions.children, Transaction.calced(accountId: id)]);
-  Account updateTransaction(String targetId, bool calcBalance, {String? newTitle, int? newAmount}) => copyWith
-      .transactions(
-          children: transactions.children
-              .map((transaction) => transaction.id.value != targetId
-                  ? transaction
-                  : transaction.copyWith
-                      .title(value: newTitle ?? transaction.title.value)
-                      .copyWith(amount: newAmount ?? transaction.amount, isCalced: true))
-              .toList())
-      .copyWith(
-          balance: calcBalance
-              ? balance.updateValuePast(balance.value +
-                  (newAmount ?? 0) -
-                  transactions.children.firstWhere((element) => element.id.value != targetId).amount)
-              : balance);
+  Transaction getTransaction(String targetId) =>
+      transactions.children.firstWhere((element) => element.id.value == targetId);
+  Account updateTransactions(String targetId, bool calcBalance, {String? newTitle, int? newAmount}) {
+    final targetTransaction = getTransaction(targetId);
+    final updatedTransactions = newTitle != null && newAmount != null
+        ? transactions
+            .updateTransactionTitle(targetTransaction, newTitle)
+            .updateTransactionAmount(targetTransaction, newAmount)
+        : newTitle != null
+            ? transactions.updateTransactionTitle(targetTransaction, newTitle)
+            : newAmount != null
+                ? transactions.updateTransactionAmount(targetTransaction, newAmount)
+                : transactions;
+    return copyWith(
+        transactions: updatedTransactions,
+        balance: calcBalance
+            ? balance.updateValuePast(newAmount != null ? newAmount - targetTransaction.amount : 0)
+            : balance);
+  }
 
-  Map<DateTime, AccountBalance> issueChangesInBalance(Account account, Transactions transactions) {
-    final Map<DateTime, AccountBalance> changesInBalance = {};
-    transactions.forEach((e) {
+  List<AccountBalance> issueChangesInBalance() {
+    final List<AccountBalance> changesInBalance = [];
+    transactions
+    .forEach((e) {
       final index = e.key;
-      final targets = Transactions(transactions.children.sublist(0, index + 1));
-      final scheduledBalance = account.balance.updateValueAtNow(
-          targets.children.fold(account.balance.value, (previousValue, element) => previousValue + element.amount));
-      changesInBalance.addAll({scheduledBalance.updatedAt: scheduledBalance});
+      final value = transactions.children
+          .sublist(0, index + 1)
+          .fold(balance.value, (previousValue, element) => previousValue + element.amount);
+      changesInBalance.add(balance.updateValueAtNow(value));
     });
     return changesInBalance;
   }

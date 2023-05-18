@@ -14,4 +14,13 @@ class Transactions with _$Transactions {
       children.map<Transaction>((e) => toElement(e as Transaction));
 
   void forEach(void Function(MapEntry<int, Transaction>) action) => children.asMap().entries.forEach(action);
+
+  Transactions updateTransactionTitle(Transaction target, String newTitle) => Transactions(children
+      .map((transaction) =>
+          transaction == target ? transaction : transaction.copyWith.title(value: newTitle).copyWith(isCalced: true))
+      .toList());
+  Transactions updateTransactionAmount(Transaction target, int newAmount) => Transactions(children
+      .map((transaction) =>
+          transaction == target ? transaction : transaction.copyWith(amount: newAmount, isCalced: true))
+      .toList());
 }

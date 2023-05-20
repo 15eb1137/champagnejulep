@@ -57,22 +57,22 @@ class _$ShortageMessageCopyWithImpl<$Res, $Val extends ShortageMessage>
 }
 
 /// @nodoc
-abstract class _$$_AlertShortMessageCopyWith<$Res>
+abstract class _$$_ShortageMessageCopyWith<$Res>
     implements $ShortageMessageCopyWith<$Res> {
-  factory _$$_AlertShortMessageCopyWith(_$_AlertShortMessage value,
-          $Res Function(_$_AlertShortMessage) then) =
-      __$$_AlertShortMessageCopyWithImpl<$Res>;
+  factory _$$_ShortageMessageCopyWith(
+          _$_ShortageMessage value, $Res Function(_$_ShortageMessage) then) =
+      __$$_ShortageMessageCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_AlertShortMessageCopyWithImpl<$Res>
-    extends _$ShortageMessageCopyWithImpl<$Res, _$_AlertShortMessage>
-    implements _$$_AlertShortMessageCopyWith<$Res> {
-  __$$_AlertShortMessageCopyWithImpl(
-      _$_AlertShortMessage _value, $Res Function(_$_AlertShortMessage) _then)
+class __$$_ShortageMessageCopyWithImpl<$Res>
+    extends _$ShortageMessageCopyWithImpl<$Res, _$_ShortageMessage>
+    implements _$$_ShortageMessageCopyWith<$Res> {
+  __$$_ShortageMessageCopyWithImpl(
+      _$_ShortageMessage _value, $Res Function(_$_ShortageMessage) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$_AlertShortMessageCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_AlertShortMessage(
+    return _then(_$_ShortageMessage(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$_AlertShortMessageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AlertShortMessage implements _AlertShortMessage {
-  const _$_AlertShortMessage(this.value) : assert(value.length < 120);
+class _$_ShortageMessage implements _ShortageMessage {
+  const _$_ShortageMessage(this.value) : assert(value.length < 120);
 
   @override
   final String value;
@@ -106,7 +106,7 @@ class _$_AlertShortMessage implements _AlertShortMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AlertShortMessage &&
+            other is _$_ShortageMessage &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -116,18 +116,17 @@ class _$_AlertShortMessage implements _AlertShortMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AlertShortMessageCopyWith<_$_AlertShortMessage> get copyWith =>
-      __$$_AlertShortMessageCopyWithImpl<_$_AlertShortMessage>(
-          this, _$identity);
+  _$$_ShortageMessageCopyWith<_$_ShortageMessage> get copyWith =>
+      __$$_ShortageMessageCopyWithImpl<_$_ShortageMessage>(this, _$identity);
 }
 
-abstract class _AlertShortMessage implements ShortageMessage {
-  const factory _AlertShortMessage(final String value) = _$_AlertShortMessage;
+abstract class _ShortageMessage implements ShortageMessage {
+  const factory _ShortageMessage(final String value) = _$_ShortageMessage;
 
   @override
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_AlertShortMessageCopyWith<_$_AlertShortMessage> get copyWith =>
+  _$$_ShortageMessageCopyWith<_$_ShortageMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }

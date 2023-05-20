@@ -13,15 +13,11 @@ class Transactions with _$Transactions {
       children.map<Transaction>((e) => toElement(e as Transaction));
 
   List<AccountBalance> issueChangesInBalance(AccountBalance balance) {
-    final List<AccountBalance> changesInBalance = [];
-    children.asMap().entries.forEach((e) {
-      final index = e.key;
-      final value = children
-          .sublist(0, index + 1)
-          .fold(balance.value, (previousValue, element) => previousValue + element.amount);
-      changesInBalance.add(balance.updateValueAtNow(value));
-    });
-    return changesInBalance;
+    int previousSum = balance.value;
+    return children.map((e) {
+      previousSum += e.amount;
+      return balance.updateValueAtNow(previousSum); //TODO: not now
+    }).toList();
   }
 
   Transactions updateTransactionTitle(Transaction target, String newTitle) => Transactions(children

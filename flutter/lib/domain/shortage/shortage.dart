@@ -2,7 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../account/account_balance.dart';
 import '../account/account_id.dart';
-import '../domain_service.dart';
 import 'shortage_message.dart';
 import 'shortage_title.dart';
 
@@ -21,7 +20,4 @@ class Shortage with _$Shortage {
           title: ShortageTitle.create(threshold),
           message: ShortageMessage.create(changeInBalance, threshold),
           threshold: threshold);
-
-  void share() => DomainService.shareAlertShort(message.value);
-  void setPushNotification() => DomainService.setPushNotification(title.value, message.value);
 }

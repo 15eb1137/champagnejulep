@@ -1,4 +1,4 @@
-import '../domain/domain_share.dart';
+import '../usecase/interface/domain_share.dart';
 
 class DomainSharePlus extends DomainShare {
   @override

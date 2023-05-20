@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../domain_service.dart';
 import '../transactions/transaction.dart';
 import '../transactions/transactions.dart';
 import '../user/user_id.dart';
@@ -12,10 +11,6 @@ part 'account.freezed.dart';
 
 @freezed
 class Account with _$Account {
-  Account._() {
-    DomainService.saveAccount(this); // TODO: 副作用がある?
-  }
-
   const factory Account(
       {required AccountId id,
       required AccountName name,
@@ -59,18 +54,5 @@ class Account with _$Account {
         balance: calcBalance
             ? balance.updateValuePast(newAmount != null ? newAmount - targetTransaction.amount : 0)
             : balance);
-  }
-
-  List<AccountBalance> issueChangesInBalance() {
-    final List<AccountBalance> changesInBalance = [];
-    transactions
-    .forEach((e) {
-      final index = e.key;
-      final value = transactions.children
-          .sublist(0, index + 1)
-          .fold(balance.value, (previousValue, element) => previousValue + element.amount);
-      changesInBalance.add(balance.updateValueAtNow(value));
-    });
-    return changesInBalance;
   }
 }

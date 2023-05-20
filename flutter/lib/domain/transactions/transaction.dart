@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../account/account_id.dart';
-import '../domain_service.dart';
 import 'transaction_at.dart';
 import 'transaction_id.dart';
 import 'transaction_title.dart';
@@ -10,10 +9,6 @@ part 'transaction.freezed.dart';
 
 @freezed
 class Transaction with _$Transaction {
-  Transaction._() {
-    DomainService.saveTransaction(this);
-  }
-
   const factory Transaction(
       {required TransactionId id,
       required AccountId accountId,

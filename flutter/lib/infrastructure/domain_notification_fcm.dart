@@ -1,4 +1,4 @@
-import '../domain/domain_notification.dart';
+import '../usecase/interface/domain_notification.dart';
 
 class DomainNotificationFCM extends DomainNotification {
   @override

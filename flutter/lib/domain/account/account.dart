@@ -24,35 +24,39 @@ class Account with _$Account {
       balance: AccountBalance.create(),
       transactions: Transactions([]),
       ownerId: UserId(userId));
+  factory Account.restore(String id, String name, int balanceValue, Transactions transactions, UserId ownerId) =>
+      Account(
+          id: AccountId(id),
+          name: AccountName(name),
+          balance: AccountBalance(balanceValue, date: DateTime.now()),
+          transactions:
+              Transactions(transactions.where((e) => e.transactionAt.value.isBefore(DateTime.now())).toList()),
+          ownerId: ownerId);
 
-  String get accountName => name.value;
-  int get accountBalance => balance.value;
-  List<Map<String, dynamic>> get accountTransactions => transactions.children
-      .map((e) => {'id': e.id, 'transactionAt': e.transactionAt, 'title': e.title, 'amount': e.amount})
-      .toList();
-
-  bool isOwner(UserId userId) => userId == ownerId;
-  Account updateName(String newName) => copyWith.name(value: newName);
-  Account updateBalance(int newBalance) => copyWith(balance: balance.updateValueAtNow(newBalance));
-  Account addTransaction() =>
-      copyWith.transactions(children: [...transactions.children, Transaction.calced(accountId: id)]);
   Transaction getTransaction(String targetId) =>
       transactions.children.firstWhere((element) => element.id.value == targetId);
-  Account updateTransactions(String targetId, bool calcBalance, {String? newTitle, int? newAmount}) {
+  bool isOwner(UserId userId) => userId == ownerId;
+  AccountBalance issueBalanceNow() => transactions.issueChangesInBalance(balance).last.changeDateNow();
+
+  Account addTransactionHistory() =>
+      copyWith.transactions(children: [...transactions.children, Transaction.calced(accountId: id)]);
+  Account changeName(String newName) => copyWith.name(value: newName);
+  Account changeBalance(int newBalance) => copyWith(balance: balance.changeValue(newBalance));
+  Account changeTransactionHistory(String targetId, bool calcBalance, {String? newTitle, int? newAmount}) {
     final targetTransaction = getTransaction(targetId);
     final updatedTransactions = newTitle != null && newAmount != null
         ? transactions
-            .updateTransactionTitle(targetTransaction, newTitle)
-            .updateTransactionAmount(targetTransaction, newAmount)
+            .changeTransactionTitle(targetTransaction, newTitle)
+            .changeTransactionAmount(targetTransaction, newAmount)
         : newTitle != null
-            ? transactions.updateTransactionTitle(targetTransaction, newTitle)
+            ? transactions.changeTransactionTitle(targetTransaction, newTitle)
             : newAmount != null
-                ? transactions.updateTransactionAmount(targetTransaction, newAmount)
+                ? transactions.changeTransactionAmount(targetTransaction, newAmount)
                 : transactions;
     return copyWith(
         transactions: updatedTransactions,
         balance: calcBalance
-            ? balance.updateValuePast(newAmount != null ? newAmount - targetTransaction.amount : 0)
+            ? balance.changeValueByCalc(newAmount != null ? newAmount - targetTransaction.amount : 0)
             : balance);
   }
 }

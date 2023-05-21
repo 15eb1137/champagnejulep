@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AccountBalance {
   int get value => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime get date => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AccountBalanceCopyWith<AccountBalance> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $AccountBalanceCopyWith<$Res> {
           AccountBalance value, $Res Function(AccountBalance) then) =
       _$AccountBalanceCopyWithImpl<$Res, AccountBalance>;
   @useResult
-  $Res call({int value, DateTime updatedAt});
+  $Res call({int value, DateTime date});
 }
 
 /// @nodoc
@@ -47,16 +47,16 @@ class _$AccountBalanceCopyWithImpl<$Res, $Val extends AccountBalance>
   @override
   $Res call({
     Object? value = null,
-    Object? updatedAt = null,
+    Object? date = null,
   }) {
     return _then(_value.copyWith(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ) as $Val);
   }
@@ -70,7 +70,7 @@ abstract class _$$_AccountBalanceCopyWith<$Res>
       __$$_AccountBalanceCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int value, DateTime updatedAt});
+  $Res call({int value, DateTime date});
 }
 
 /// @nodoc
@@ -85,16 +85,16 @@ class __$$_AccountBalanceCopyWithImpl<$Res>
   @override
   $Res call({
     Object? value = null,
-    Object? updatedAt = null,
+    Object? date = null,
   }) {
     return _then(_$_AccountBalance(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -103,17 +103,16 @@ class __$$_AccountBalanceCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AccountBalance implements _AccountBalance {
-  const _$_AccountBalance(this.value, {required this.updatedAt})
-      : assert(updatedAt.isBefore(DateTime.now()));
+  const _$_AccountBalance(this.value, {required this.date});
 
   @override
   final int value;
   @override
-  final DateTime updatedAt;
+  final DateTime date;
 
   @override
   String toString() {
-    return 'AccountBalance(value: $value, updatedAt: $updatedAt)';
+    return 'AccountBalance(value: $value, date: $date)';
   }
 
   @override
@@ -122,12 +121,11 @@ class _$_AccountBalance implements _AccountBalance {
         (other.runtimeType == runtimeType &&
             other is _$_AccountBalance &&
             (identical(other.value, value) || other.value == value) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+            (identical(other.date, date) || other.date == date));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value, updatedAt);
+  int get hashCode => Object.hash(runtimeType, value, date);
 
   @JsonKey(ignore: true)
   @override
@@ -138,12 +136,12 @@ class _$_AccountBalance implements _AccountBalance {
 
 abstract class _AccountBalance implements AccountBalance {
   const factory _AccountBalance(final int value,
-      {required final DateTime updatedAt}) = _$_AccountBalance;
+      {required final DateTime date}) = _$_AccountBalance;
 
   @override
   int get value;
   @override
-  DateTime get updatedAt;
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   _$$_AccountBalanceCopyWith<_$_AccountBalance> get copyWith =>

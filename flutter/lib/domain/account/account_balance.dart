@@ -4,11 +4,11 @@ part 'account_balance.freezed.dart';
 
 @freezed
 class AccountBalance with _$AccountBalance {
-  @Assert('updatedAt.isBefore(DateTime.now())')
-  const factory AccountBalance(int value, {required DateTime updatedAt}) = _AccountBalance;
-  factory AccountBalance.create() => AccountBalance(0, updatedAt: DateTime.now());
+  const factory AccountBalance(int value, {required DateTime date}) = _AccountBalance;
+  factory AccountBalance.create() => AccountBalance(0, date: DateTime.now());
 
-  AccountBalance updateValueAtNow(int value) => copyWith(value: value, updatedAt: DateTime.now());
-  AccountBalance updateValuePast(int diff) =>
-      copyWith(value: value + diff, updatedAt: updatedAt);
+  AccountBalance changeValue(int newValue) => copyWith(value: newValue);
+  AccountBalance changeDateNow() => copyWith(date: DateTime.now());
+  AccountBalance changeValueAtDate(int newValue, DateTime newDate) => copyWith(value: newValue, date: newDate);
+  AccountBalance changeValueByCalc(int diff) => copyWith(value: value + diff);
 }

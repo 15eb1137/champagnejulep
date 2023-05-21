@@ -198,14 +198,13 @@ class __$$_AccountCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Account extends _Account {
+class _$_Account implements _Account {
   const _$_Account(
       {required this.id,
       required this.name,
       required this.balance,
       required this.transactions,
-      required this.ownerId})
-      : super._();
+      required this.ownerId});
 
   @override
   final AccountId id;
@@ -247,14 +246,13 @@ class _$_Account extends _Account {
       __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
 }
 
-abstract class _Account extends Account {
+abstract class _Account implements Account {
   const factory _Account(
       {required final AccountId id,
       required final AccountName name,
       required final AccountBalance balance,
       required final Transactions transactions,
       required final UserId ownerId}) = _$_Account;
-  const _Account._() : super._();
 
   @override
   AccountId get id;

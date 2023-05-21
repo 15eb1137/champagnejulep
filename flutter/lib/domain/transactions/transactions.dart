@@ -11,20 +11,21 @@ class Transactions with _$Transactions {
 
   Iterable<Transaction> map<Transaction>(Transaction Function(Transaction e) toElement) =>
       children.map<Transaction>((e) => toElement(e as Transaction));
+  Iterable<Transaction> where(bool Function(Transaction element) test) => children.where(test);
 
   List<AccountBalance> issueChangesInBalance(AccountBalance balance) {
     int previousSum = balance.value;
     return children.map((e) {
       previousSum += e.amount;
-      return balance.updateValueAtNow(previousSum); //TODO: not now
+      return balance.changeValueAtDate(previousSum, e.transactionAt.value);
     }).toList();
   }
 
-  Transactions updateTransactionTitle(Transaction target, String newTitle) => Transactions(children
+  Transactions changeTransactionTitle(Transaction target, String newTitle) => Transactions(children
       .map((transaction) =>
           transaction == target ? transaction : transaction.copyWith.title(value: newTitle).copyWith(isCalced: true))
       .toList());
-  Transactions updateTransactionAmount(Transaction target, int newAmount) => Transactions(children
+  Transactions changeTransactionAmount(Transaction target, int newAmount) => Transactions(children
       .map((transaction) =>
           transaction == target ? transaction : transaction.copyWith(amount: newAmount, isCalced: true))
       .toList());

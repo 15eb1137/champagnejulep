@@ -6,5 +6,5 @@ part 'shortage_title.freezed.dart';
 class ShortageTitle with _$ShortageTitle {
   @Assert('value.length < 20')
   const factory ShortageTitle(String value) = _ShortageTitle;
-  factory ShortageTitle.create(int threshold) => const ShortageTitle('アプリ名');
+  factory ShortageTitle.create(int threshold) => const ShortageTitle('アプリ名'); // TODO: set your app name
 }

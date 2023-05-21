@@ -6,7 +6,9 @@ part 'transaction_at.freezed.dart';
 class TransactionAt with _$TransactionAt {
   const TransactionAt._();
   const factory TransactionAt(DateTime value) = _TransactionAt;
-  factory TransactionAt.create() =>
-      TransactionAt(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day));
+  factory TransactionAt.create() {
+    final today = DateTime.now().add(const Duration(days: 1)).subtract(const Duration(microseconds: 1));
+    return TransactionAt(today);
+  }
   String get formattedYearMonthDay => DateFormat.yMMMMd().format(value);
 }

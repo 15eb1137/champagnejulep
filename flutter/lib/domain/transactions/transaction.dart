@@ -9,6 +9,7 @@ part 'transaction.freezed.dart';
 
 @freezed
 class Transaction with _$Transaction {
+  const Transaction._();
   const factory Transaction(
       {required TransactionId id,
       required AccountId accountId,
@@ -36,12 +37,10 @@ class Transaction with _$Transaction {
       isCalced: true,
       amount: 0);
 
-  String get valueInfo => '${transactionAt.formattedYearMonthDay}に${amount.abs()}円を${amount < 0 ? '出金' : '入金'}する予定です。';
-  String get titleValue => title.value;
-  DateTime get transactionAtValue => transactionAt.value;
+  String get amountInfo => '${transactionAt.formattedYearMonthDay}に${amount.abs()}円を${amount < 0 ? '出金' : '入金'}する予定です。';
 
-  Transaction updateTitle(String newTitle) => copyWith.title(value: newTitle);
+  Transaction changeTitle(String newTitle) => copyWith.title(value: newTitle);
+  Transaction changeAmount(int newAmount) => copyWith(amount: newAmount);
   Transaction toggleCalcAuto() => copyWith(calcAuto: !calcAuto);
   Transaction updateTransactionAt(DateTime newTransactionAt) => copyWith.transactionAt(value: newTransactionAt);
-  Transaction updateAmount(int newAmount) => copyWith(amount: newAmount);
 }

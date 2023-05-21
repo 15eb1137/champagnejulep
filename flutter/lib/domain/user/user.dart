@@ -7,6 +7,7 @@ part 'user.freezed.dart';
 
 @freezed
 class User with _$User {
+  const User._();
   const factory User({required UserId id, required UserPremium premium}) = _User;
   factory User.create() => User(id: UserId.create(), premium: UserPremium.unregistered());
 

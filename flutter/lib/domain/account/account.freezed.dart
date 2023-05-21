@@ -198,7 +198,7 @@ class __$$_AccountCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Account extends _Account {
+class _$_Account extends _Account with DiagnosticableTreeMixin {
   const _$_Account(
       {required this.id,
       required this.name,
@@ -219,8 +219,20 @@ class _$_Account extends _Account {
   final UserId ownerId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Account(id: $id, name: $name, balance: $balance, transactions: $transactions, ownerId: $ownerId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Account'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('balance', balance))
+      ..add(DiagnosticsProperty('transactions', transactions))
+      ..add(DiagnosticsProperty('ownerId', ownerId));
   }
 
   @override

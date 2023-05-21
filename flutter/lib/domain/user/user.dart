@@ -13,8 +13,12 @@ class User with _$User {
 
   bool get isPremiumUnregistered => premium.value == UserPremiumState.unregistered;
   bool get isPremium => premium.value == UserPremiumState.premium;
-  bool get isPremiumExpired => premium.value == UserPremiumState.expired;
+  bool isPremiumExpiredWhen(DateTime checkAt) =>
+      (premium.value == UserPremiumState.expired) ||
+      (premium.value == UserPremiumState.premium &&
+          premium.expiredAt != null &&
+          premium.expiredAt!.isBefore(checkAt));
 
-  User updateToPremium() => copyWith(premium: UserPremium.premium());
+  User updateToPremium({DateTime? updatedAt}) => copyWith(premium: UserPremium.premium(updatedAt ?? DateTime.now()));
   User updateToExpired() => copyWith(premium: UserPremium.expired());
 }

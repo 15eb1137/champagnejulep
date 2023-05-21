@@ -102,8 +102,8 @@ class __$$_AccountBalanceCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AccountBalance implements _AccountBalance {
-  const _$_AccountBalance(this.value, {required this.date});
+class _$_AccountBalance extends _AccountBalance {
+  const _$_AccountBalance(this.value, {required this.date}) : super._();
 
   @override
   final int value;
@@ -134,9 +134,10 @@ class _$_AccountBalance implements _AccountBalance {
       __$$_AccountBalanceCopyWithImpl<_$_AccountBalance>(this, _$identity);
 }
 
-abstract class _AccountBalance implements AccountBalance {
+abstract class _AccountBalance extends AccountBalance {
   const factory _AccountBalance(final int value,
       {required final DateTime date}) = _$_AccountBalance;
+  const _AccountBalance._() : super._();
 
   @override
   int get value;

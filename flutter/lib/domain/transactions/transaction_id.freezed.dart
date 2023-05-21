@@ -92,7 +92,7 @@ class __$$_TransactionIdCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_TransactionId implements _TransactionId {
-  const _$_TransactionId(this.value)
+  _$_TransactionId(this.value)
       : assert(value.isNotEmpty),
         assert(Uuid.isValidUUID(fromString: value));
 
@@ -123,7 +123,7 @@ class _$_TransactionId implements _TransactionId {
 }
 
 abstract class _TransactionId implements TransactionId {
-  const factory _TransactionId(final String value) = _$_TransactionId;
+  factory _TransactionId(final String value) = _$_TransactionId;
 
   @override
   String get value;

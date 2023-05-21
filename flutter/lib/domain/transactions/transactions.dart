@@ -7,6 +7,7 @@ part 'transactions.freezed.dart';
 
 @freezed
 class Transactions with _$Transactions {
+  const Transactions._();
   factory Transactions(List<Transaction> children) = _Transactions;
 
   Iterable<Transaction> map<Transaction>(Transaction Function(Transaction e) toElement) =>

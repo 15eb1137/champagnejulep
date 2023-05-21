@@ -10,5 +10,6 @@ class TransactionAt with _$TransactionAt {
     final today = DateTime.now().add(const Duration(days: 1)).subtract(const Duration(microseconds: 1));
     return TransactionAt(today);
   }
+  factory TransactionAt.createAt(DateTime dateTime) => TransactionAt(dateTime);
   String get formattedYearMonthDay => DateFormat.yMMMMd().format(value);
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../transactions/transaction.dart';
@@ -11,6 +12,7 @@ part 'account.freezed.dart';
 
 @freezed
 class Account with _$Account {
+  const Account._();
   const factory Account(
       {required AccountId id,
       required AccountName name,
@@ -38,8 +40,14 @@ class Account with _$Account {
   bool isOwner(UserId userId) => userId == ownerId;
   AccountBalance issueBalanceNow() => transactions.issueChangesInBalance(balance).last.changeDateNow();
 
-  Account addTransactionHistory() =>
-      copyWith.transactions(children: [...transactions.children, Transaction.calced(accountId: id)]);
+  Account addTransactionHistory(DateTime date, DateTime baseDate) {
+    if (date.isAfter(baseDate)) {
+      throw Exception('未来の日付は指定できません。');
+    } else {
+      return copyWith.transactions(children: [...transactions.children, Transaction.calced(accountId: id, date: date)]);
+    }
+  }
+
   Account changeName(String newName) => copyWith.name(value: newName);
   Account changeBalance(int newBalance) => copyWith(balance: balance.changeValue(newBalance));
   Account changeTransactionHistory(String targetId, bool calcBalance, {String? newTitle, int? newAmount}) {

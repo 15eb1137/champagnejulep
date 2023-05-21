@@ -91,8 +91,10 @@ class __$$_TransactionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Transactions implements _Transactions {
-  _$_Transactions(final List<Transaction> children) : _children = children;
+class _$_Transactions extends _Transactions {
+  _$_Transactions(final List<Transaction> children)
+      : _children = children,
+        super._();
 
   final List<Transaction> _children;
   @override
@@ -126,8 +128,9 @@ class _$_Transactions implements _Transactions {
       __$$_TransactionsCopyWithImpl<_$_Transactions>(this, _$identity);
 }
 
-abstract class _Transactions implements Transactions {
+abstract class _Transactions extends Transactions {
   factory _Transactions(final List<Transaction> children) = _$_Transactions;
+  _Transactions._() : super._();
 
   @override
   List<Transaction> get children;

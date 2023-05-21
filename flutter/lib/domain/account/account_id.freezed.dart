@@ -90,7 +90,7 @@ class __$$_AccountIdCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AccountId implements _AccountId {
-  const _$_AccountId(this.value)
+  _$_AccountId(this.value)
       : assert(value.isNotEmpty),
         assert(Uuid.isValidUUID(fromString: value));
 
@@ -121,7 +121,7 @@ class _$_AccountId implements _AccountId {
 }
 
 abstract class _AccountId implements AccountId {
-  const factory _AccountId(final String value) = _$_AccountId;
+  factory _AccountId(final String value) = _$_AccountId;
 
   @override
   String get value;

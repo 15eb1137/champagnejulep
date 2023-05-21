@@ -28,12 +28,12 @@ class Transaction with _$Transaction {
       isCalced: false,
       amount: 0);
 
-  factory Transaction.calced({required AccountId accountId}) => Transaction(
+  factory Transaction.calced({required AccountId accountId, required DateTime date}) => Transaction(
       id: TransactionId.create(),
       accountId: accountId,
       title: TransactionTitle.create(),
       calcAuto: false,
-      transactionAt: TransactionAt.create(),
+      transactionAt: TransactionAt.createAt(date),
       isCalced: true,
       amount: 0);
 

@@ -92,7 +92,7 @@ class __$$_AccountNameCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AccountName implements _AccountName {
-  const _$_AccountName(this.value) : assert(value.isNotEmpty);
+  _$_AccountName(this.value) : assert(value.isNotEmpty);
 
   @override
   final String value;
@@ -121,7 +121,7 @@ class _$_AccountName implements _AccountName {
 }
 
 abstract class _AccountName implements AccountName {
-  const factory _AccountName(final String value) = _$_AccountName;
+  factory _AccountName(final String value) = _$_AccountName;
 
   @override
   String get value;

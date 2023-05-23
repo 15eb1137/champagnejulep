@@ -39,6 +39,8 @@ class Account with _$Account {
       transactions.children.firstWhere((element) => element.id.value == targetId);
   bool isOwner(UserId userId) => userId == ownerId;
   AccountBalance issueBalanceNow() => transactions.issueChangesInBalance(balance).last.changeDateNow();
+  List<MapEntry<DateTime, AccountBalance>> issueChangesInBalance() =>
+      transactions.issueChangesInBalance(balance).map((e) => MapEntry(e.date, e)).toList();
 
   Account addTransactionHistory(DateTime date, DateTime baseDate) {
     if (date.isAfter(baseDate)) {

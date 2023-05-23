@@ -24,10 +24,10 @@ class Transactions with _$Transactions {
 
   Transactions changeTransactionTitle(Transaction target, String newTitle) => Transactions(children
       .map((transaction) =>
-          transaction == target ? transaction : transaction.copyWith.title(value: newTitle).copyWith(isCalced: true))
+          transaction == target ? transaction.copyWith.title(value: newTitle).copyWith(isCalced: true) : transaction)
       .toList());
   Transactions changeTransactionAmount(Transaction target, int newAmount) => Transactions(children
       .map((transaction) =>
-          transaction == target ? transaction : transaction.copyWith(amount: newAmount, isCalced: true))
+          transaction == target ? transaction.copyWith(amount: newAmount, isCalced: true) : transaction)
       .toList());
 }

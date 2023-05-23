@@ -9,5 +9,5 @@ class ShortageMessage with _$ShortageMessage {
   @Assert('value.length < 120')
   const factory ShortageMessage(String value) = _ShortageMessage;
   factory ShortageMessage.create(MapEntry<DateTime, AccountBalance> changeInBalance, int threshold) =>
-      ShortageMessage('${DateFormat.yMMMMd().format(changeInBalance.key)}に$threshold円を下回る予定です。');
+      ShortageMessage('${DateFormat.yMMMMd('ja_JP').format(changeInBalance.key)}に$threshold円を下回る予定です。');
 }

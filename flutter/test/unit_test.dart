@@ -1,5 +1,7 @@
 import 'package:champagnejulep/domain/account/account.dart';
 import 'package:champagnejulep/domain/shortage/shortage.dart';
+import 'package:champagnejulep/domain/transactions/transaction.dart';
+import 'package:champagnejulep/domain/transactions/transactions.dart';
 import 'package:champagnejulep/domain/user/user.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -7,7 +9,7 @@ import 'package:intl/intl.dart';
 
 void main() {
   setUp(() => initializeDateFormatting('ja_JP'));
-  group('Learning tests', () {
+  group('[Learning tests]', () {
     test('DateTime.isBefore/isAfter', () {
       final today = DateTime(2021, 1, 1, 0, 0, 0, 0, 0);
       final targetDate1 = DateTime(2020, 12, 31, 11, 59, 59, 999, 999);
@@ -30,7 +32,7 @@ void main() {
       expect(formattedTodayEn, 'January 1, 2021');
     });
   });
-  group('Small tests', () {
+  group('[Small tests]', () {
     test('ユーザーは、プレミアムにアップデートされて7日後になるとPremiumStateがExpiredになる', () {
       final user = User.create();
       final today = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);
@@ -43,6 +45,7 @@ void main() {
       expect(updatedUser.isPremiumExpiredWhen(expiredAt), true);
     });
     test('アカウントのトランザクションには現時点より過去の日付しか含まれない', () {
+      //TODO: check - 現時点まで、かも
       final account = Account.create('80ae0478-a252-415f-b34e-b1b515ec4855');
       final today = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);
       final targetDays = [
@@ -62,6 +65,7 @@ void main() {
       expect(isAccountTransactionsDateBeforeNow, true);
     });
     test('アカウントのissueBalanceNowが正しく計算できる', () {
+      //TODO: 正しくとはどういうことか説明できるテスト名にする
       final account = Account.create('80ae0478-a252-415f-b34e-b1b515ec4855');
       final today = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);
       final targetDays = [DateTime(2022, 12, 29, 0, 0, 0, 0, 0), DateTime(2022, 12, 30, 0, 0, 0, 0, 0)];
@@ -76,21 +80,39 @@ void main() {
       expect(balanceValue, 600);
     });
     test('ShortageのMessageが正しく組み立てられる', () {
+      //TODO: 正しくとはどういうことか説明できるテスト名にする
       final account = Account.create('80ae0478-a252-415f-b34e-b1b515ec4855');
       final today = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);
       final targetDays = [DateTime(2022, 12, 29, 0, 0, 0, 0, 0), DateTime(2022, 12, 30, 0, 0, 0, 0, 0)];
       final hasTransactionsAccount = account
           .changeBalance(300)
           .addTransactionHistory(targetDays[0], today)
-          .addTransactionHistory(targetDays[1], today);
-      final amountChangedTransactionsAccount = hasTransactionsAccount
-          .changeTransactionHistory(hasTransactionsAccount.transactions.children[0].id.value, false, newAmount: -200)
-          .changeTransactionHistory(hasTransactionsAccount.transactions.children[1].id.value, false, newAmount: -400);
+          .addTransactionHistory(targetDays[1], today); // TODO: check - acountIdをオブジェクトのidを流用する形にしていいんだっけ？
+      final amountChangedTransactionsAccount =
+          hasTransactionsAccount // TODO: check - この辺怪しい、過去の日付からShortageを編み出すことは想定してない
+              .changeTransactionHistory(hasTransactionsAccount.transactions.children[0].id.value, false,
+                  newAmount: -200)
+              .changeTransactionHistory(hasTransactionsAccount.transactions.children[1].id.value, false,
+                  newAmount: -400);
       final changesInBalance = amountChangedTransactionsAccount.issueChangesInBalance();
       final shortage = Shortage.create(
           account.id, changesInBalance.firstWhere((changeInBalance) => changeInBalance.value.value < 0), 0);
       expect(shortage.message.value, '2022年12月30日に0円を下回る予定です。');
     });
-    test('未来の日付のbalanceが正しく計算できる', () {});
+    test('未来の日付のbalanceが正しく計算できる', () {
+      //TODO: 正しくとはどういうことか説明できるテスト名にする
+      final today = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);
+      final account = Account.create('80ae0478-a252-415f-b34e-b1b515ec4855').changeBalance(600);
+      final targetDays = [DateTime(2023, 1, 5, 0, 0, 0, 0, 0), DateTime(2023, 1, 10, 0, 0, 0, 0, 0)];
+      final shceduledTransactions = Transactions([
+        Transaction.scheduled(accountId: account.id, date: targetDays[0]).changeAmount(300),
+        Transaction.scheduled(accountId: account.id, date: targetDays[1]).changeAmount(-50)
+      ]);
+      final changesInBalance =
+          account.issueChangesInBalanceSchedule(shceduledTransactions); //TODO: 予定されたトランザクションがどの集約に含まれるのか考える
+      final latestBalanceValue = changesInBalance.last.value.value;
+      expect(latestBalanceValue, 850);
+    });
+    test('予定されたトランザクションには現時点より未来の日付しか含まれない', () => null);
   });
 }

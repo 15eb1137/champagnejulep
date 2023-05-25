@@ -19,12 +19,12 @@ class Transaction with _$Transaction {
       required bool isCalced,
       required int amount}) = _Transaction;
 
-  factory Transaction.scheduled({required AccountId accountId}) => Transaction(
+  factory Transaction.scheduled({required AccountId accountId, required DateTime date}) => Transaction(
       id: TransactionId.create(),
       accountId: accountId,
       title: TransactionTitle.create(),
       calcAuto: false,
-      transactionAt: TransactionAt.create(),
+      transactionAt: TransactionAt(date),
       isCalced: false,
       amount: 0);
 

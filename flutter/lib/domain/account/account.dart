@@ -41,6 +41,8 @@ class Account with _$Account {
   AccountBalance issueBalanceNow() => transactions.issueChangesInBalance(balance).last.changeDateNow();
   List<MapEntry<DateTime, AccountBalance>> issueChangesInBalance() =>
       transactions.issueChangesInBalance(balance).map((e) => MapEntry(e.date, e)).toList();
+  List<MapEntry<DateTime, AccountBalance>> issueChangesInBalanceSchedule(Transactions scheduledTransactions) =>
+      scheduledTransactions.issueChangesInBalance(balance).map((e) => MapEntry(e.date, e)).toList();
 
   Account addTransactionHistory(DateTime date, DateTime baseDate) {
     if (date.isAfter(baseDate)) {

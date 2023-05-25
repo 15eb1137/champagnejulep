@@ -1,4 +1,5 @@
 import 'package:champagnejulep/domain/account/account.dart';
+import 'package:champagnejulep/domain/account/account_id.dart';
 import 'package:champagnejulep/domain/shortage/shortage.dart';
 import 'package:champagnejulep/domain/transactions/transaction.dart';
 import 'package:champagnejulep/domain/transactions/transactions.dart';
@@ -113,6 +114,19 @@ void main() {
       final latestBalanceValue = changesInBalance.last.value.value;
       expect(latestBalanceValue, 850);
     });
-    test('予定されたトランザクションには現時点より未来の日付しか含まれない', () => null);
+    test('予定されたトランザクションには現時点より未来の日付しか含まれない', () {
+      // TODO: これはテストではない、かもしれない
+      final accountId = AccountId('80ae0478-a252-415f-b34e-b1b515ec4855');
+      final today = DateTime(2023, 1, 2, 0, 0, 0, 0, 0);
+      final transactions = Transactions([
+        Transaction.scheduled(accountId: accountId, date: DateTime(2023, 1, 2, 0, 0, 0, 0, 0)),
+        Transaction.scheduled(accountId: accountId, date: DateTime(2023, 1, 3, 0, 0, 0, 0, 0)),
+      ]);
+      final isTransactionsDateAfterNow = transactions.children.every((transaction) {
+        final transactionAt = transaction.transactionAt.value;
+        return transactionAt.isAfter(today) || transactionAt.isAtSameMomentAs(today);
+      });
+      expect(isTransactionsDateAfterNow, true);
+    });
   });
 }

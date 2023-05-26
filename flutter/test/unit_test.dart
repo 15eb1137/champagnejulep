@@ -34,18 +34,24 @@ void main() {
     });
   });
   group('[Small tests]', () {
-    test('ユーザーは、プレミアムにアップデートされて7日後になるとPremiumStateがExpiredになる', () {
+    test('ユーザーは、プレミアムにアップデートされた7日後に期限切れになる', () {
       final user = User.create();
-      final today = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);
-      final updatedUser = user.updateToPremium(updatedAt: today);
+      final beforePremiumAt = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);
+
+      expect(user.isPremiumWhen(beforePremiumAt), false);
+      expect(user.isPremiumExpiredWhen(beforePremiumAt), false);
+
+      final updatedUser = user.updateToPremium(updatedAt: beforePremiumAt);
 
       final stillPremiumAt = DateTime(2023, 1, 8, 0, 0, 0, 0, 0);
+      expect(updatedUser.isPremiumWhen(stillPremiumAt), true);
       expect(updatedUser.isPremiumExpiredWhen(stillPremiumAt), false);
 
       final expiredAt = DateTime(2023, 1, 8, 0, 0, 0, 0, 1);
+      expect(updatedUser.isPremiumWhen(expiredAt), false);
       expect(updatedUser.isPremiumExpiredWhen(expiredAt), true);
     });
-    test('アカウントのトランザクションには現時点より過去の日付しか含まれない', () {
+    test('アカウントのトランザクションには現時点までの日付しか含まれない', () {
       //TODO: check - 現時点まで、かも
       final account = Account.create('80ae0478-a252-415f-b34e-b1b515ec4855');
       final today = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);

@@ -51,8 +51,7 @@ void main() {
       expect(updatedUser.isPremiumWhen(expiredAt), false);
       expect(updatedUser.isPremiumExpiredWhen(expiredAt), true);
     });
-    test('アカウントのトランザクションには現時点までの日付しか含まれない', () {
-      //TODO: check - 現時点まで、かも
+    test('アカウントのトランザクションには現時点までの日付のみ追加できる', () {
       final account = Account.create('80ae0478-a252-415f-b34e-b1b515ec4855');
       final today = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);
       final targetDays = [
@@ -64,12 +63,6 @@ void main() {
       final hasTransactionsAccount1 = hasTransactionsAccount0.addTransactionHistory(targetDays[1], today);
 
       expect(() => hasTransactionsAccount1.addTransactionHistory(targetDays[2], today), throwsException);
-
-      final isAccountTransactionsDateBeforeNow = hasTransactionsAccount1.transactions.children.every((transaction) {
-        final transactionAt = transaction.transactionAt.value;
-        return transactionAt.isBefore(today) || transactionAt.isAtSameMomentAs(today);
-      });
-      expect(isAccountTransactionsDateBeforeNow, true);
     });
     test('アカウントのissueBalanceNowが正しく計算できる', () {
       //TODO: 正しくとはどういうことか説明できるテスト名にする

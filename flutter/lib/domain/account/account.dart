@@ -53,7 +53,8 @@ class Account with _$Account {
   }
 
   Account changeName(String newName) => copyWith.name(value: newName);
-  Account changeBalance(int newBalance) => copyWith(balance: balance.changeValue(newBalance));
+  Account changeBalanceAt(int newBalance, DateTime balanceAt) =>
+      copyWith(balance: balance.changeValueAtDate(newBalance, balanceAt));
   Account changeTransactionHistory(String targetId, bool calcBalance, {String? newTitle, int? newAmount}) {
     final targetTransaction = getTransaction(targetId);
     final updatedTransactions = newTitle != null && newAmount != null

@@ -67,10 +67,11 @@ void main() {
     test('アカウントのissueBalanceNowが正しく計算できる', () {
       //TODO: 正しくとはどういうことか説明できるテスト名にする
       final account = Account.create('80ae0478-a252-415f-b34e-b1b515ec4855');
+      final balanceUpdatedAt = DateTime(2023, 12, 28, 0, 0, 0, 0, 0);
       final today = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);
       final targetDays = [DateTime(2022, 12, 29, 0, 0, 0, 0, 0), DateTime(2022, 12, 30, 0, 0, 0, 0, 0)];
       final hasTransactionsAccount = account
-          .changeBalance(500)
+          .changeBalanceAt(500, balanceUpdatedAt)
           .addTransactionHistory(targetDays[0], today)
           .addTransactionHistory(targetDays[1], today);
       final amountChangedTransactionsAccount = hasTransactionsAccount
@@ -85,7 +86,7 @@ void main() {
       final today = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);
       final targetDays = [DateTime(2022, 12, 29, 0, 0, 0, 0, 0), DateTime(2022, 12, 30, 0, 0, 0, 0, 0)];
       final hasTransactionsAccount = account
-          .changeBalance(300)
+          .changeBalanceAt(300, today)
           .addTransactionHistory(targetDays[0], today)
           .addTransactionHistory(targetDays[1], today); // TODO: check - acountIdをオブジェクトのidを流用する形にしていいんだっけ？
       final amountChangedTransactionsAccount =
@@ -102,7 +103,7 @@ void main() {
     test('未来の日付のbalanceが正しく計算できる', () {
       //TODO: 正しくとはどういうことか説明できるテスト名にする
       final today = DateTime(2023, 1, 1, 0, 0, 0, 0, 0);
-      final account = Account.create('80ae0478-a252-415f-b34e-b1b515ec4855').changeBalance(600);
+      final account = Account.create('80ae0478-a252-415f-b34e-b1b515ec4855').changeBalanceAt(600, today);
       final targetDays = [DateTime(2023, 1, 5, 0, 0, 0, 0, 0), DateTime(2023, 1, 10, 0, 0, 0, 0, 0)];
       final shceduledTransactions = Transactions([
         Transaction.scheduled(accountId: account.id, date: targetDays[0]).changeAmount(300),

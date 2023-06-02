@@ -15,7 +15,7 @@ class Transactions with _$Transactions {
   Transaction firstWhere(bool Function(Transaction) test, {Transaction Function()? orElse}) =>
       children.firstWhere(test, orElse: orElse);
 
-  int simulateLatest() => children.fold(0, (previousValue, element) => previousValue + element.amount);
+  int simulate() => children.fold(0, (previousValue, element) => previousValue + element.amount);
 
   Transactions changeTransactionTitle(Transaction target, String newTitle) => Transactions(children
       .map((transaction) =>

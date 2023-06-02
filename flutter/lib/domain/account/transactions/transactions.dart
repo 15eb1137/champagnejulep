@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../account_balance.dart';
 import 'transaction.dart';
 
 part 'transactions.freezed.dart';
@@ -15,13 +14,8 @@ class Transactions with _$Transactions {
   Iterable<Transaction> where(bool Function(Transaction element) test) => children.where(test);
   Transaction firstWhere(bool Function(Transaction) test, {Transaction Function()? orElse}) =>
       children.firstWhere(test, orElse: orElse);
-  List<AccountBalance> issueChangesInBalance(AccountBalance balance) {
-    int previousSum = balance.value;
-    return children.map((e) {
-      previousSum += e.amount;
-      return balance.changeValueAtDate(previousSum, e.transactionAt.value);
-    }).toList();
-  }
+
+  int simulateLatest() => children.fold(0, (previousValue, element) => previousValue + element.amount);
 
   Transactions changeTransactionTitle(Transaction target, String newTitle) => Transactions(children
       .map((transaction) =>

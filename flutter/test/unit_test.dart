@@ -63,7 +63,7 @@ void main() {
         Transaction.calced(date: DateTime(2023, 2, 1), amount: 9000),
         Transaction.calced(date: DateTime(2023, 2, 2), amount: -3000)
       ];
-      final account = Account.create('851a1b51-b4fd-a79f-2bad-be5414d96825').recordAll(transactions);
+      final account = Account.create('a2607d4a-2142-4e1c-9049-1a4ff77ab9b2').recordAll(transactions);
       final latest = account.simulateLatest();
       expect(latest, 6000);
     });
@@ -97,7 +97,7 @@ void main() {
         Transaction.calced(date: DateTime(2023, 4, 1), amount: 7000),
         Transaction.calced(date: DateTime(2023, 4, 2), amount: -2000)
       ];
-      final account = Account.create('66948c0c-3b62-3aa7-eab5-e5e911aa6d84').recordAll(transactions);
+      final account = Account.create('6f2feb6c-f49e-4a70-9231-537ad836a78c').recordAll(transactions);
       final latest = account.simulateLatest();
       expect(latest, 5000);
 
@@ -106,7 +106,7 @@ void main() {
       // 【確認】 2023-04-02 4,000円
       final targetTransaction =
           account.transactions.firstWhere((transaction) => transaction.transactionAt.value == DateTime(2023, 4, 2));
-      final newTransaction = Transaction.calced(date: DateTime(2023, 4, 2), amount: 3000);
+      final newTransaction = Transaction.calced(date: DateTime(2023, 4, 2), amount: -3000);
       final accountChanged = account.rewriteTransaction(targetTransaction.id, newTransaction);
       final latestChanged = accountChanged.simulateLatest();
       expect(latestChanged, 4000);
@@ -120,7 +120,7 @@ void main() {
         Transaction.calced(date: DateTime(2023, 5, 1), amount: 6000),
         Transaction.calced(date: DateTime(2023, 5, 2), amount: -4000)
       ];
-      final account05 = Account.create('2274d5aa-a87d-c614-2a8e-dab0af5ff872').recordAll(transactions05);
+      final account05 = Account.create('1de0f3e4-dc48-40fd-b87d-5aa58f679d8e').recordAll(transactions05);
       final latest05 = account05.simulateLatest();
       expect(latest05, 2000);
 

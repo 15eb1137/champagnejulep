@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../account/account_balance.dart';
 import '../account/account_id.dart';
 import 'shortage_message.dart';
 import 'shortage_title.dart';
@@ -14,7 +13,7 @@ class Shortage with _$Shortage {
       required ShortageTitle title,
       required ShortageMessage message,
       required int threshold}) = _Shortage;
-  factory Shortage.create(AccountId accountId, MapEntry<DateTime, AccountBalance> changeInBalance, int threshold) =>
+  factory Shortage.create(AccountId accountId, DateTime changeInBalance, int threshold) =>
       Shortage(
           accountId: accountId,
           title: ShortageTitle.create(threshold),

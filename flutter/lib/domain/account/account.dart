@@ -77,5 +77,5 @@ class Account with _$Account {
   //           ? balance.changeValueByCalc(newAmount != null ? newAmount - targetTransaction.amount : 0)
   //           : balance);
   // }
-  int simulateLatest() => 0;
+  int simulateLatest() => transactions.simulateLatest();
 }

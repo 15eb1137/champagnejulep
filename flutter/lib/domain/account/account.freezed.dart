@@ -17,8 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Account {
   AccountId get id => throw _privateConstructorUsedError;
-  AccountName get name =>
-      throw _privateConstructorUsedError; // required AccountBalance balance,
+  AccountName get name => throw _privateConstructorUsedError;
   Transactions get transactions => throw _privateConstructorUsedError;
   UserId get ownerId => throw _privateConstructorUsedError;
 
@@ -187,7 +186,6 @@ class _$_Account extends _Account with DiagnosticableTreeMixin {
   final AccountId id;
   @override
   final AccountName name;
-// required AccountBalance balance,
   @override
   final Transactions transactions;
   @override
@@ -243,7 +241,7 @@ abstract class _Account extends Account {
   AccountId get id;
   @override
   AccountName get name;
-  @override // required AccountBalance balance,
+  @override
   Transactions get transactions;
   @override
   UserId get ownerId;

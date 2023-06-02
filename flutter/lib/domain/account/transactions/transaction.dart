@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../account/account_id.dart';
 import 'transaction_at.dart';
 import 'transaction_id.dart';
 import 'transaction_title.dart';
@@ -12,30 +11,27 @@ class Transaction with _$Transaction {
   const Transaction._();
   const factory Transaction(
       {required TransactionId id,
-      required AccountId accountId,
       required TransactionTitle title,
       required bool calcAuto,
       required TransactionAt transactionAt,
       required bool isCalced,
       required int amount}) = _Transaction;
 
-  factory Transaction.scheduled({required AccountId accountId, required DateTime date}) => Transaction(
+  factory Transaction.scheduled({required DateTime date, required int amount}) => Transaction(
       id: TransactionId.create(),
-      accountId: accountId,
       title: TransactionTitle.create(),
       calcAuto: false,
       transactionAt: TransactionAt(date),
       isCalced: false,
-      amount: 0);
+      amount: amount);
 
-  factory Transaction.calced({required AccountId accountId, required DateTime date}) => Transaction(
+  factory Transaction.calced({required DateTime date, required int amount}) => Transaction(
       id: TransactionId.create(),
-      accountId: accountId,
       title: TransactionTitle.create(),
       calcAuto: false,
       transactionAt: TransactionAt.createAt(date),
       isCalced: true,
-      amount: 0);
+      amount: amount);
 
   String get amountInfo => '${transactionAt.formattedYearMonthDay}に${amount.abs()}円を${amount < 0 ? '出金' : '入金'}する予定です。';
 

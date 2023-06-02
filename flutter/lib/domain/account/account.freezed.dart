@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Account {
   AccountId get id => throw _privateConstructorUsedError;
-  AccountName get name => throw _privateConstructorUsedError;
-  AccountBalance get balance => throw _privateConstructorUsedError;
+  AccountName get name =>
+      throw _privateConstructorUsedError; // required AccountBalance balance,
   Transactions get transactions => throw _privateConstructorUsedError;
   UserId get ownerId => throw _privateConstructorUsedError;
 
@@ -34,13 +34,11 @@ abstract class $AccountCopyWith<$Res> {
   $Res call(
       {AccountId id,
       AccountName name,
-      AccountBalance balance,
       Transactions transactions,
       UserId ownerId});
 
   $AccountIdCopyWith<$Res> get id;
   $AccountNameCopyWith<$Res> get name;
-  $AccountBalanceCopyWith<$Res> get balance;
   $TransactionsCopyWith<$Res> get transactions;
   $UserIdCopyWith<$Res> get ownerId;
 }
@@ -60,7 +58,6 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? balance = null,
     Object? transactions = null,
     Object? ownerId = null,
   }) {
@@ -73,10 +70,6 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as AccountName,
-      balance: null == balance
-          ? _value.balance
-          : balance // ignore: cast_nullable_to_non_nullable
-              as AccountBalance,
       transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
@@ -101,14 +94,6 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
   $AccountNameCopyWith<$Res> get name {
     return $AccountNameCopyWith<$Res>(_value.name, (value) {
       return _then(_value.copyWith(name: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AccountBalanceCopyWith<$Res> get balance {
-    return $AccountBalanceCopyWith<$Res>(_value.balance, (value) {
-      return _then(_value.copyWith(balance: value) as $Val);
     });
   }
 
@@ -139,7 +124,6 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   $Res call(
       {AccountId id,
       AccountName name,
-      AccountBalance balance,
       Transactions transactions,
       UserId ownerId});
 
@@ -147,8 +131,6 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   $AccountIdCopyWith<$Res> get id;
   @override
   $AccountNameCopyWith<$Res> get name;
-  @override
-  $AccountBalanceCopyWith<$Res> get balance;
   @override
   $TransactionsCopyWith<$Res> get transactions;
   @override
@@ -167,7 +149,6 @@ class __$$_AccountCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? balance = null,
     Object? transactions = null,
     Object? ownerId = null,
   }) {
@@ -180,10 +161,6 @@ class __$$_AccountCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as AccountName,
-      balance: null == balance
-          ? _value.balance
-          : balance // ignore: cast_nullable_to_non_nullable
-              as AccountBalance,
       transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
@@ -202,7 +179,6 @@ class _$_Account extends _Account with DiagnosticableTreeMixin {
   const _$_Account(
       {required this.id,
       required this.name,
-      required this.balance,
       required this.transactions,
       required this.ownerId})
       : super._();
@@ -211,8 +187,7 @@ class _$_Account extends _Account with DiagnosticableTreeMixin {
   final AccountId id;
   @override
   final AccountName name;
-  @override
-  final AccountBalance balance;
+// required AccountBalance balance,
   @override
   final Transactions transactions;
   @override
@@ -220,7 +195,7 @@ class _$_Account extends _Account with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Account(id: $id, name: $name, balance: $balance, transactions: $transactions, ownerId: $ownerId)';
+    return 'Account(id: $id, name: $name, transactions: $transactions, ownerId: $ownerId)';
   }
 
   @override
@@ -230,7 +205,6 @@ class _$_Account extends _Account with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('type', 'Account'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('balance', balance))
       ..add(DiagnosticsProperty('transactions', transactions))
       ..add(DiagnosticsProperty('ownerId', ownerId));
   }
@@ -242,15 +216,13 @@ class _$_Account extends _Account with DiagnosticableTreeMixin {
             other is _$_Account &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.balance, balance) || other.balance == balance) &&
             (identical(other.transactions, transactions) ||
                 other.transactions == transactions) &&
             (identical(other.ownerId, ownerId) || other.ownerId == ownerId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, balance, transactions, ownerId);
+  int get hashCode => Object.hash(runtimeType, id, name, transactions, ownerId);
 
   @JsonKey(ignore: true)
   @override
@@ -263,7 +235,6 @@ abstract class _Account extends Account {
   const factory _Account(
       {required final AccountId id,
       required final AccountName name,
-      required final AccountBalance balance,
       required final Transactions transactions,
       required final UserId ownerId}) = _$_Account;
   const _Account._() : super._();
@@ -272,9 +243,7 @@ abstract class _Account extends Account {
   AccountId get id;
   @override
   AccountName get name;
-  @override
-  AccountBalance get balance;
-  @override
+  @override // required AccountBalance balance,
   Transactions get transactions;
   @override
   UserId get ownerId;

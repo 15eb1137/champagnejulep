@@ -17,7 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Transaction {
   TransactionId get id => throw _privateConstructorUsedError;
-  AccountId get accountId => throw _privateConstructorUsedError;
   TransactionTitle get title => throw _privateConstructorUsedError;
   bool get calcAuto => throw _privateConstructorUsedError;
   TransactionAt get transactionAt => throw _privateConstructorUsedError;
@@ -37,7 +36,6 @@ abstract class $TransactionCopyWith<$Res> {
   @useResult
   $Res call(
       {TransactionId id,
-      AccountId accountId,
       TransactionTitle title,
       bool calcAuto,
       TransactionAt transactionAt,
@@ -45,7 +43,6 @@ abstract class $TransactionCopyWith<$Res> {
       int amount});
 
   $TransactionIdCopyWith<$Res> get id;
-  $AccountIdCopyWith<$Res> get accountId;
   $TransactionTitleCopyWith<$Res> get title;
   $TransactionAtCopyWith<$Res> get transactionAt;
 }
@@ -64,7 +61,6 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
   @override
   $Res call({
     Object? id = null,
-    Object? accountId = null,
     Object? title = null,
     Object? calcAuto = null,
     Object? transactionAt = null,
@@ -76,10 +72,6 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as TransactionId,
-      accountId: null == accountId
-          ? _value.accountId
-          : accountId // ignore: cast_nullable_to_non_nullable
-              as AccountId,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -113,14 +105,6 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
 
   @override
   @pragma('vm:prefer-inline')
-  $AccountIdCopyWith<$Res> get accountId {
-    return $AccountIdCopyWith<$Res>(_value.accountId, (value) {
-      return _then(_value.copyWith(accountId: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $TransactionTitleCopyWith<$Res> get title {
     return $TransactionTitleCopyWith<$Res>(_value.title, (value) {
       return _then(_value.copyWith(title: value) as $Val);
@@ -146,7 +130,6 @@ abstract class _$$_TransactionCopyWith<$Res>
   @useResult
   $Res call(
       {TransactionId id,
-      AccountId accountId,
       TransactionTitle title,
       bool calcAuto,
       TransactionAt transactionAt,
@@ -155,8 +138,6 @@ abstract class _$$_TransactionCopyWith<$Res>
 
   @override
   $TransactionIdCopyWith<$Res> get id;
-  @override
-  $AccountIdCopyWith<$Res> get accountId;
   @override
   $TransactionTitleCopyWith<$Res> get title;
   @override
@@ -175,7 +156,6 @@ class __$$_TransactionCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? accountId = null,
     Object? title = null,
     Object? calcAuto = null,
     Object? transactionAt = null,
@@ -187,10 +167,6 @@ class __$$_TransactionCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as TransactionId,
-      accountId: null == accountId
-          ? _value.accountId
-          : accountId // ignore: cast_nullable_to_non_nullable
-              as AccountId,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -220,7 +196,6 @@ class __$$_TransactionCopyWithImpl<$Res>
 class _$_Transaction extends _Transaction {
   const _$_Transaction(
       {required this.id,
-      required this.accountId,
       required this.title,
       required this.calcAuto,
       required this.transactionAt,
@@ -230,8 +205,6 @@ class _$_Transaction extends _Transaction {
 
   @override
   final TransactionId id;
-  @override
-  final AccountId accountId;
   @override
   final TransactionTitle title;
   @override
@@ -245,7 +218,7 @@ class _$_Transaction extends _Transaction {
 
   @override
   String toString() {
-    return 'Transaction(id: $id, accountId: $accountId, title: $title, calcAuto: $calcAuto, transactionAt: $transactionAt, isCalced: $isCalced, amount: $amount)';
+    return 'Transaction(id: $id, title: $title, calcAuto: $calcAuto, transactionAt: $transactionAt, isCalced: $isCalced, amount: $amount)';
   }
 
   @override
@@ -254,8 +227,6 @@ class _$_Transaction extends _Transaction {
         (other.runtimeType == runtimeType &&
             other is _$_Transaction &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.accountId, accountId) ||
-                other.accountId == accountId) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.calcAuto, calcAuto) ||
                 other.calcAuto == calcAuto) &&
@@ -267,8 +238,8 @@ class _$_Transaction extends _Transaction {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, accountId, title, calcAuto,
-      transactionAt, isCalced, amount);
+  int get hashCode => Object.hash(
+      runtimeType, id, title, calcAuto, transactionAt, isCalced, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -280,7 +251,6 @@ class _$_Transaction extends _Transaction {
 abstract class _Transaction extends Transaction {
   const factory _Transaction(
       {required final TransactionId id,
-      required final AccountId accountId,
       required final TransactionTitle title,
       required final bool calcAuto,
       required final TransactionAt transactionAt,
@@ -290,8 +260,6 @@ abstract class _Transaction extends Transaction {
 
   @override
   TransactionId get id;
-  @override
-  AccountId get accountId;
   @override
   TransactionTitle get title;
   @override

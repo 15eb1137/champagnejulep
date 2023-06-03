@@ -8,6 +8,7 @@ part 'shortage.freezed.dart';
 
 @freezed
 class Shortage with _$Shortage {
+  const Shortage._();
   const factory Shortage(
       {required AccountId accountId,
       required ShortageTitle title,

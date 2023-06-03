@@ -20,10 +20,7 @@ class Account with _$Account {
       required UserId ownerId}) = _Account;
 
   factory Account.create(String userId) => Account(
-      id: AccountId.create(),
-      name: AccountName.create(),
-      transactions: Transactions([]),
-      ownerId: UserId(userId));
+      id: AccountId.create(), name: AccountName.create(), transactions: Transactions([]), ownerId: UserId(userId));
   factory Account.restore(String id, String name, int balanceValue, Transactions transactions, UserId ownerId) =>
       Account(
           id: AccountId(id),
@@ -47,8 +44,8 @@ class Account with _$Account {
       children: transactions.children
           .map((transaction) => transaction.id == targetId ? newTransaction : transaction)
           .toList());
-  Account cancelTransaction(TransactionId targetId) => copyWith.transactions(
-      children: transactions.children.where((transaction) => transaction.id != targetId).toList());
+  Account cancelTransaction(TransactionId targetId) =>
+      copyWith.transactions(children: transactions.where((transaction) => transaction.id != targetId).toList());
 
   int simulateLatest() => transactions.simulate();
   int simulateAt(DateTime at) => Transactions(transactions.where((transaction) {
@@ -56,4 +53,19 @@ class Account with _$Account {
         return transactionAt.isBefore(at) || transactionAt.isAtSameMomentAs(at);
       }).toList())
           .simulate();
+
+  List<String> alert({required DateTime from}) {
+      for (int i = 0; i < transactions.length; i++) {
+        final slicedTransactions = Transactions(transactions.children.take(i).toList());
+        final balance = slicedTransactions.simulate();
+        if (balance < 0) {
+          return ['${transactions.children[i].transactionAt.value}において、残高がマイナスになりました。'];
+      }
+    }
+    // final transactions = Transactions(transactions.where((transaction) {
+    //   final transactionAt = transaction.transactionAt.value;
+    //   return transactionAt.isAtSameMomentAs(from) || transactionAt.isAfter(from);
+    // }).toList());
+    return [];
+  }
 }

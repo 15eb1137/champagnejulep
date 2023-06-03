@@ -14,6 +14,8 @@ class Transactions with _$Transactions {
   Iterable<Transaction> where(bool Function(Transaction element) test) => children.where(test);
   Transaction firstWhere(bool Function(Transaction) test, {Transaction Function()? orElse}) =>
       children.firstWhere(test, orElse: orElse);
+  Transaction get last => children.last;
+  int get length => children.length;
 
   int simulate() => children.fold(0, (previousValue, element) => previousValue + element.amount);
 

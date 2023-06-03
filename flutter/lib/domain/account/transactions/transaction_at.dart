@@ -7,5 +7,5 @@ class TransactionAt with _$TransactionAt {
   const TransactionAt._();
   const factory TransactionAt(DateTime value) = _TransactionAt;
   factory TransactionAt.createAt(DateTime dateTime) => TransactionAt(dateTime);
-  String get formattedYearMonthDay => DateFormat.yMMMMd().format(value);
+  String get formattedYearMonthDay => DateFormat.yMMMMd('ja_JP').format(value);
 }

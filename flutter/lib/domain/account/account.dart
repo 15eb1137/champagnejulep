@@ -33,6 +33,7 @@ class Account with _$Account {
   //     transactions.children.firstWhere((element) => element.id.value == targetId);
   // bool isOwner(UserId userId) => userId == ownerId;
   // Account changeName(String newName) => copyWith.name(value: newName);
+  List<String> infoTransactions() => transactions.children.map((transaction) => transaction.info).toList();
 
   Account record(Transaction newTransaction) =>
       copyWith.transactions(children: [...transactions.children, newTransaction]);

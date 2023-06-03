@@ -1,4 +1,3 @@
-
 import 'package:champagnejulep/domain/account/account.dart';
 import 'package:champagnejulep/domain/account/transactions/transaction.dart';
 import 'package:champagnejulep/domain/shortage/shortages.dart';
@@ -57,7 +56,18 @@ void main() {
       expect(updatedUser.isPremiumWhen(expiredAt), false);
       expect(updatedUser.isPremiumExpiredWhen(expiredAt), true);
     });
-    // TODO: amountInfoのテスト（アカウントに記録したトランザクションの情報がテンプレート通りの文章になる）
+    test('アカウントに記録したトランザクションの情報がテンプレート通りの文章になる', () {
+      // テンプレート：◯年◯月◯日に◯円を入金/出金する予定です。
+      final transactions = [
+        Transaction.calced(date: DateTime(2022, 1, 1), amount: 50000),
+        Transaction.calced(date: DateTime(2022, 1, 2), amount: -50000)
+      ];
+      final account = Account.create('7faca6d3-1399-47e0-ae4d-9ee54cd573a3').recordAll(transactions);
+      final infoList = account.infoTransactions();
+      expect(infoList.length, 2);
+      expect(infoList[0], '2022年1月1日に50,000円を入金する予定です。');
+      expect(infoList[1], '2022年1月2日に50,000円を出金する予定です。');
+    });
     test('アカウントにトランザクションを1件記録してシミュレートするとその金額が残高になる', () {
       // 【入金】 2023-01-01 10,000円
       // 【確認】 2023-01-01 10,000円

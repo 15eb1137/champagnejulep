@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intl/intl.dart';
 
 import 'transaction_at.dart';
 import 'transaction_id.dart';
@@ -33,7 +34,8 @@ class Transaction with _$Transaction {
       isCalced: true,
       amount: amount);
 
-  String get amountInfo => '${transactionAt.formattedYearMonthDay}に${amount.abs()}円を${amount < 0 ? '出金' : '入金'}する予定です。';
+  String get info =>
+      '${transactionAt.formattedYearMonthDay}に${NumberFormat('#,###').format(amount.abs())}円を${amount < 0 ? '出金' : '入金'}する予定です。';
 
   Transaction changeTitle(String newTitle) => copyWith.title(value: newTitle);
   Transaction changeAmount(int newAmount) => copyWith(amount: newAmount);

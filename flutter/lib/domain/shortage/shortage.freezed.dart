@@ -20,6 +20,8 @@ mixin _$Shortage {
   ShortageTitle get title => throw _privateConstructorUsedError;
   ShortageMessage get message => throw _privateConstructorUsedError;
   int get threshold => throw _privateConstructorUsedError;
+  ShortageShareResultStatus get shareResultStatus =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ShortageCopyWith<Shortage> get copyWith =>
@@ -35,7 +37,8 @@ abstract class $ShortageCopyWith<$Res> {
       {AccountId accountId,
       ShortageTitle title,
       ShortageMessage message,
-      int threshold});
+      int threshold,
+      ShortageShareResultStatus shareResultStatus});
 
   $AccountIdCopyWith<$Res> get accountId;
   $ShortageTitleCopyWith<$Res> get title;
@@ -59,6 +62,7 @@ class _$ShortageCopyWithImpl<$Res, $Val extends Shortage>
     Object? title = null,
     Object? message = null,
     Object? threshold = null,
+    Object? shareResultStatus = null,
   }) {
     return _then(_value.copyWith(
       accountId: null == accountId
@@ -77,6 +81,10 @@ class _$ShortageCopyWithImpl<$Res, $Val extends Shortage>
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
               as int,
+      shareResultStatus: null == shareResultStatus
+          ? _value.shareResultStatus
+          : shareResultStatus // ignore: cast_nullable_to_non_nullable
+              as ShortageShareResultStatus,
     ) as $Val);
   }
 
@@ -116,7 +124,8 @@ abstract class _$$_ShortageCopyWith<$Res> implements $ShortageCopyWith<$Res> {
       {AccountId accountId,
       ShortageTitle title,
       ShortageMessage message,
-      int threshold});
+      int threshold,
+      ShortageShareResultStatus shareResultStatus});
 
   @override
   $AccountIdCopyWith<$Res> get accountId;
@@ -141,6 +150,7 @@ class __$$_ShortageCopyWithImpl<$Res>
     Object? title = null,
     Object? message = null,
     Object? threshold = null,
+    Object? shareResultStatus = null,
   }) {
     return _then(_$_Shortage(
       accountId: null == accountId
@@ -159,6 +169,10 @@ class __$$_ShortageCopyWithImpl<$Res>
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
               as int,
+      shareResultStatus: null == shareResultStatus
+          ? _value.shareResultStatus
+          : shareResultStatus // ignore: cast_nullable_to_non_nullable
+              as ShortageShareResultStatus,
     ));
   }
 }
@@ -170,7 +184,8 @@ class _$_Shortage implements _Shortage {
       {required this.accountId,
       required this.title,
       required this.message,
-      required this.threshold});
+      required this.threshold,
+      required this.shareResultStatus});
 
   @override
   final AccountId accountId;
@@ -180,10 +195,12 @@ class _$_Shortage implements _Shortage {
   final ShortageMessage message;
   @override
   final int threshold;
+  @override
+  final ShortageShareResultStatus shareResultStatus;
 
   @override
   String toString() {
-    return 'Shortage(accountId: $accountId, title: $title, message: $message, threshold: $threshold)';
+    return 'Shortage(accountId: $accountId, title: $title, message: $message, threshold: $threshold, shareResultStatus: $shareResultStatus)';
   }
 
   @override
@@ -196,12 +213,14 @@ class _$_Shortage implements _Shortage {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.threshold, threshold) ||
-                other.threshold == threshold));
+                other.threshold == threshold) &&
+            (identical(other.shareResultStatus, shareResultStatus) ||
+                other.shareResultStatus == shareResultStatus));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, accountId, title, message, threshold);
+  int get hashCode => Object.hash(
+      runtimeType, accountId, title, message, threshold, shareResultStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -212,10 +231,12 @@ class _$_Shortage implements _Shortage {
 
 abstract class _Shortage implements Shortage {
   const factory _Shortage(
-      {required final AccountId accountId,
-      required final ShortageTitle title,
-      required final ShortageMessage message,
-      required final int threshold}) = _$_Shortage;
+          {required final AccountId accountId,
+          required final ShortageTitle title,
+          required final ShortageMessage message,
+          required final int threshold,
+          required final ShortageShareResultStatus shareResultStatus}) =
+      _$_Shortage;
 
   @override
   AccountId get accountId;
@@ -225,6 +246,8 @@ abstract class _Shortage implements Shortage {
   ShortageMessage get message;
   @override
   int get threshold;
+  @override
+  ShortageShareResultStatus get shareResultStatus;
   @override
   @JsonKey(ignore: true)
   _$$_ShortageCopyWith<_$_Shortage> get copyWith =>

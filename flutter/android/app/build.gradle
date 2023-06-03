@@ -88,7 +88,7 @@ android {
     defaultConfig {
         applicationId "com.iori.champagnejulep"
         resValue "string", "app_name", dartEnvironmentVariables.APP_NAME
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 19 // flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

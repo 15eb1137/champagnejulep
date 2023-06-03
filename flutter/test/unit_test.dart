@@ -7,7 +7,10 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
 void main() {
-  setUp(() => initializeDateFormatting('ja_JP'));
+  setUp(() {
+    initializeDateFormatting('ja_JP');
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
   group('[Learning tests]', () {
     test('DateTime.isBefore/isAfter', () {
       final today = DateTime(2021, 1, 1, 0, 0, 0, 0, 0);

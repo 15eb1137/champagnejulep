@@ -179,13 +179,14 @@ class __$$_ShortageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Shortage implements _Shortage {
+class _$_Shortage extends _Shortage {
   const _$_Shortage(
       {required this.accountId,
       required this.title,
       required this.message,
       required this.threshold,
-      required this.shareResultStatus});
+      required this.shareResultStatus})
+      : super._();
 
   @override
   final AccountId accountId;
@@ -229,7 +230,7 @@ class _$_Shortage implements _Shortage {
       __$$_ShortageCopyWithImpl<_$_Shortage>(this, _$identity);
 }
 
-abstract class _Shortage implements Shortage {
+abstract class _Shortage extends Shortage {
   const factory _Shortage(
           {required final AccountId accountId,
           required final ShortageTitle title,
@@ -237,6 +238,7 @@ abstract class _Shortage implements Shortage {
           required final int threshold,
           required final ShortageShareResultStatus shareResultStatus}) =
       _$_Shortage;
+  const _Shortage._() : super._();
 
   @override
   AccountId get accountId;

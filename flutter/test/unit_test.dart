@@ -1,7 +1,9 @@
+
 import 'package:champagnejulep/domain/account/account.dart';
 import 'package:champagnejulep/domain/account/transactions/transaction.dart';
 import 'package:champagnejulep/domain/shortage/shortages.dart';
 import 'package:champagnejulep/domain/user/user.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -39,6 +41,21 @@ void main() {
         oneToFive.add(i);
       }
       expect(oneToFive, [1, 2, 3, 4, 5]);
+    });
+    test('StateNotifier.addListener', () {
+      final stateNotifier = _TestStateNotifier();
+      int value = 0;
+      expect(value, 0);
+      final void Function() removeListener = stateNotifier.addListener((state) => value = state);
+      expect(value, 1);
+
+      stateNotifier.setValue(2);
+      expect(value, 2);
+
+      stateNotifier.setValue(3);
+      removeListener();
+      stateNotifier.setValue(4);
+      expect(value, 3);
     });
   });
   group('[Small tests]', () {
@@ -240,4 +257,9 @@ void main() {
       expect(shortagesAtNow.length, 2);
     });
   });
+}
+
+class _TestStateNotifier extends StateNotifier<int> {
+  _TestStateNotifier() : super(1);
+  void setValue(int value) => state = value;
 }

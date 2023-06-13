@@ -3,14 +3,15 @@ import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../domain/user/user.dart';
-import '../infrastructure/user_repository_provider.dart';
+import '../infrastructure/isar/user_repository_provider.dart';
 
 part 'user_application.g.dart';
 
 @riverpod
 class UserApplication extends _$UserApplication {
   Future<User> _fetch() async {
-    final repository = await ref.read(userRepositoryProvider.future);
+    final repository = await ref.watch(userRepositoryProvider.future);
+    // 関数中でuserDataが変わるためかwatchにすると再実行されてしまうためここではreadを使用している
     final data = await ref.read(userDataProvider.future);
     if (data != null) {
       final user = User.fromJson(data.toJson());
@@ -31,7 +32,7 @@ class UserApplication extends _$UserApplication {
   Future<User> build() async => _fetch();
 
   Future<void> updateToPremium() async {
-    final repository = await ref.read(userRepositoryProvider.future);
+    final repository = await ref.watch(userRepositoryProvider.future);
     state.whenData((user) async {
       state = const AsyncValue.loading();
       state = await AsyncValue.guard(() async {

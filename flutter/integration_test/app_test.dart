@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:champagnejulep/usecase/account_application.dart';
 import 'package:champagnejulep/usecase/user_application.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -35,7 +38,10 @@ void main() {
                       onPressed: () => userApplication.updateToPremium(), child: const Text('premium update button'))
                 ]),
             loading: () => const SizedBox(child: Text('loading')),
-            error: (_, __) => const SizedBox(child: Text('error')));
+            error: (err, _) {
+              debugPrint('user error: $err');
+              return SizedBox(child: Text('error: $err'));
+            });
       });
 
       // 初期データが取得される
@@ -63,6 +69,45 @@ void main() {
       expect(find.text('error'), findsNothing);
       expect(find.text('unregistered'), findsNothing);
       expect(find.text('premium'), findsOneWidget);
+    });
+
+    testWidgets('アカウントの残高をシミュレート', (tester) async {
+      Widget wrap(Widget child) => ProviderScope(child: MaterialApp(home: Scaffold(body: child)));
+      // int randomValue = Random().nextInt(10000);
+      final accountsConsumer = Consumer(builder: (context, ref, child) {
+        final maybeAccounts = ref.watch(accountApplicationProvider);
+        final accountsApplication = ref.watch(accountApplicationProvider.notifier);
+        return maybeAccounts.when(
+            data: (accounts) {
+              return Column(children: [
+                ...accounts
+                    .map((account) => SizedBox(
+                          key: const Key('account'),
+                          child: Text('${account.name}: ${account.id}'),
+                        ))
+                    .toList(),
+                TextButton(
+                    onPressed: () {
+                      accountsApplication.accountSetup();
+                    },
+                    child: const Text('account setup button'))
+              ]);
+            },
+            loading: () => const SizedBox(child: Text('loading')),
+            error: (err, _) {
+              debugPrint('accounts error $err');
+              return SizedBox(child: Text('error: $err'));
+            });
+      });
+      await tester.pumpWidget(wrap(accountsConsumer));
+      expect(find.text('loading'), findsOneWidget);
+      await tester.pumpAndSettle(const Duration(seconds: 1));
+      expect(find.text('loading'), findsNothing);
+      expect(find.text('error'), findsNothing);
+      expect(find.byKey(const Key('account')), findsNothing);
+      await tester.tap(find.text('account setup button'));
+      await tester.pumpAndSettle(const Duration(seconds: 1));
+      expect(find.byKey(const Key('account')), findsNWidgets(1));
     });
   });
 }

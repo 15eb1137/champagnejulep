@@ -14,13 +14,22 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Account _$AccountFromJson(Map<String, dynamic> json) {
+  return _Account.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Account {
+  @AccountIdConverter()
   AccountId get id => throw _privateConstructorUsedError;
+  @AccountNameConverter()
   AccountName get name => throw _privateConstructorUsedError;
+  @TransactionsConverter()
   Transactions get transactions => throw _privateConstructorUsedError;
+  @UserIdConverter()
   UserId get ownerId => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AccountCopyWith<Account> get copyWith => throw _privateConstructorUsedError;
 }
@@ -31,10 +40,10 @@ abstract class $AccountCopyWith<$Res> {
       _$AccountCopyWithImpl<$Res, Account>;
   @useResult
   $Res call(
-      {AccountId id,
-      AccountName name,
-      Transactions transactions,
-      UserId ownerId});
+      {@AccountIdConverter() AccountId id,
+      @AccountNameConverter() AccountName name,
+      @TransactionsConverter() Transactions transactions,
+      @UserIdConverter() UserId ownerId});
 
   $AccountIdCopyWith<$Res> get id;
   $AccountNameCopyWith<$Res> get name;
@@ -121,10 +130,10 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {AccountId id,
-      AccountName name,
-      Transactions transactions,
-      UserId ownerId});
+      {@AccountIdConverter() AccountId id,
+      @AccountNameConverter() AccountName name,
+      @TransactionsConverter() Transactions transactions,
+      @UserIdConverter() UserId ownerId});
 
   @override
   $AccountIdCopyWith<$Res> get id;
@@ -173,22 +182,29 @@ class __$$_AccountCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Account extends _Account with DiagnosticableTreeMixin {
   const _$_Account(
-      {required this.id,
-      required this.name,
-      required this.transactions,
-      required this.ownerId})
+      {@AccountIdConverter() required this.id,
+      @AccountNameConverter() required this.name,
+      @TransactionsConverter() required this.transactions,
+      @UserIdConverter() required this.ownerId})
       : super._();
 
+  factory _$_Account.fromJson(Map<String, dynamic> json) =>
+      _$$_AccountFromJson(json);
+
   @override
+  @AccountIdConverter()
   final AccountId id;
   @override
+  @AccountNameConverter()
   final AccountName name;
   @override
+  @TransactionsConverter()
   final Transactions transactions;
   @override
+  @UserIdConverter()
   final UserId ownerId;
 
   @override
@@ -219,6 +235,7 @@ class _$_Account extends _Account with DiagnosticableTreeMixin {
             (identical(other.ownerId, ownerId) || other.ownerId == ownerId));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, transactions, ownerId);
 
@@ -227,23 +244,36 @@ class _$_Account extends _Account with DiagnosticableTreeMixin {
   @pragma('vm:prefer-inline')
   _$$_AccountCopyWith<_$_Account> get copyWith =>
       __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AccountToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Account extends Account {
   const factory _Account(
-      {required final AccountId id,
-      required final AccountName name,
-      required final Transactions transactions,
-      required final UserId ownerId}) = _$_Account;
+      {@AccountIdConverter() required final AccountId id,
+      @AccountNameConverter() required final AccountName name,
+      @TransactionsConverter() required final Transactions transactions,
+      @UserIdConverter() required final UserId ownerId}) = _$_Account;
   const _Account._() : super._();
 
+  factory _Account.fromJson(Map<String, dynamic> json) = _$_Account.fromJson;
+
   @override
+  @AccountIdConverter()
   AccountId get id;
   @override
+  @AccountNameConverter()
   AccountName get name;
   @override
+  @TransactionsConverter()
   Transactions get transactions;
   @override
+  @UserIdConverter()
   UserId get ownerId;
   @override
   @JsonKey(ignore: true)

@@ -8,3 +8,14 @@ class TransactionTitle with _$TransactionTitle {
   const factory TransactionTitle(String value) = _TransactionTitle;
   factory TransactionTitle.create() => const TransactionTitle('新しい入出金予定');
 }
+
+class TransactionTitleConverter
+    implements JsonConverter<TransactionTitle, String> {
+  const TransactionTitleConverter();
+
+  @override
+  TransactionTitle fromJson(String json) => TransactionTitle(json);
+
+  @override
+  String toJson(TransactionTitle object) => object.value;
+}

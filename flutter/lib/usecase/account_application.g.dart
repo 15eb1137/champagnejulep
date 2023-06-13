@@ -1,25 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_application.dart';
+part of 'account_application.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userApplicationHash() => r'b2ebd498f09bb9d2ec7bc057d4d5dc21c1ec93ca';
+String _$accountApplicationHash() =>
+    r'5a2ba0f372accf29641914fed25075babd5fb46f';
 
-/// See also [UserApplication].
-@ProviderFor(UserApplication)
-final userApplicationProvider =
-    AutoDisposeAsyncNotifierProvider<UserApplication, User>.internal(
-  UserApplication.new,
-  name: r'userApplicationProvider',
+/// See also [AccountApplication].
+@ProviderFor(AccountApplication)
+final accountApplicationProvider = AutoDisposeAsyncNotifierProvider<
+    AccountApplication, List<Account>>.internal(
+  AccountApplication.new,
+  name: r'accountApplicationProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$userApplicationHash,
+      : _$accountApplicationHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$UserApplication = AutoDisposeAsyncNotifier<User>;
+typedef _$AccountApplication = AutoDisposeAsyncNotifier<List<Account>>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

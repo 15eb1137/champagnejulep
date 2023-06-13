@@ -6,7 +6,7 @@ part of 'isar.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$isarHash() => r'071b49a002d4df3fc7b791b745132e0f4b7b4797';
+String _$isarHash() => r'461d8244d4fcb806c14cfceb0c6937fc55421f97';
 
 /// See also [isar].
 @ProviderFor(isar)

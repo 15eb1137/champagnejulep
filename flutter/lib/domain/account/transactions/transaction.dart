@@ -6,15 +6,16 @@ import 'transaction_id.dart';
 import 'transaction_title.dart';
 
 part 'transaction.freezed.dart';
+part 'transaction.g.dart';
 
 @freezed
 class Transaction with _$Transaction {
   const Transaction._();
   const factory Transaction(
-      {required TransactionId id,
-      required TransactionTitle title,
+      {@TransactionIdConverter() required TransactionId id,
+      @TransactionTitleConverter() required TransactionTitle title,
       required bool calcAuto,
-      required TransactionAt transactionAt,
+      @TransactionAtConverter() required TransactionAt transactionAt,
       required bool isCalced,
       required int amount}) = _Transaction;
 
@@ -33,6 +34,8 @@ class Transaction with _$Transaction {
       transactionAt: TransactionAt.createAt(date),
       isCalced: true,
       amount: amount);
+  
+  factory Transaction.fromJson(Map<String, dynamic> json) => _$TransactionFromJson(json);
 
   String get info =>
       '${transactionAt.formattedYearMonthDay}に${NumberFormat('#,###').format(amount.abs())}円を${amount < 0 ? '出金' : '入金'}する予定です。';
@@ -41,4 +44,15 @@ class Transaction with _$Transaction {
   Transaction changeAmount(int newAmount) => copyWith(amount: newAmount);
   Transaction toggleCalcAuto() => copyWith(calcAuto: !calcAuto);
   Transaction updateTransactionAt(DateTime newTransactionAt) => copyWith.transactionAt(value: newTransactionAt);
+}
+
+class TransactionConverter implements JsonConverter<Transaction, Map<String, dynamic>> {
+  const TransactionConverter();
+
+  @override
+  Transaction fromJson(Map<String, dynamic> json) => Transaction.fromJson(json);
+
+  @override
+  Map<String, dynamic> toJson(Transaction object) => object.toJson();
+
 }

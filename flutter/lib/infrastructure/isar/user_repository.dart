@@ -8,7 +8,6 @@ class UserRepository {
 
   Stream<UserData?> watchUser() async* {
     final query = isar.userDatas.where().limit(1);
-
     await for (final results in query.watch(fireImmediately: true)) {
       if (results.isNotEmpty) {
         yield results.first;

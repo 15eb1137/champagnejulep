@@ -1,28 +1,36 @@
-
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/material.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../domain/account/account.dart';
-import '../domain/account/transactions/transactions.dart';
-import '../domain/user/user_id.dart';
-import '../infrastructure/account_repository_isar.dart';
-import 'interface/account_repository.dart';
+import '../infrastructure/isar/account_repository_provider.dart';
+import 'user_application.dart';
 
-class AccountApplication extends StateNotifier<List<Account>> {
-  final AccountRepository _accountRepository;
-  AccountApplication({required AccountRepository accountRepository})
-      : _accountRepository = accountRepository,
-        super([]);
+part 'account_application.g.dart';
 
-  Future<void> restore() async {
-    final data = await _accountRepository.restore();
-    if (data.isNotEmpty) {
-      state = data
-          .map((datum) => Account.restore(datum['accountId'] as String, datum['accountName'] as String,
-              datum['accountBalance'] as int, datum['transactions'] as Transactions, datum['ownerId'] as UserId))
-          .toList();
-    }
+@riverpod
+class AccountApplication extends _$AccountApplication {
+  Future<List<Account>> _fetch() async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      final data = await ref.read(accountDataProvider.future);
+      final accounts = data.map((datum) => Account.fromJson(datum.toJson())).toList();
+      return accounts;
+    });
+    return state.value!;
+  }
+
+  @override
+  Future<List<Account>> build() async => _fetch();
+
+  Future<void> accountSetup() async {
+    final repository = await ref.watch(accountRepositoryProvider.future);
+    final user = await ref.watch(userApplicationProvider.future);
+    final newAccount = Account.create(user.id);
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      final data = newAccount.toJson();
+      await repository.save(data);
+      return _fetch();
+    });
   }
 }
-
-final accountApplicationProvider =
-    StateNotifierProvider((ref) => AccountApplication(accountRepository: AccountRepositoryIsar()..restore()));

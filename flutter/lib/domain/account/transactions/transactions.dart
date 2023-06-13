@@ -28,3 +28,14 @@ class Transactions with _$Transactions {
           transaction == target ? transaction.copyWith(amount: newAmount, isCalced: true) : transaction)
       .toList());
 }
+
+class TransactionsConverter implements JsonConverter<Transactions, List<Map<String, dynamic>>> {
+  const TransactionsConverter();
+
+  @override
+  Transactions fromJson(List<Map<String, dynamic>> json) =>
+      Transactions(json.map((e) => Transaction.fromJson(e)).toList());
+
+  @override
+  List<Map<String, dynamic>> toJson(Transactions object) => object.children.map((e) => e.toJson()).toList();
+}

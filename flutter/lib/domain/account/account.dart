@@ -9,18 +9,19 @@ import 'transactions/transaction_id.dart';
 import 'transactions/transactions.dart';
 
 part 'account.freezed.dart';
+part 'account.g.dart';
 
 @freezed
 class Account with _$Account {
   const Account._();
   const factory Account(
-      {required AccountId id,
-      required AccountName name,
-      required Transactions transactions,
-      required UserId ownerId}) = _Account;
+      {@AccountIdConverter() required AccountId id,
+      @AccountNameConverter() required AccountName name,
+      @TransactionsConverter() required Transactions transactions,
+      @UserIdConverter() required UserId ownerId}) = _Account;
 
-  factory Account.create(String userId) => Account(
-      id: AccountId.create(), name: AccountName.create(), transactions: Transactions([]), ownerId: UserId(userId));
+  factory Account.create(UserId userId) => Account(
+      id: AccountId.create(), name: AccountName.create(), transactions: Transactions([]), ownerId: userId);
   factory Account.restore(String id, String name, int balanceValue, Transactions transactions, UserId ownerId) =>
       Account(
           id: AccountId(id),
@@ -28,6 +29,7 @@ class Account with _$Account {
           transactions:
               Transactions(transactions.where((e) => e.transactionAt.value.isBefore(DateTime.now())).toList()),
           ownerId: ownerId);
+  factory Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);
 
   // Transaction getTransaction(String targetId) =>
   //     transactions.children.firstWhere((element) => element.id.value == targetId);

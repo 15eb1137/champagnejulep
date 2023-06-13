@@ -11,3 +11,13 @@ class TransactionId with _$TransactionId {
 
   factory TransactionId.create() => TransactionId(const Uuid().v4());
 }
+
+class TransactionIdConverter implements JsonConverter<TransactionId, String> {
+  const TransactionIdConverter();
+
+  @override
+  TransactionId fromJson(String json) => TransactionId(json);
+
+  @override
+  String toJson(TransactionId object) => object.value;
+}

@@ -1,5 +1,7 @@
 import 'package:isar/isar.dart';
 
+import 'fast_hash.dart';
+
 part 'user_data.g.dart';
 
 @collection
@@ -39,19 +41,6 @@ class UserData {
         'id': id.toString(),
         'premium': <String, dynamic>{'value': premiumState.name, 'expiredAt': expiredAt?.toIso8601String()}
       };
-
-  int fastHash(String id) {
-    int hash = 0xcbf29ce484222325;
-    int i = 0;
-    while (i < id.length) {
-      final codeUnit = id.codeUnitAt(i++);
-      hash ^= codeUnit >> 8;
-      hash *= 0x100000001b3;
-      hash ^= codeUnit & 0xFF;
-      hash *= 0x100000001b3;
-    }
-    return hash;
-  }
 }
 
 enum UserPremiumStateData { unregistered, premium, expired }

@@ -11,3 +11,13 @@ class AccountId with _$AccountId {
 
   factory AccountId.create() => AccountId(const Uuid().v4());
 }
+
+class AccountIdConverter implements JsonConverter<AccountId, String> {
+  const AccountIdConverter();
+
+  @override
+  AccountId fromJson(String json) => AccountId(json);
+
+  @override
+  String toJson(AccountId object) => object.value;
+}

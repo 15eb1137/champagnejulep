@@ -6,7 +6,7 @@ part of 'account_repository_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$accountRepositoryHash() => r'ba266948710a6f30c7296cf4d01ab9680ea9e6c5';
+String _$accountRepositoryHash() => r'afb18ab753b342f69bd0a5ea5b176215c8f7f13f';
 
 /// See also [accountRepository].
 @ProviderFor(accountRepository)
@@ -21,7 +21,7 @@ final accountRepositoryProvider = FutureProvider<AccountRepository>.internal(
 );
 
 typedef AccountRepositoryRef = FutureProviderRef<AccountRepository>;
-String _$accountDataHash() => r'1ada083be640b29cb9d4acb4d05122ad524720e1';
+String _$accountDataHash() => r'c94e52b9794c2954a4f32201eef2dafe2f870aa2';
 
 /// See also [accountData].
 @ProviderFor(accountData)

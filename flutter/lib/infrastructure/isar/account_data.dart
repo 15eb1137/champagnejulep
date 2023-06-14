@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 
 import 'fast_hash.dart';
@@ -67,11 +66,11 @@ class TransactionData {
   int? amount;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'id': id.toString(),
-        'title': title.toString(),
-        'calcAuto': calcAuto.toString(),
-        'transactionAt': transactionAt.toString(),
-        'isCalced': isCalced.toString(),
-        'amount': amount.toString()
+        'id': id,
+        'title': title,
+        'calcAuto': calcAuto,
+        'transactionAt': transactionAt,
+        'isCalced': isCalced,
+        'amount': amount
       };
 }

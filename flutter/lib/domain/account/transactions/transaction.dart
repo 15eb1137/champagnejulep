@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 
@@ -53,6 +54,8 @@ class TransactionConverter implements JsonConverter<Transaction, Map<String, dyn
   Transaction fromJson(Map<String, dynamic> json) => Transaction.fromJson(json);
 
   @override
-  Map<String, dynamic> toJson(Transaction object) => object.toJson();
+  Map<String, dynamic> toJson(Transaction object) {
+    debugPrint('TransactionConverter.toJson: ${object.toJson()}');
+    return object.toJson();}
 
 }

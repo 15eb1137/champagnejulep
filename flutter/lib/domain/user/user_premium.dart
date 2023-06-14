@@ -22,11 +22,11 @@ class UserPremiumConverter implements JsonConverter<UserPremium, Map<String, dyn
     final expiredAt = json['expiredAt'] as String?;
     switch (value) {
       case 'unregistered':
-        return UserPremium.unregistered();
+        return const UserPremium(UserPremiumState.unregistered, expiredAt: null);
       case 'premium':
-        return UserPremium.premium(DateTime.parse(expiredAt!));
+        return UserPremium(UserPremiumState.premium, expiredAt: DateTime.parse(expiredAt!));
       case 'expired':
-        return UserPremium.expired();
+        return const UserPremium(UserPremiumState.expired, expiredAt: null);
       default:
         throw Exception('Unknown UserPremiumState: $value');
     }

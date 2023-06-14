@@ -3,6 +3,10 @@ import 'package:champagnejulep/domain/account/transactions/transaction.dart';
 import 'package:champagnejulep/domain/shortage/shortages.dart';
 import 'package:champagnejulep/domain/user/user.dart';
 import 'package:champagnejulep/domain/user/user_id.dart';
+import 'package:champagnejulep/infrastructure/isar/account_data.dart';
+import 'package:champagnejulep/infrastructure/isar/user_data.dart';
+import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -76,7 +80,37 @@ void main() {
       expect(updatedUser.isPremiumWhen(expiredAt), false);
       expect(updatedUser.isPremiumExpiredWhen(expiredAt), true);
     });
-    test('ユーザーデータとユーザードメインオブジェクトを相互に変換できる', () => null);
+    test('ユーザーデータとユーザードメインオブジェクトを相互に変換できる', () {
+      final user = User.create();
+      final userData = UserData.fromJson(user.toJson());
+      expect(user.id.value, userData.id);
+      expect(user.premium.value.name, userData.premiumState.name);
+      expect(user.premium.expiredAt, userData.expiredAt);
+      final restoredUser = User.fromJson(userData.toJson());
+      expect(user.id.value, restoredUser.id.value);
+      expect(user.premium.value.name, restoredUser.premium.value.name);
+      expect(user.premium.expiredAt, restoredUser.premium.expiredAt);
+
+      final premiumUser = User.create().updateToPremium(updatedAt: DateTime(2023, 2, 1));
+      final premiumUserData = UserData.fromJson(premiumUser.toJson());
+      expect(premiumUser.id.value, premiumUserData.id);
+      expect(premiumUser.premium.value.name, premiumUserData.premiumState.name);
+      expect(premiumUser.premium.expiredAt, premiumUserData.expiredAt);
+      final restoredPremiumUser = User.fromJson(premiumUserData.toJson());
+      expect(premiumUser.id.value, restoredPremiumUser.id.value);
+      expect(premiumUser.premium.value.name, restoredPremiumUser.premium.value.name);
+      expect(premiumUser.premium.expiredAt, restoredPremiumUser.premium.expiredAt);
+
+      final expiredUser = User.create().updateToExpired();
+      final expiredUserData = UserData.fromJson(expiredUser.toJson());
+      expect(expiredUser.id.value, expiredUserData.id);
+      expect(expiredUser.premium.value.name, expiredUserData.premiumState.name);
+      expect(expiredUser.premium.expiredAt, expiredUserData.expiredAt);
+      final restoredExpiredUser = User.fromJson(expiredUserData.toJson());
+      expect(expiredUser.id.value, restoredExpiredUser.id.value);
+      expect(expiredUser.premium.value.name, restoredExpiredUser.premium.value.name);
+      expect(expiredUser.premium.expiredAt, restoredExpiredUser.premium.expiredAt);
+    });
   });
   group('[Small tests] Account', () {
     test('アカウントに記録したトランザクションの情報がテンプレート通りの文章になる', () {
@@ -217,6 +251,79 @@ void main() {
       final atLatestChangedBalance = accountChanged.simulateLatest();
       expect(atLatestChangedBalance, 7000);
     });
+    test('アカウントデータとアカウントドメインオブジェクトを相互に変換できる', () {
+      final transactions = [Transaction.calced(date: DateTime(2023, 7, 1), amount: 10000)];
+      final userId = UserId('941ca766-d22a-3439-92de-89e158bf3bf2');
+      final account = Account.create(userId).recordAll(transactions);
+      final accountData = AccountData.fromJson(account.toJson());
+      expect(account.id.value, accountData.id);
+      expect(account.name.value, accountData.name);
+      expect(
+          const ListEquality<String>().equals(account.transactions.children.map((t) => t.id.value).toList(),
+              accountData.transactions.map((t) => t.id!).toList()),
+          true);
+      expect(
+          const ListEquality<String>().equals(account.transactions.children.map((t) => t.title.value).toList(),
+              accountData.transactions.map((t) => t.title!).toList()),
+          true);
+      expect(
+          const ListEquality<bool>().equals(account.transactions.children.map((t) => t.calcAuto).toList(),
+              accountData.transactions.map((t) => t.calcAuto!).toList()),
+          true);
+      expect(
+          const ListEquality<DateTime>().equals(
+              account.transactions.children.map((t) => t.transactionAt.value).toList(),
+              accountData.transactions.map((t) => t.transactionAt!).toList()),
+          true);
+      expect(
+          const ListEquality<bool>().equals(account.transactions.children.map((t) => t.isCalced).toList(),
+              accountData.transactions.map((t) => t.isCalced!).toList()),
+          true);
+      expect(
+          const ListEquality<int>().equals(account.transactions.children.map((t) => t.amount).toList(),
+              accountData.transactions.map((t) => t.amount!).toList()),
+          true);
+      expect(account.ownerId.value, accountData.ownerId);
+
+      debugPrint('accountData calcAuto Type: ${accountData.transactions.first.calcAuto.runtimeType}');
+      debugPrint(
+          'accountDataJson calcAuto Type: ${accountData.toJson()['transactions'].first['calcAuto'].runtimeType}');
+      debugPrint('accountDataJson transactions Type: ${accountData.toJson()['transactions'].runtimeType}');
+      debugPrint('accountData isCalced Type: ${accountData.transactions.first.isCalced.runtimeType}');
+      debugPrint(
+          'accountDataJson isCalced Type: ${accountData.toJson()['transactions'].first['isCalced'].runtimeType}');
+      final restoredAccount = Account.fromJson(accountData.toJson());
+      expect(account.id.value, restoredAccount.id.value);
+      expect(account.name.value, restoredAccount.name.value);
+      expect(
+          const ListEquality<String>().equals(account.transactions.children.map((t) => t.id.value).toList(),
+              restoredAccount.transactions.children.map((t) => t.id.value).toList()),
+          true);
+      expect(
+          const ListEquality<String>().equals(account.transactions.children.map((t) => t.title.value).toList(),
+              restoredAccount.transactions.children.map((t) => t.title.value).toList()),
+          true);
+      expect(
+          const ListEquality<bool>().equals(account.transactions.children.map((t) => t.calcAuto).toList(),
+              restoredAccount.transactions.children.map((t) => t.calcAuto).toList()),
+          true);
+      expect(
+          const ListEquality<DateTime>().equals(
+              account.transactions.children.map((t) => t.transactionAt.value).toList(),
+              restoredAccount.transactions.children.map((t) => t.transactionAt.value).toList()),
+          true);
+      expect(
+          const ListEquality<bool>().equals(account.transactions.children.map((t) => t.isCalced).toList(),
+              restoredAccount.transactions.children.map((t) => t.isCalced).toList()),
+          true);
+      expect(
+          const ListEquality<int>().equals(account.transactions.children.map((t) => t.amount).toList(),
+              restoredAccount.transactions.children.map((t) => t.amount).toList()),
+          true);
+      expect(account.ownerId.value, restoredAccount.ownerId.value);
+    });
+  });
+  group('[Small tests] Shortage', () {
     test('ショーテージのメッセージがテンプレート通りの文章になる', () {
       // テンプレート：◯年◯月◯日に◯円を下回る予定です。
 
@@ -267,7 +374,6 @@ void main() {
       final shortagesAtNow = Shortages.create(account: account, from: now);
       expect(shortagesAtNow.length, 2);
     });
-    test('アカウントデータとアカウントドメインオブジェクトを相互に変換できる', () => null);
   });
 }
 

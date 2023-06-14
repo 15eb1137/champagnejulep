@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:champagnejulep/usecase/account_application.dart';
 import 'package:champagnejulep/usecase/user_application.dart';

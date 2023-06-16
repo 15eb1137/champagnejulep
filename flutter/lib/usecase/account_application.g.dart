@@ -7,7 +7,7 @@ part of 'account_application.dart';
 // **************************************************************************
 
 String _$accountApplicationHash() =>
-    r'25764a383b7e19f937279126f167c16b7eb18944';
+    r'78ca62062bdddcc9178c8d6c0c84be8033f777ae';
 
 /// See also [AccountApplication].
 @ProviderFor(AccountApplication)

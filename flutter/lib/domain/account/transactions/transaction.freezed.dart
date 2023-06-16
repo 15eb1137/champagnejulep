@@ -201,7 +201,7 @@ class __$$_TransactionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Transaction extends _Transaction {
+class _$_Transaction extends _Transaction with DiagnosticableTreeMixin {
   const _$_Transaction(
       {@TransactionIdConverter() required this.id,
       @TransactionTitleConverter() required this.title,
@@ -231,8 +231,21 @@ class _$_Transaction extends _Transaction {
   final int amount;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Transaction(id: $id, title: $title, calcAuto: $calcAuto, transactionAt: $transactionAt, isCalced: $isCalced, amount: $amount)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Transaction'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('calcAuto', calcAuto))
+      ..add(DiagnosticsProperty('transactionAt', transactionAt))
+      ..add(DiagnosticsProperty('isCalced', isCalced))
+      ..add(DiagnosticsProperty('amount', amount));
   }
 
   @override

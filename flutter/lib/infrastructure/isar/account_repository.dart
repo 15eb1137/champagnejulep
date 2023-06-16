@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 
 import 'account_data.dart';
@@ -19,7 +20,7 @@ class AccountRepository {
   }
 
   Stream<List<AccountData>> watchAllAccounts() async* {
-    final query = isar.accountDatas.where().limit(1);
+    final query = isar.accountDatas.where();
     await for (final results in query.watch(fireImmediately: true)) {
       if (results.isNotEmpty) {
         yield results;
@@ -32,6 +33,7 @@ class AccountRepository {
   Future<void> save(Map<String, dynamic> data) async {
     await isar.writeTxn(() async {
       final accountData = AccountData.fromJson(data);
+      debugPrint('AccountRepository#save: ${accountData.toJson()}');
       await isar.accountDatas.put(accountData);
     });
   }

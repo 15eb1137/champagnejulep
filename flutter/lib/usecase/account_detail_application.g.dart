@@ -7,7 +7,7 @@ part of 'account_detail_application.dart';
 // **************************************************************************
 
 String _$accountDetailApplicationHash() =>
-    r'664fce4a1d315fee4e4ab69d5b46ec0391a4ca9b';
+    r'042a7b5586362bdd9320c0b57ae36742e1ceebbb';
 
 /// Copied from Dart SDK
 class _SystemHash {

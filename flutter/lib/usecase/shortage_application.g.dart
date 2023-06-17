@@ -7,7 +7,7 @@ part of 'shortage_application.dart';
 // **************************************************************************
 
 String _$shortageApplicationHash() =>
-    r'2ebaef6e3c4883d3db0fe45c09d8334f41c05920';
+    r'a62a3383bfe777c60a9283da0652d1f566bc5c8e';
 
 /// See also [ShortageApplication].
 @ProviderFor(ShortageApplication)

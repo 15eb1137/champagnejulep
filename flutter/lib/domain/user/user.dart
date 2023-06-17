@@ -4,11 +4,13 @@ import 'user_id.dart';
 import 'user_premium.dart';
 
 part 'user.freezed.dart';
+part 'user.g.dart';
 
 @freezed
 class User with _$User {
   const User._();
-  const factory User({required UserId id, required UserPremium premium}) = _User;
+  const factory User({@UserIdConverter() required UserId id, @UserPremiumConverter() required UserPremium premium}) =
+      _User;
   factory User.create() => User(id: UserId.create(), premium: UserPremium.unregistered());
   factory User.restore(String userId, UserPremiumState premiumState, DateTime? expiredAt, DateTime restoreAt) {
     if (premiumState == UserPremiumState.premium &&
@@ -18,6 +20,7 @@ class User with _$User {
     }
     return User(id: UserId(userId), premium: UserPremium(premiumState));
   }
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   bool isPremiumWhen(DateTime checkAt) =>
       premium.value == UserPremiumState.premium &&

@@ -11,3 +11,13 @@ class UserId with _$UserId {
 
   factory UserId.create() => UserId(const Uuid().v4());
 }
+
+class UserIdConverter implements JsonConverter<UserId, String> {
+  const UserIdConverter();
+
+  @override
+  UserId fromJson(String json) => UserId(json);
+
+  @override
+  String toJson(UserId object) => object.value;
+}

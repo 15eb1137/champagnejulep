@@ -14,11 +14,18 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+User _$UserFromJson(Map<String, dynamic> json) {
+  return _User.fromJson(json);
+}
+
 /// @nodoc
 mixin _$User {
+  @UserIdConverter()
   UserId get id => throw _privateConstructorUsedError;
+  @UserPremiumConverter()
   UserPremium get premium => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
@@ -28,7 +35,9 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({UserId id, UserPremium premium});
+  $Res call(
+      {@UserIdConverter() UserId id,
+      @UserPremiumConverter() UserPremium premium});
 
   $UserIdCopyWith<$Res> get id;
   $UserPremiumCopyWith<$Res> get premium;
@@ -85,7 +94,9 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$_UserCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserId id, UserPremium premium});
+  $Res call(
+      {@UserIdConverter() UserId id,
+      @UserPremiumConverter() UserPremium premium});
 
   @override
   $UserIdCopyWith<$Res> get id;
@@ -119,13 +130,20 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_User extends _User {
-  const _$_User({required this.id, required this.premium}) : super._();
+  const _$_User(
+      {@UserIdConverter() required this.id,
+      @UserPremiumConverter() required this.premium})
+      : super._();
+
+  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
+  @UserIdConverter()
   final UserId id;
   @override
+  @UserPremiumConverter()
   final UserPremium premium;
 
   @override
@@ -142,6 +160,7 @@ class _$_User extends _User {
             (identical(other.premium, premium) || other.premium == premium));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, premium);
 
@@ -150,16 +169,28 @@ class _$_User extends _User {
   @pragma('vm:prefer-inline')
   _$$_UserCopyWith<_$_User> get copyWith =>
       __$$_UserCopyWithImpl<_$_User>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_UserToJson(
+      this,
+    );
+  }
 }
 
 abstract class _User extends User {
   const factory _User(
-      {required final UserId id, required final UserPremium premium}) = _$_User;
+      {@UserIdConverter() required final UserId id,
+      @UserPremiumConverter() required final UserPremium premium}) = _$_User;
   const _User._() : super._();
 
+  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
+
   @override
+  @UserIdConverter()
   UserId get id;
   @override
+  @UserPremiumConverter()
   UserPremium get premium;
   @override
   @JsonKey(ignore: true)

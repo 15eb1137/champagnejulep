@@ -14,15 +14,23 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Transaction _$TransactionFromJson(Map<String, dynamic> json) {
+  return _Transaction.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Transaction {
+  @TransactionIdConverter()
   TransactionId get id => throw _privateConstructorUsedError;
+  @TransactionTitleConverter()
   TransactionTitle get title => throw _privateConstructorUsedError;
   bool get calcAuto => throw _privateConstructorUsedError;
+  @TransactionAtConverter()
   TransactionAt get transactionAt => throw _privateConstructorUsedError;
   bool get isCalced => throw _privateConstructorUsedError;
   int get amount => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TransactionCopyWith<Transaction> get copyWith =>
       throw _privateConstructorUsedError;
@@ -35,10 +43,10 @@ abstract class $TransactionCopyWith<$Res> {
       _$TransactionCopyWithImpl<$Res, Transaction>;
   @useResult
   $Res call(
-      {TransactionId id,
-      TransactionTitle title,
+      {@TransactionIdConverter() TransactionId id,
+      @TransactionTitleConverter() TransactionTitle title,
       bool calcAuto,
-      TransactionAt transactionAt,
+      @TransactionAtConverter() TransactionAt transactionAt,
       bool isCalced,
       int amount});
 
@@ -129,10 +137,10 @@ abstract class _$$_TransactionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {TransactionId id,
-      TransactionTitle title,
+      {@TransactionIdConverter() TransactionId id,
+      @TransactionTitleConverter() TransactionTitle title,
       bool calcAuto,
-      TransactionAt transactionAt,
+      @TransactionAtConverter() TransactionAt transactionAt,
       bool isCalced,
       int amount});
 
@@ -192,24 +200,30 @@ class __$$_TransactionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$_Transaction extends _Transaction {
+@JsonSerializable()
+class _$_Transaction extends _Transaction with DiagnosticableTreeMixin {
   const _$_Transaction(
-      {required this.id,
-      required this.title,
+      {@TransactionIdConverter() required this.id,
+      @TransactionTitleConverter() required this.title,
       required this.calcAuto,
-      required this.transactionAt,
+      @TransactionAtConverter() required this.transactionAt,
       required this.isCalced,
       required this.amount})
       : super._();
 
+  factory _$_Transaction.fromJson(Map<String, dynamic> json) =>
+      _$$_TransactionFromJson(json);
+
   @override
+  @TransactionIdConverter()
   final TransactionId id;
   @override
+  @TransactionTitleConverter()
   final TransactionTitle title;
   @override
   final bool calcAuto;
   @override
+  @TransactionAtConverter()
   final TransactionAt transactionAt;
   @override
   final bool isCalced;
@@ -217,8 +231,21 @@ class _$_Transaction extends _Transaction {
   final int amount;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Transaction(id: $id, title: $title, calcAuto: $calcAuto, transactionAt: $transactionAt, isCalced: $isCalced, amount: $amount)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Transaction'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('calcAuto', calcAuto))
+      ..add(DiagnosticsProperty('transactionAt', transactionAt))
+      ..add(DiagnosticsProperty('isCalced', isCalced))
+      ..add(DiagnosticsProperty('amount', amount));
   }
 
   @override
@@ -237,6 +264,7 @@ class _$_Transaction extends _Transaction {
             (identical(other.amount, amount) || other.amount == amount));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, id, title, calcAuto, transactionAt, isCalced, amount);
@@ -246,25 +274,38 @@ class _$_Transaction extends _Transaction {
   @pragma('vm:prefer-inline')
   _$$_TransactionCopyWith<_$_Transaction> get copyWith =>
       __$$_TransactionCopyWithImpl<_$_Transaction>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TransactionToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Transaction extends Transaction {
   const factory _Transaction(
-      {required final TransactionId id,
-      required final TransactionTitle title,
+      {@TransactionIdConverter() required final TransactionId id,
+      @TransactionTitleConverter() required final TransactionTitle title,
       required final bool calcAuto,
-      required final TransactionAt transactionAt,
+      @TransactionAtConverter() required final TransactionAt transactionAt,
       required final bool isCalced,
       required final int amount}) = _$_Transaction;
   const _Transaction._() : super._();
 
+  factory _Transaction.fromJson(Map<String, dynamic> json) =
+      _$_Transaction.fromJson;
+
   @override
+  @TransactionIdConverter()
   TransactionId get id;
   @override
+  @TransactionTitleConverter()
   TransactionTitle get title;
   @override
   bool get calcAuto;
   @override
+  @TransactionAtConverter()
   TransactionAt get transactionAt;
   @override
   bool get isCalced;

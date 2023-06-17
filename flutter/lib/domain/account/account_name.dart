@@ -8,3 +8,13 @@ class AccountName with _$AccountName {
   factory AccountName(String value) = _AccountName;
   factory AccountName.create() => AccountName('新しい口座');
 }
+
+class AccountNameConverter implements JsonConverter<AccountName, String> {
+  const AccountNameConverter();
+
+  @override
+  AccountName fromJson(String json) => AccountName(json);
+
+  @override
+  String toJson(AccountName object) => object.value;
+}

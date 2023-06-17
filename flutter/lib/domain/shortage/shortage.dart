@@ -14,12 +14,14 @@ class Shortage with _$Shortage {
       required ShortageTitle title,
       required ShortageMessage message,
       required int threshold,
+      required int shortageAmount,
       required ShortageShareResultStatus shareResultStatus}) = _Shortage;
-  factory Shortage.create(AccountId accountId, DateTime changeInBalance, int threshold) => Shortage(
+  factory Shortage.create(AccountId accountId, DateTime changeInBalance, int threshold, int shortageAmount) => Shortage(
       accountId: accountId,
       title: ShortageTitle.create(threshold),
-      message: ShortageMessage.create(changeInBalance, threshold),
+      message: ShortageMessage.create(changeInBalance, threshold, shortageAmount),
       threshold: threshold,
+      shortageAmount: shortageAmount,
       shareResultStatus: ShortageShareResultStatus.unexecuted);
   Map<String, String> shareMessage() => {'message': message.value, 'subject': title.value};
 }

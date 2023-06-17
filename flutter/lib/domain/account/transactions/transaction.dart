@@ -35,7 +35,7 @@ class Transaction with _$Transaction {
       transactionAt: TransactionAt.createAt(date),
       isCalced: true,
       amount: amount);
-  
+
   factory Transaction.fromJson(Map<String, dynamic> json) => _$TransactionFromJson(json);
 
   String get info =>
@@ -54,8 +54,5 @@ class TransactionConverter implements JsonConverter<Transaction, Map<String, dyn
   Transaction fromJson(Map<String, dynamic> json) => Transaction.fromJson(json);
 
   @override
-  Map<String, dynamic> toJson(Transaction object) {
-    debugPrint('TransactionConverter.toJson: ${object.toJson()}');
-    return object.toJson();}
-
+  Map<String, dynamic> toJson(Transaction object) => object.toJson();
 }

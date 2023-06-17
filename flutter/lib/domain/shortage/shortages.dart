@@ -10,18 +10,21 @@ part 'shortages.freezed.dart';
 class Shortages with _$Shortages {
   const Shortages._();
   const factory Shortages(List<Shortage> children) = _Shortages;
-  factory Shortages.create({required Account account, required DateTime from}) {
+  factory Shortages.create({required List<Account> accounts, required DateTime from}) {
     // TODO: account自体ではなくidを引数にする
     const threshold = 0;
     final fromDate = DateTime(from.year, from.month, from.day); // 応急的対応。TransactionAt等のAssertを活かすべきかもしれない。
     final shortages = <Shortage>[];
-    final transactions = account.transactions;
-    for (int i = 1; i <= transactions.length; i++) {
-      final slicedTransactions = Transactions(transactions.children.take(i).toList());
-      final transactionAt = slicedTransactions.last.transactionAt.value;
-      final balance = slicedTransactions.simulate();
-      if (balance < threshold && (transactionAt.isAtSameMomentAs(fromDate) || transactionAt.isAfter(fromDate))) {
-        shortages.add(Shortage.create(account.id, slicedTransactions.last.transactionAt.value, threshold));
+    for (final account in accounts) {
+      final transactions = account.transactions;
+      for (int i = 1; i <= transactions.length; i++) {
+        final slicedTransactions = Transactions(transactions.children.take(i).toList());
+        final transactionAt = slicedTransactions.last.transactionAt.value;
+        final balance = slicedTransactions.simulate();
+        if (balance < threshold && (transactionAt.isAtSameMomentAs(fromDate) || transactionAt.isAfter(fromDate))) {
+          shortages.add(Shortage.create(
+              account.id, slicedTransactions.last.transactionAt.value, threshold, (balance - threshold).abs()));
+        }
       }
     }
     return Shortages(shortages);

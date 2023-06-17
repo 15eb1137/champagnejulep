@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 
 import 'account_data.dart';
@@ -33,7 +32,6 @@ class AccountRepository {
   Future<void> save(Map<String, dynamic> data) async {
     await isar.writeTxn(() async {
       final accountData = AccountData.fromJson(data);
-      debugPrint('AccountRepository#save: ${accountData.toJson()}');
       await isar.accountDatas.put(accountData);
     });
   }

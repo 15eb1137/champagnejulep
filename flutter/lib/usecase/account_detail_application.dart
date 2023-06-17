@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../domain/account/account.dart';
@@ -10,7 +9,6 @@ part 'account_detail_application.g.dart';
 @riverpod
 class AccountDetailApplication extends _$AccountDetailApplication {
   Future<Account> _fetch(String accountId) async {
-    debugPrint('AccountDetailApplication#_fetch: $accountId');
     final account = await ref.watch(accountDetailDataProvider.call(accountId).future);
     if (account == null) {
       throw Exception('AccountDetailApplication#_fetch: account is not found. accountId: $accountId');

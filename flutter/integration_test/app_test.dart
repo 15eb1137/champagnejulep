@@ -1,13 +1,19 @@
 import 'package:champagnejulep/usecase/account_application.dart';
 import 'package:champagnejulep/usecase/account_detail_application.dart';
+import 'package:champagnejulep/usecase/shortage_application.dart';
 import 'package:champagnejulep/usecase/user_application.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 
 void main() {
-  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+  setUp(() {
+    initializeDateFormatting('ja_JP');
+    IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+  });
   group('[Learning tests]', () {
     // testWidgets('Share.shareWithResult Success', (tester) async {
     // final result = await Share.shareWithResult('test site https://rail-splitter.web.app/');
@@ -23,8 +29,9 @@ void main() {
     // });
   });
   group('[Midium tests]', () {
+    Widget wrap(Widget child) => ProviderScope(child: MaterialApp(home: Scaffold(body: child)));
+
     testWidgets('ユーザーのプレミアムへのアップデート', (tester) async {
-      Widget wrap(Widget child) => ProviderScope(child: MaterialApp(home: Scaffold(body: child)));
       final userConsumer = Consumer(builder: (context, ref, child) {
         final maybeUser = ref.watch(userApplicationProvider);
         final userApplication = ref.watch(userApplicationProvider.notifier);
@@ -37,10 +44,7 @@ void main() {
                       onPressed: () => userApplication.updateToPremium(), child: const Text('premium update button'))
                 ]),
             loading: () => const SizedBox(child: Text('loading')),
-            error: (err, _) {
-              debugPrint('user error: $err');
-              return SizedBox(child: Text('error: $err'));
-            });
+            error: (err, _) => SizedBox(child: Text('error: $err')));
       });
 
       // 初期データが取得される
@@ -70,13 +74,10 @@ void main() {
       expect(find.text('premium'), findsOneWidget);
     });
 
-    testWidgets('アカウントの残高をシミュレート', (tester) async { // TODO: プレゼンテーションの実装後、実装したPageでテストする
-      Widget wrap(Widget child) => ProviderScope(child: MaterialApp(home: Scaffold(body: child)));
+    testWidgets('アカウントの残高をシミュレート', (tester) async {
+      // TODO: プレゼンテーションの実装後、実装したPageでテストする
       String targetAccountId = '';
-      Future<void> goAccountDetail(String accountId) async {
-        debugPrint('go: $accountId');
-        targetAccountId = accountId;
-      }
+      Future<void> goAccountDetail(String accountId) async => targetAccountId = accountId;
 
       final accountsConsumer = Consumer(builder: (context, ref, child) {
         final maybeAccounts = ref.watch(accountApplicationProvider);
@@ -93,32 +94,31 @@ void main() {
                         ]))
                     .toList(),
                 TextButton(
-                    onPressed: () {
-                      debugPrint('account setup button');
-                      accountsApplication.accountSetup();
-                    },
-                    child: const Text('account setup button'))
+                    onPressed: () => accountsApplication.accountSetup(), child: const Text('account setup button'))
               ]);
             },
             loading: () => const SizedBox(child: Text('loading')),
-            error: (err, _) {
-              debugPrint('accounts error $err');
-              return SizedBox(child: Text('error: $err'));
-            });
+            error: (err, _) => SizedBox(child: Text('error: $err')));
       });
+      int amountClickCount = 0;
       final accountDetailConsumer = Consumer(builder: (context, ref, child) {
-        debugPrint('consumer build accountId: $targetAccountId');
         final maybeAccountDetail = ref.watch(accountDetailApplicationProvider(targetAccountId));
         final accountDetailApplication = ref.watch(accountDetailApplicationProvider(targetAccountId).notifier);
         return maybeAccountDetail.when(
             data: (accountDetail) => TextButton(
                 child: Text('amount: ${accountDetail.simulateLatest()}'),
-                onPressed: () async => await accountDetailApplication.record(DateTime.now(), 10000)),
+                onPressed: () async {
+                  if (amountClickCount == 0) {
+                    await accountDetailApplication.record(DateTime.now(), 10000);
+                  } else if (amountClickCount == 1) {
+                    await accountDetailApplication.record(DateTime.now(), -20000);
+                  } else {
+                    await accountDetailApplication.record(DateTime.now(), 5000);
+                  }
+                  amountClickCount++;
+                }),
             loading: () => const SizedBox(child: Text('loading')),
-            error: (err, _) {
-              debugPrint('account detail error: $err');
-              return SizedBox(child: Text('error: $err'));
-            });
+            error: (err, _) => SizedBox(child: Text('error: $err')));
       });
       await tester.pumpWidget(wrap(accountsConsumer));
       expect(find.text('loading'), findsOneWidget);
@@ -144,6 +144,36 @@ void main() {
       await tester.tap(find.textContaining('amount: '));
       await tester.pumpAndSettle(const Duration(seconds: 1));
       expect(find.text('amount: 10000'), findsOneWidget);
+
+      await tester.tap(find.textContaining('amount: '));
+      await tester.pumpAndSettle(const Duration(seconds: 1));
+      expect(find.text('amount: -10000'), findsOneWidget);
+
+      await tester.tap(find.textContaining('amount: '));
+      await tester.pumpAndSettle(const Duration(seconds: 1));
+      expect(find.text('amount: -5000'), findsOneWidget);
+    });
+    testWidgets('発行されたショーテージを確認', (tester) async {
+      final shortagesConsumer = Consumer(builder: (context, ref, child) {
+        final maybeShortages = ref.watch(shortageApplicationProvider);
+        return maybeShortages.when(
+            data: (shortages) => Column(
+                children: shortages.children.map((shortage) => SizedBox(child: Text(shortage.message.value))).toList()),
+            loading: () => const SizedBox(child: Text('loading')),
+            error: (err, _) {
+              return SizedBox(child: Text('error: $err'));
+            });
+      });
+      await tester.pumpWidget(wrap(shortagesConsumer));
+      expect(find.text('loading'), findsOneWidget);
+      await tester.pumpAndSettle(const Duration(seconds: 1));
+      expect(find.text('loading'), findsNothing);
+      expect(find.text('error'), findsNothing);
+      await tester.pumpAndSettle(const Duration(seconds: 1));
+      expect(
+          find.text('${DateFormat.yMMMMd('ja_JP').format(DateTime.now())}の時点で残高0円まで10000円足りなくなる予定です。'), findsOneWidget);
+      expect(
+          find.text('${DateFormat.yMMMMd('ja_JP').format(DateTime.now())}の時点で残高0円まで5000円足りなくなる予定です。'), findsOneWidget);
     });
   });
 }

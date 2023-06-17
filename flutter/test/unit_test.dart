@@ -6,8 +6,6 @@ import 'package:champagnejulep/domain/user/user_id.dart';
 import 'package:champagnejulep/infrastructure/isar/account_data.dart';
 import 'package:champagnejulep/infrastructure/isar/user_data.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -45,21 +43,6 @@ void main() {
         oneToFive.add(i);
       }
       expect(oneToFive, [1, 2, 3, 4, 5]);
-    });
-    test('StateNotifier.addListener', () {
-      final stateNotifier = _TestStateNotifier();
-      int value = 0;
-      expect(value, 0);
-      final void Function() removeListener = stateNotifier.addListener((state) => value = state);
-      expect(value, 1);
-
-      stateNotifier.setValue(2);
-      expect(value, 2);
-
-      stateNotifier.setValue(3);
-      removeListener();
-      stateNotifier.setValue(4);
-      expect(value, 3);
     });
   });
   group('[Small tests] User', () {
@@ -285,13 +268,6 @@ void main() {
           true);
       expect(account.ownerId.value, accountData.ownerId);
 
-      debugPrint('accountData calcAuto Type: ${accountData.transactions.first.calcAuto.runtimeType}');
-      debugPrint(
-          'accountDataJson calcAuto Type: ${accountData.toJson()['transactions'].first['calcAuto'].runtimeType}');
-      debugPrint('accountDataJson transactions Type: ${accountData.toJson()['transactions'].runtimeType}');
-      debugPrint('accountData isCalced Type: ${accountData.transactions.first.isCalced.runtimeType}');
-      debugPrint(
-          'accountDataJson isCalced Type: ${accountData.toJson()['transactions'].first['isCalced'].runtimeType}');
       final restoredAccount = Account.fromJson(accountData.toJson());
       expect(account.id.value, restoredAccount.id.value);
       expect(account.name.value, restoredAccount.name.value);
@@ -325,7 +301,7 @@ void main() {
   });
   group('[Small tests] Shortage', () {
     test('ショーテージのメッセージがテンプレート通りの文章になる', () {
-      // テンプレート：◯年◯月◯日に◯円を下回る予定です。
+      // テンプレート：◯年◯月◯日の時点で残高◯円まで◯円足りなくなる予定です。
 
       // 【入金】 2023-07-01 4,000円
       // 【出金】 2023-07-02 2,000円
@@ -360,24 +336,20 @@ void main() {
       final atDay03Balance = account.simulateAt(day03);
       expect(atDay03Balance, -6000);
 
-      final shortages = Shortages.create(account: account, from: today);
+      final shortages = Shortages.create(accounts: [account], from: today);
       // ショーテージの発行数は、アカウントの残高が0円を下回る回数になる
       expect(shortages.length, 2);
 
-      expect(shortages.children[0].message.value, '2023年7月4日に0円を下回る予定です。');
-      expect(shortages.children[1].message.value, '2023年7月6日に0円を下回る予定です。');
+      expect(shortages.children[0].message.value, '2023年7月4日の時点で残高0円まで4000円足りなくなる予定です。');
+      expect(shortages.children[1].message.value, '2023年7月6日の時点で残高0円まで6000円足りなくなる予定です。');
 
       // 基本的にsimulateAtやfromの引数は日付の0時0分0秒になるようにするが、時間情報が入っても同様に動くことを確認
       final now = DateTime(2023, 7, 4, 23, 59, 59, 999, 999);
       final atNowBalance = account.simulateAt(now);
       expect(atNowBalance, -4000);
-      final shortagesAtNow = Shortages.create(account: account, from: now);
+      final shortagesAtNow = Shortages.create(accounts: [account], from: now);
       expect(shortagesAtNow.length, 2);
     });
   });
 }
 
-class _TestStateNotifier extends StateNotifier<int> {
-  _TestStateNotifier() : super(1);
-  void setValue(int value) => state = value;
-}

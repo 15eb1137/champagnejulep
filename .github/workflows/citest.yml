@@ -51,12 +51,17 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 10
     steps:
+      - name : check iOS Emulators
+        run: |
+          xcrun xctrace list devices | grep -v "Apple Watch" | grep "Simulator" | grep -v "Apple TV" | grep -v "==" | sed -r "s/^(.*) *Simulator.*\(([0-9\.]*)\).*\([0-9A-Z-]*\).*$/OS: \2\tName: \1/"
       - name: Start simulator
         run: |
+          printf " - Device:\t %s \n" "${{ matrix.device }}"
+          UDID_REGEX=".*\(([0-9A-Z-]+)\)$"
           UDID=$(
             xcrun xctrace list devices | grep "${{ matrix.device }} Simulator" |
               grep -v "Apple Watch" |
-              sed -r "s/.*\(([0-9A-Z-]+)\)$/\1/"
+              sed -r "s/$UDID_REGEX/\1/"
           )
           xcrun simctl boot "${UDID:?No Simulator with this name found}"
       - uses: actions/checkout@v3

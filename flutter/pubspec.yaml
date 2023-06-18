@@ -1,7 +1,7 @@
 name: champagnejulep
 description: descriptions
 publish_to: 'none'
-version: 0.2.0+1
+version: 0.3.0+1
 environment:
   sdk: '>=2.19.6 <3.0.0'
 dependencies:

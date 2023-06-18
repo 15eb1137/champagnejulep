@@ -2,7 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../domain/account/account.dart';
 import '../domain/account/transactions/transaction.dart';
-import '../infrastructure/isar/account_repository_provider.dart';
+import '../infrastructure/account_repository_provider.dart';
 
 part 'account_detail_application.g.dart';
 

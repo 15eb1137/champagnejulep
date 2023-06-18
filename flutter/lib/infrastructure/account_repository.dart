@@ -1,7 +1,7 @@
 import 'package:isar/isar.dart';
 
-import 'account_data.dart';
-import 'fast_hash.dart';
+import 'isar/account_data.dart';
+import 'isar/fast_hash.dart';
 
 class AccountRepository {
   const AccountRepository(this.isar);

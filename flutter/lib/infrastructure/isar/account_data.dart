@@ -6,7 +6,7 @@ part 'account_data.g.dart';
 
 @collection
 class AccountData {
-  AccountData({required this.id, required this.name, required this.transactions, required this.ownerId});
+  const AccountData({required this.id, required this.name, required this.transactions, required this.ownerId});
   factory AccountData.fromJson(Map<String, dynamic> json) {
     if (!json.containsKey('id')) throw Exception('id is required for account data');
     if (!json.containsKey('name')) throw Exception('name is required for account data');
@@ -29,20 +29,13 @@ class AccountData {
         'id': id,
         'name': name,
         'transactions': transactions.map((transaction) => transaction.toJson()).toList(),
-        'ownerId': ownerId.toString()
+        'ownerId': ownerId
       };
 }
 
 @embedded
 class TransactionData {
-  TransactionData({this.id, this.title, this.calcAuto, this.transactionAt, this.isCalced, this.amount})
-  // : assert(id != null),
-  //   assert(title != null),
-  //   assert(calcAuto != null),
-  //   assert(transactionAt != null),
-  //   assert(isCalced != null),
-  //   assert(amount != null)
-  ;
+  TransactionData({this.id, this.title, this.calcAuto, this.transactionAt, this.isCalced, this.amount});
   factory TransactionData.fromJson(Map<String, dynamic> json) {
     if (!json.containsKey('id')) throw Exception('id is required for transaction data');
     if (!json.containsKey('title')) throw Exception('title is required for transaction data');
@@ -54,7 +47,7 @@ class TransactionData {
         id: json['id'] as String,
         title: json['title'] as String,
         calcAuto: json['calcAuto'] as bool,
-        transactionAt: DateTime.parse(json['transactionAt'].toString()),
+        transactionAt: json['transactionAt'] as DateTime,
         isCalced: json['isCalced'] as bool,
         amount: json['amount'] as int);
   }

@@ -79,12 +79,9 @@ jobs:
     strategy:
       matrix:
         device:
-          - api-level: 18
-            arch: x86
-            target: default
-          - api-level: 31
+          - api-level: 33
             arch: x86_64
-            target: default
+            target: google_apis
     runs-on: macos-latest
     timeout-minutes: 15
     steps:

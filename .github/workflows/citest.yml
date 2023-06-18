@@ -45,8 +45,9 @@ jobs:
     strategy:
       matrix:
         device:
-          - "iPhone 12 Pro Max (14.2)"
-          - "iPhone 12 (14.2)"
+          - "iPhone SE (3rd generation)"
+          - "iPhone 14"
+          - "iPhone 8"
       fail-fast: false
     runs-on: macos-latest
     timeout-minutes: 10

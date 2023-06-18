@@ -6,7 +6,7 @@ part 'user_data.g.dart';
 
 @collection
 class UserData {
-  UserData({required this.id, required this.premiumState, required this.expiredAt});
+  const UserData({required this.id, required this.premiumState, required this.expiredAt});
   factory UserData.fromJson(Map<String, dynamic> json) {
     if (!json.containsKey('id')) throw Exception('id is required for user data');
     if (!json.containsKey('premium')) throw Exception('premium is required for user data');
@@ -38,7 +38,7 @@ class UserData {
   final DateTime? expiredAt;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-        'id': id.toString(),
+        'id': id,
         'premium': <String, dynamic>{'value': premiumState.name, 'expiredAt': expiredAt?.toIso8601String()}
       };
 }

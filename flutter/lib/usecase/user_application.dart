@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../domain/user/user.dart';
-import '../infrastructure/isar/user_repository_provider.dart';
+import '../infrastructure/user_repository_provider.dart';
 
 part 'user_application.g.dart';
 

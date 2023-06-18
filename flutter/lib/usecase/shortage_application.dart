@@ -2,7 +2,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../domain/account/account.dart';
 import '../domain/shortage/shortages.dart';
-import '../infrastructure/isar/account_repository_provider.dart';
+import '../infrastructure/account_repository_provider.dart';
+import '../infrastructure/share_service_provider.dart';
 
 part 'shortage_application.g.dart';
 
@@ -16,4 +17,11 @@ class ShortageApplication extends _$ShortageApplication {
 
   @override
   Future<Shortages> build() async => _fetch();
+
+  Future<void> share() async {
+    state.whenData((shortages) async {
+      final shareService = await ref.watch(shareServiceProvider.future);
+      await shareService.share(shortages.children.last.message.value);
+    });
+  }
 }

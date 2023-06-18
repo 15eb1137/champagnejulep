@@ -1,8 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'account_data.dart';
+import 'isar/account_data.dart';
 import 'account_repository.dart';
-import 'isar.dart';
+import 'isar/isar.dart';
 
 part 'account_repository_provider.g.dart';
 

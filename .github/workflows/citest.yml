@@ -54,11 +54,9 @@ jobs:
       - name: Start simulator
         run: |
           UDID=$(
-            xcrun xctrace list devices |
-            awk \
-              -F ' *[][]' \
-              -v 'device=${{ matrix.device }}' \
-              '$1 == device { print $2 }'
+            xcrun xctrace list devices | grep "${{ matrix.device }} Simulator" |
+              grep -v "Apple Watch" |
+              sed -r "s/.*\(([0-9A-Z-]+)\)$/\1/"
           )
           xcrun simctl boot "${UDID:?No Simulator with this name found}"
       - uses: actions/checkout@v3
@@ -71,4 +69,4 @@ jobs:
       - working-directory: ${{ env.WORKING_FLUTTER_DIRECTORY }}
         run: flutter pub get
       - working-directory: ${{ env.WORKING_FLUTTER_DIRECTORY }}
-        run: flutter drive --target=integration_test/app_test.dart
+        run: flutter test integration_test/app_test.dart

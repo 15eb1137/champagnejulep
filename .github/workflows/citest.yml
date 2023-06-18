@@ -78,7 +78,7 @@ jobs:
     name: Flutter Integration Tests Android
     strategy:
       matrix:
-        device:
+        include:
           - api-level: 33
             arch: x86_64
             target: google_apis

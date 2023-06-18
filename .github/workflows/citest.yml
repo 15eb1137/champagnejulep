@@ -106,10 +106,6 @@ jobs:
             ~/.android/avd/*
             ~/.android/adb*
           key: avd-${{ matrix.api-level }}-${{ matrix.target }}-${{ matrix.arch }}
-      - name: reboot adb
-        run: |
-          adb kill-server
-          adb start-server
       - name: create AVD and generate snapshot for caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
@@ -127,8 +123,6 @@ jobs:
           channel: 'stable'
       - working-directory: ${{ env.WORKING_FLUTTER_DIRECTORY }}
         run: flutter pub get
-      - working-directory: ${{ env.WORKING_FLUTTER_DIRECTORY }}
-        run: flutter test integration_test/app_test.dart
       - uses: reactivecircus/android-emulator-runner@v2
         with:
           working-directory: ${{ env.WORKING_FLUTTER_DIRECTORY }}

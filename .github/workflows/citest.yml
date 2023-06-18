@@ -14,8 +14,8 @@ env:
 
 
 jobs:
-  flutter_tests:
-    name: Flutter Tests
+  flutter_unit_tests:
+    name: Flutter Unit Tests
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -40,3 +40,35 @@ jobs:
         working-directory: ${{ env.WORKING_FLUTTER_DIRECTORY }}
         if: always()
         run: flutter test test/widget_test.dart
+  flutter_integration_tests:
+    name: Flutter Integration Tests
+    strategy:
+      matrix:
+        device:
+          - "iPhone 12 Pro Max (14.2)"
+          - "iPhone 12 (14.2)"
+      fail-fast: false
+    runs-on: macos-latest
+    timeout-minutes: 10
+    steps:
+      - name: Start simulator
+        run: |
+          UDID=$(
+            xcrun instruments -s |
+            awk \
+              -F ' *[][]' \
+              -v 'device=${{ matrix.device }}' \
+              '$1 == device { print $2 }'
+          )
+          xcrun simctl boot "${UDID:?No Simulator with this name found}"
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: 'stable'
+      - working-directory: ${{ env.WORKING_FLUTTER_DIRECTORY }}
+        run: flutter pub get
+      - working-directory: ${{ env.WORKING_FLUTTER_DIRECTORY }}
+        run: flutter drive --target=integration_test/app_test.dart

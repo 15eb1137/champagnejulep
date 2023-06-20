@@ -50,14 +50,14 @@ void main() {
       // 初期データが取得される
       await tester.pumpWidget(wrap(userConsumer));
       expect(find.text('loading'), findsOneWidget);
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(find.text('loading'), findsNothing);
       expect(find.text('error'), findsNothing);
       expect(find.text('unregistered'), findsOneWidget);
 
       // プレミアムへのアップデート
       await tester.tap(find.text('premium update button'));
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(find.text('loading'), findsNothing);
       expect(find.text('error'), findsNothing);
       expect(find.text('unregistered'), findsNothing);
@@ -67,7 +67,7 @@ void main() {
       await tester.pumpWidget(wrap(const SizedBox()));
       await tester.pumpWidget(wrap(userConsumer));
       expect(find.text('loading'), findsOneWidget);
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(find.text('loading'), findsNothing);
       expect(find.text('error'), findsNothing);
       expect(find.text('unregistered'), findsNothing);
@@ -122,35 +122,35 @@ void main() {
       });
       await tester.pumpWidget(wrap(accountsConsumer));
       expect(find.text('loading'), findsOneWidget);
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(find.text('loading'), findsNothing);
       expect(find.text('error'), findsNothing);
       final accountWidgetFinder = find.byWidgetPredicate(
           (widget) => widget is SizedBox && widget.child is Text && widget.child.toString().contains('account: '));
       expect(accountWidgetFinder, findsNothing);
       await tester.tap(find.text('account setup button'));
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(accountWidgetFinder, findsNWidgets(1));
       await tester.tap(find.text('account setup button'));
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(accountWidgetFinder, findsNWidgets(2));
 
       await tester.tap(find.text('detail button').first);
       await tester.pumpWidget(wrap(accountDetailConsumer));
       expect(find.text('loading'), findsOneWidget);
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(find.text('amount: 0'), findsOneWidget);
 
       await tester.tap(find.textContaining('amount: '));
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(find.text('amount: 10000'), findsOneWidget);
 
       await tester.tap(find.textContaining('amount: '));
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(find.text('amount: -10000'), findsOneWidget);
 
       await tester.tap(find.textContaining('amount: '));
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(find.text('amount: -5000'), findsOneWidget);
     });
     testWidgets('発行されたショーテージを確認', (tester) async {
@@ -166,10 +166,10 @@ void main() {
       });
       await tester.pumpWidget(wrap(shortagesConsumer));
       expect(find.text('loading'), findsOneWidget);
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(find.text('loading'), findsNothing);
       expect(find.text('error'), findsNothing);
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle(const Duration(seconds: 2));
       expect(
           find.text('${DateFormat.yMMMMd('ja_JP').format(DateTime.now())}の時点で残高0円まで10000円足りなくなる予定です。'), findsOneWidget);
       expect(

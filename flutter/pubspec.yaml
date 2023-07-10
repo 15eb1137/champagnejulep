@@ -26,6 +26,9 @@ dependencies:
   flutter_riverpod: ^2.3.6
   riverpod_annotation: ^2.1.1
   # Others
+  flutter_custom_clippers: ^2.1.0
+  fl_chart: ^0.62.0
+  circle_progress_bar: ^0.1.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

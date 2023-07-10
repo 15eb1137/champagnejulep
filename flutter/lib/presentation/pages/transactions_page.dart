@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../editable_list_model.dart';
+import '../editable_list_tile.dart';
 import '../servicies/theme_service_provider.dart';
 
-class TransactionsPage extends ConsumerWidget {
+class TransactionsPage extends ConsumerStatefulWidget {
   const TransactionsPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final transactions = [
+  ConsumerState<ConsumerStatefulWidget> createState() => TransactionsPageState();
+}
+
+class TransactionsPageState extends ConsumerState<TransactionsPage> {
+  late bool lastIsEditingMode;
+  late List<Map<String, dynamic>> transactions;
+
+  @override
+  void initState() {
+    super.initState();
+    lastIsEditingMode = false;
+    transactions = [
       <String, dynamic>{
         'icon': Icons.compare_arrows,
         'title': 'ASF*VIVE FITNESS TORON...',
@@ -47,6 +58,10 @@ class TransactionsPage extends ConsumerWidget {
         'date': 'May 04, 2023'
       },
     ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
             title: const Text('Transactions', style: TextStyle(fontSize: 16)),
@@ -77,8 +92,7 @@ class TransactionsPage extends ConsumerWidget {
                   ActionChip(
                     label: Row(children: const [Text('Sort'), Icon(Icons.keyboard_arrow_down)]),
                     onPressed: () {
-                      showModalBottomSheet<SizedBox>(
-                          context: context, builder: (context) => const _SortBottomSheet());
+                      showModalBottomSheet<SizedBox>(context: context, builder: (context) => const _SortBottomSheet());
                     },
                     backgroundColor: ref.watch(themeServiceProvider).getWhite(),
                     side: BorderSide(color: ref.watch(themeServiceProvider).getBlack()),
@@ -95,19 +109,59 @@ class TransactionsPage extends ConsumerWidget {
               child: const Text('May 2023', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
           ListView.builder(
               itemBuilder: (context, index) {
-                return ListTile(
-                  leading: CircleAvatar(
-                      backgroundColor: ref.watch(themeServiceProvider).getSecondary(),
-                      child: Icon(transactions[index]['icon'] as IconData)),
-                  title: Text(transactions[index]['title'] as String),
-                  subtitle: Text(transactions[index]['subtitle'] as String),
-                  trailing: Text(transactions[index]['date'] as String),
-                );
+                if (index == transactions.length - 1 && lastIsEditingMode) {
+                  lastIsEditingMode = false;
+                  return EditableListTile(
+                    model: EditableListModel(
+                        icon: transactions[index]['icon'] as IconData,
+                        title: transactions[index]['title'] as String,
+                        subTitle: transactions[index]['subtitle'] as String,
+                        date: transactions[index]['date'] as String),
+                    onChanged: (updatedModel) {
+                      transactions[index] = <String, dynamic>{
+                        'icon': updatedModel.icon,
+                        'title': updatedModel.title,
+                        'subtitle': updatedModel.subTitle,
+                        'date': updatedModel.date
+                      };
+                    },
+                    initIsEditingMode: true,
+                  );
+                } else {
+                  return EditableListTile(
+                    model: EditableListModel(
+                        icon: transactions[index]['icon'] as IconData,
+                        title: transactions[index]['title'] as String,
+                        subTitle: transactions[index]['subtitle'] as String,
+                        date: transactions[index]['date'] as String),
+                    onChanged: (updatedModel) {
+                      transactions[index] = <String, dynamic>{
+                        'icon': updatedModel.icon,
+                        'title': updatedModel.title,
+                        'subtitle': updatedModel.subTitle,
+                        'date': updatedModel.date
+                      };
+                    },
+                  );
+                }
               },
               shrinkWrap: true,
               itemCount: transactions.length,
               physics: const NeverScrollableScrollPhysics())
-        ])));
+        ])),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              transactions.add(<String, dynamic>{
+                'icon': Icons.compare_arrows,
+                'title': '',
+                'subtitle': '',
+                'date': 'July 10, 2023'
+              });
+              setState(() {
+                lastIsEditingMode = true;
+              });
+            },
+            child: const Icon(Icons.add)));
   }
 }
 
